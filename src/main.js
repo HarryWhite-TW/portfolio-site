@@ -6,6 +6,8 @@ const homeworkGrid = document.querySelector('#homework-grid');
 const roadmapGrid = document.querySelector('#roadmap-grid');
 const notesGrid = document.querySelector('#notes-grid');
 const contactLinksList = document.querySelector('#contact-links');
+const siteHeader = document.querySelector('#site-header');
+const topHoverZone = document.querySelector('#top-hover-zone');
 const menuToggle = document.querySelector('#menu-toggle');
 const mobileMenu = document.querySelector('#mobile-menu');
 const languageButtons = document.querySelectorAll('.language-pill');
@@ -62,8 +64,8 @@ const renderActionLink = (link, className = 'mini-button') => `
   </a>
 `;
 
-const renderProjectCard = (project) => `
-  <article class="glass-card project-card project-card-${project.accent}">
+const renderProjectCard = (project, index) => `
+  <article class="glass-card project-card project-card-${project.accent}${index === 0 ? ' project-card-featured' : ''}" tabindex="0">
     <div class="project-visual">
       <div class="project-icon">${project.icon}</div>
       <div class="launch-ring"></div>
@@ -93,7 +95,7 @@ const renderProjectCard = (project) => `
 `;
 
 const renderHomeworkCard = (item, index) => `
-  <article class="homework-card" style="--orbit-delay: ${index * 120}ms">
+  <article class="homework-card" style="--orbit-delay: ${index * 120}ms" tabindex="0">
     <div class="homework-label">${item.label}</div>
     <p class="homework-signal">${localText(item, 'signal')}</p>
     <h3>${localText(item, 'title')}</h3>
@@ -103,7 +105,7 @@ const renderHomeworkCard = (item, index) => `
 `;
 
 const renderRoadmapCard = (item, index) => `
-  <article class="roadmap-card">
+  <article class="roadmap-card" tabindex="0">
     <div class="step-index">${String(index + 1).padStart(2, '0')}</div>
     <div>
       <span class="roadmap-signal">${localText(item, 'signal')}</span>
@@ -113,8 +115,8 @@ const renderRoadmapCard = (item, index) => `
   </article>
 `;
 
-const renderNoteCard = (note) => `
-  <article class="glass-card note-card">
+const renderNoteCard = (note, index) => `
+  <article class="glass-card note-card${index === 0 ? ' note-card-featured' : ''}" tabindex="0">
     <span>${localText(note, 'date')}</span>
     <h3>${localText(note, 'title')}</h3>
     <p>${localText(note, 'description')}</p>
@@ -170,6 +172,38 @@ const renderPage = () => {
       event.preventDefault();
     });
   });
+
+  registerRevealItems();
+};
+
+const registerRevealItems = () => {
+  const items = document.querySelectorAll(
+    '.proof-strip, .project-card, .galaxy-shell, .roadmap-card, .note-card, .cta-panel',
+  );
+
+  items.forEach((item, index) => {
+    item.classList.add('reveal-item');
+    item.style.setProperty('--reveal-delay', `${Math.min(index * 55, 280)}ms`);
+  });
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    items.forEach((item) => item.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { rootMargin: '0px 0px -8% 0px', threshold: 0.12 },
+  );
+
+  items.forEach((item) => observer.observe(item));
 };
 
 languageButtons.forEach((button) => {
@@ -183,17 +217,104 @@ languageButtons.forEach((button) => {
 
 renderPage();
 
+const initHeaderBehavior = () => {
+  if (!siteHeader) {
+    return;
+  }
+
+  let lastScrollY = window.scrollY;
+  let pointerPinned = false;
+  let focusPinned = false;
+  let hideTimer;
+
+  const mobileMenuIsOpen = () => menuToggle?.getAttribute('aria-expanded') === 'true';
+
+  const showHeader = () => {
+    siteHeader.classList.remove('header-hidden');
+  };
+
+  const hideHeader = () => {
+    if (window.scrollY < 96 || pointerPinned || focusPinned || mobileMenuIsOpen()) {
+      return;
+    }
+
+    siteHeader.classList.add('header-hidden');
+  };
+
+  const scheduleHide = () => {
+    window.clearTimeout(hideTimer);
+    hideTimer = window.setTimeout(hideHeader, 180);
+  };
+
+  const updateHeader = () => {
+    const currentScrollY = Math.max(window.scrollY, 0);
+    const delta = currentScrollY - lastScrollY;
+
+    siteHeader.classList.toggle('header-scrolled', currentScrollY > 12);
+
+    if (currentScrollY < 96 || delta < -4 || mobileMenuIsOpen()) {
+      showHeader();
+    } else if (delta > 7) {
+      hideHeader();
+    }
+
+    lastScrollY = currentScrollY;
+  };
+
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  window.addEventListener(
+    'mousemove',
+    (event) => {
+      if (event.clientY <= 34) {
+        showHeader();
+      }
+    },
+    { passive: true },
+  );
+
+  topHoverZone?.addEventListener('mouseenter', showHeader);
+
+  siteHeader.addEventListener('mouseenter', () => {
+    pointerPinned = true;
+    showHeader();
+  });
+
+  siteHeader.addEventListener('mouseleave', () => {
+    pointerPinned = false;
+    scheduleHide();
+  });
+
+  siteHeader.addEventListener('focusin', () => {
+    focusPinned = true;
+    showHeader();
+  });
+
+  siteHeader.addEventListener('focusout', () => {
+    focusPinned = siteHeader.contains(document.activeElement);
+    if (!focusPinned) {
+      scheduleHide();
+    }
+  });
+
+  updateHeader();
+};
+
 if (menuToggle && mobileMenu) {
   menuToggle.addEventListener('click', () => {
     const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
     menuToggle.setAttribute('aria-expanded', String(!isOpen));
     mobileMenu.classList.toggle('hidden');
+    siteHeader?.classList.toggle('header-menu-open', !isOpen);
+    siteHeader?.classList.remove('header-hidden');
   });
 
   mobileMenu.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
       menuToggle.setAttribute('aria-expanded', 'false');
       mobileMenu.classList.add('hidden');
+      siteHeader?.classList.remove('header-menu-open');
     });
   });
 }
+
+initHeaderBehavior();

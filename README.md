@@ -72,6 +72,41 @@ Milestone 1.7.2 entered Layout Lock:
 - Normalized section spacing and CTA breathing room
 - Preserved the EN / Chinese toggle and data-driven rendering
 
+Milestone 1.8 redesigned the homepage composition:
+
+- Added a compact proof/status strip after the hero
+- Reworked featured projects into a bento showcase with one primary launch module
+- Simplified Homework Galaxy into an intentional mission board
+- Turned the roadmap into a more connected launch sequence
+- Reworked learning notes into an editorial build-log layout
+- Tightened CTA and overall vertical rhythm
+
+Milestone 1.9 rebuilt the homepage visual system:
+
+- Reduced repeated dark glass-card treatments across sections
+- Shifted projects toward brighter case-study surfaces
+- Replaced the forced galaxy feel with a cleaner Homework Mission Board
+- Slimmed the roadmap into a launch-sequence stepper
+- Made learning notes feel more editorial and less like generic cards
+- Kept the hero, language toggle, placeholders, and data-driven rendering intact
+
+Milestone 1.10 fixed screenshot-review polish issues:
+
+- Repositioned the proof strip so it no longer feels cut off below the hero
+- Reduced primary featured project height and empty space
+- Softened bright panels into integrated cyan/violet/slate surfaces
+- Added CSS-only aurora depth and lightweight scroll reveal motion
+- Added reduced-motion handling for accessibility
+
+Milestone 1.10.1 refined the interactive polish pass:
+
+- Added an auto-hide header that reveals on scroll-up, top-edge hover, header hover, keyboard focus, and mobile menu open state
+- Lightened the header into a premium glass navigation layer
+- Softened project card reflection/shine effects
+- Integrated the Homework Mission Board hub into the dark cyan/slate command-center style
+- Added subtle hover/focus signal feedback to homework, roadmap, note, project, and CTA elements
+- Added minor section separators and background washes for more depth without changing the layout
+
 ## Phone Preview
 
 To test the site on a phone:
