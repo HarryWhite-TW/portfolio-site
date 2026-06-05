@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Harry Chan's personal AI, web development, and engineering practice portfolio."
+    />
+    <title>Harry Chan | AI Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-night text-white antialiased">
+    <div class="site-shell min-h-screen overflow-hidden">
+      <header class="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-night/70 backdrop-blur-xl">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+          <a class="flex items-center gap-3" href="#home" aria-label="Harry Chan home" data-i18n-aria="brandAria">
+            <span class="brand-mark">HC</span>
+            <span class="text-sm font-black uppercase tracking-[0.3em] text-white">Harry Chan</span>
+          </a>
+
+          <button
+            class="glass-icon md:hidden"
+            id="menu-toggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <div class="hidden items-center gap-8 md:flex">
+            <a class="nav-link" href="#home" data-i18n="navHome">Home</a>
+            <a class="nav-link" href="#featured-projects" data-i18n="navPortfolio">Portfolio</a>
+            <a class="nav-link" href="#latest-notes" data-i18n="navBlog">Blog</a>
+            <a class="nav-link" href="#about-preview" data-i18n="navAbout">About</a>
+            <a class="nav-link" href="#contact" data-i18n="navContact">Contact</a>
+          </div>
+
+          <div class="hidden items-center gap-2 md:flex">
+            <a class="language-pill active" href="index.html">EN</a>
+            <span class="text-white/30">/</span>
+            <a
+              class="language-pill is-placeholder"
+              href="#"
+              data-placeholder="true"
+              aria-disabled="true"
+              title="Chinese version coming soon"
+            >
+              中文
+            </a>
+          </div>
+        </nav>
+
+        <div class="mobile-panel hidden border-t border-white/10 bg-night/95 px-5 py-5 backdrop-blur-xl md:hidden" id="mobile-menu">
+          <a class="mobile-link" href="#home" data-i18n="navHome">Home</a>
+          <a class="mobile-link" href="#featured-projects" data-i18n="navPortfolio">Portfolio</a>
+          <a class="mobile-link" href="#latest-notes" data-i18n="navBlog">Blog</a>
+          <a class="mobile-link" href="#about-preview" data-i18n="navAbout">About</a>
+          <a class="mobile-link" href="#contact" data-i18n="navContact">Contact</a>
+          <div class="mt-4 flex items-center gap-2">
+            <a class="language-pill active" href="index.html">EN</a>
+            <span class="text-white/30">/</span>
+            <a
+              class="language-pill is-placeholder"
+              href="#"
+              data-placeholder="true"
+              aria-disabled="true"
+              title="Chinese version coming soon"
+            >
+              中文
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <main id="home">
+        <section class="hero-section relative px-5 pb-16 pt-32 lg:px-8 lg:pb-24 lg:pt-40">
+          <div class="orb orb-cyan"></div>
+          <div class="orb orb-violet"></div>
+          <div class="orb orb-warm"></div>
+          <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+            <div class="relative z-10">
+              <p class="eyebrow" data-i18n="heroEyebrow">AI Mission Control / Project-Based Engineering</p>
+              <h1 class="mt-6 max-w-4xl text-5xl font-black leading-[0.98] text-white sm:text-6xl lg:text-7xl">
+                <span data-i18n="heroTitleA">Building</span>
+                <span class="gradient-text" data-i18n="heroTitleB">AI, Web, and Automation</span>
+                <span data-i18n="heroTitleC">Projects</span>
+              </h1>
+              <p class="mt-7 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl" data-i18n="heroSubtitle">
+                I am learning AI application development through hands-on projects, homework showcases, and engineering practice.
+              </p>
+              <div class="signal-strip mt-7">
+                <span data-i18n="signalStatic">Static Site</span>
+                <span data-i18n="signalAi">AI Practice</span>
+                <span data-i18n="signalStory">Project Storytelling</span>
+              </div>
+              <div class="mt-9 flex flex-col gap-4 sm:flex-row">
+                <a class="glow-button" href="#featured-projects" data-i18n="ctaProjects">View Projects</a>
+                <a class="glass-button" href="#homework-galaxy" data-i18n="ctaHomework">Explore Homework</a>
+              </div>
+              <div class="mt-10 grid max-w-2xl grid-cols-3 gap-3">
+                <div class="metric-card">
+                  <span>03+</span>
+                  <p data-i18n="metricProjects">Featured builds</p>
+                </div>
+                <div class="metric-card">
+                  <span>05</span>
+                  <p data-i18n="metricTracks">Learning tracks</p>
+                </div>
+                <div class="metric-card">
+                  <span>100%</span>
+                  <p data-i18n="metricStatic">Static + free</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-console relative z-10">
+              <div class="scanner-line"></div>
+              <div class="console-bar">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="command-center">
+                <div class="console-module mission-panel">
+                  <p class="module-label" data-i18n="missionLabel">Portfolio Command Center</p>
+                  <h2 data-i18n="missionTitle">Turning class projects into a public engineering system.</h2>
+                  <div class="mission-bars">
+                    <span style="--bar: 88%"></span>
+                    <span style="--bar: 72%"></span>
+                    <span style="--bar: 64%"></span>
+                  </div>
+                </div>
+                <div class="floating-card card-a">
+                  <span>01</span>
+                  <strong data-i18n="missionPrototype">Prototype</strong>
+                  <p data-i18n="missionPrototypeText">Build small, visible apps.</p>
+                </div>
+                <div class="floating-card card-b">
+                  <span>02</span>
+                  <strong data-i18n="missionDocument">Document</strong>
+                  <p data-i18n="missionDocumentText">Explain the learning path.</p>
+                </div>
+                <div class="code-panel">
+                  <span class="text-cyanGlow">const</span> portfolio = {
+                  <br />
+                  &nbsp;&nbsp;stack: 'Vite + Tailwind',
+                  <br />
+                  &nbsp;&nbsp;mode: 'static',
+                  <br />
+                  &nbsp;&nbsp;focus: 'AI apps',
+                  <br />
+                  &nbsp;&nbsp;goal: 'ship projects'
+                  <br />
+                  };
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-pad featured-section" id="featured-projects">
+          <div class="mx-auto max-w-7xl px-5 lg:px-8">
+            <div class="section-heading">
+              <p class="eyebrow" data-i18n="featuredEyebrow">Launch Modules</p>
+              <h2 data-i18n="featuredTitle">Project Work, Presented Like Product Work</h2>
+              <p data-i18n="featuredText">Each build gets a clear purpose, visual identity, status, stack, and next action so homework reads like real engineering progress.</p>
+            </div>
+            <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3" id="featured-project-grid"></div>
+          </div>
+        </section>
+
+        <section class="section-pad galaxy-section" id="homework-galaxy">
+          <div class="mx-auto max-w-7xl px-5 lg:px-8">
+            <div class="section-heading">
+              <p class="eyebrow" data-i18n="homeworkEyebrow">Homework Signals</p>
+              <h2 data-i18n="homeworkTitle">A Learning Galaxy, Not a Link Dump</h2>
+              <p data-i18n="homeworkText">Assignments are arranged as visible practice signals, with each one connected to a skill, tool, or engineering habit.</p>
+            </div>
+            <div class="galaxy-shell mt-10">
+              <div class="galaxy-core mission-hub-panel">
+                <span data-i18n="galaxyCore">HW</span>
+                <p data-i18n="galaxyCoreText">Signal Hub</p>
+              </div>
+              <div class="homework-board" id="homework-grid"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-pad roadmap-section" id="about-preview">
+          <div class="mx-auto max-w-7xl px-5 lg:px-8">
+            <div class="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+              <div class="section-heading text-left">
+                <p class="eyebrow" data-i18n="roadmapEyebrow">Launch Sequence</p>
+                <h2 data-i18n="roadmapTitle">Roadmap From Learner to Builder</h2>
+                <p data-i18n="roadmapText">
+                  The homepage tracks the skills that turn class assignments into repeatable project-building practice.
+                </p>
+              </div>
+              <div class="roadmap-grid" id="roadmap-grid"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-pad notes-section" id="latest-notes">
+          <div class="mx-auto max-w-7xl px-5 lg:px-8">
+            <div class="section-heading">
+              <p class="eyebrow" data-i18n="notesEyebrow">Build Logs</p>
+              <h2 data-i18n="notesTitle">Learning Notes With a Mission-Log Feel</h2>
+              <p data-i18n="notesText">Short reflections connect assignments, tools, decisions, and the habits behind stronger engineering work.</p>
+            </div>
+            <div class="mt-10 grid gap-5 md:grid-cols-3" id="notes-grid"></div>
+          </div>
+        </section>
+
+        <section class="cta-section px-5 py-20 lg:px-8" id="contact">
+          <div class="cta-panel mx-auto max-w-7xl">
+            <div>
+              <p class="eyebrow" data-i18n="ctaEyebrow">Final Launch Panel</p>
+              <h2 data-i18n="ctaTitle">Ready to turn the next homework into a stronger project mission.</h2>
+            </div>
+            <div class="flex flex-col gap-3 sm:flex-row" id="contact-links"></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="border-t border-white/10 px-5 py-8 lg:px-8">
+        <div class="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
+          <p data-i18n="footerLeft">Harry Chan Portfolio / AI Mission Control and Engineering Practice</p>
+          <p data-i18n="footerRight">&copy; 2026 Harry Chan. Built with Vite, Tailwind CSS, and Vanilla JavaScript.</p>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
