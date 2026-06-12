@@ -12,6 +12,9 @@ const menuToggle = document.querySelector('#menu-toggle');
 const mobileMenu = document.querySelector('#mobile-menu');
 const languageButtons = document.querySelectorAll('.language-pill');
 const navLinks = document.querySelectorAll('.nav-link, .mobile-link');
+const introGate = document.querySelector('#intro-gate');
+const introEnterButton = document.querySelector('#intro-enter');
+const introStorageKey = 'portfolioIntroSeen';
 
 const getInitialLanguage = () => {
   const savedLanguage = localStorage.getItem('portfolio-language');
@@ -38,6 +41,12 @@ const localText = (item, key) => {
   }
 
   return item[key];
+};
+
+const applyIntroCopy = () => {
+  document.querySelectorAll('[data-intro-en][data-intro-zh]').forEach((element) => {
+    element.textContent = currentLanguage === 'zh' ? element.dataset.introZh : element.dataset.introEn;
+  });
 };
 
 const getActionLabel = (link) => {
@@ -117,6 +126,7 @@ const renderContactLink = (link) => renderActionLink(link, 'glass-button justify
 
 const applyStaticCopy = () => {
   document.documentElement.lang = currentLanguage === 'zh' ? 'zh-Hant' : 'en';
+  applyIntroCopy();
 
   document.querySelectorAll('[data-i18n]').forEach((element) => {
     element.textContent = t(element.dataset.i18n);
@@ -224,6 +234,86 @@ languageButtons.forEach((button) => {
 });
 
 renderPage();
+
+const initIntroGate = () => {
+  if (!introGate || !introEnterButton) {
+    document.documentElement.classList.remove('intro-pending');
+    return;
+  }
+
+  const shouldShowIntro = document.documentElement.classList.contains('intro-pending');
+
+  const hideIntroImmediately = () => {
+    introGate.setAttribute('hidden', '');
+    introGate.setAttribute('aria-hidden', 'true');
+    introGate.setAttribute('inert', '');
+    document.body.classList.remove('intro-active');
+    document.documentElement.classList.remove('intro-pending', 'intro-exiting');
+  };
+
+  if (!shouldShowIntro) {
+    hideIntroImmediately();
+    return;
+  }
+
+  let hasEntered = false;
+
+  document.body.classList.add('intro-active');
+  introGate.removeAttribute('hidden');
+  introGate.removeAttribute('inert');
+  introGate.setAttribute('aria-hidden', 'false');
+
+  window.requestAnimationFrame(() => {
+    introGate.classList.add('intro-ready');
+  });
+
+  const focusHomepage = () => {
+    const focusTarget = document.querySelector('.brand-hero-copy h1') || document.querySelector('#home');
+
+    if (!focusTarget) {
+      return;
+    }
+
+    if (!focusTarget.hasAttribute('tabindex')) {
+      focusTarget.setAttribute('tabindex', '-1');
+    }
+
+    focusTarget.focus({ preventScroll: true });
+  };
+
+  const enterSite = () => {
+    if (hasEntered) {
+      return;
+    }
+
+    hasEntered = true;
+    introEnterButton.disabled = true;
+
+    try {
+      sessionStorage.setItem(introStorageKey, '1');
+    } catch (error) {
+      // The intro still exits if sessionStorage is unavailable.
+    }
+
+    introGate.classList.add('intro-exiting');
+    document.documentElement.classList.add('intro-exiting');
+    document.documentElement.classList.remove('intro-pending');
+    document.body.classList.remove('intro-active');
+
+    window.setTimeout(() => {
+      introGate.setAttribute('hidden', '');
+      introGate.setAttribute('aria-hidden', 'true');
+      introGate.setAttribute('inert', '');
+      introGate.classList.remove('intro-ready', 'intro-exiting');
+      document.documentElement.classList.remove('intro-exiting');
+      focusHomepage();
+    }, 860);
+  };
+
+  introEnterButton.addEventListener('click', enterSite);
+};
+
+initIntroGate();
 
 document.addEventListener('click', (event) => {
   const placeholderLink = event.target.closest('[data-placeholder="true"]');

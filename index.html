@@ -8,6 +8,20 @@
       content="Harry Chan's personal brand portfolio for AI applications, web projects, homework showcases, and build logs."
     />
     <title>Harry Chan | Personal Portfolio</title>
+    <script>
+      (function () {
+        try {
+          var forceIntro = new URLSearchParams(window.location.search).get('intro') === '1';
+          var introSeen = window.sessionStorage && window.sessionStorage.getItem('portfolioIntroSeen') === '1';
+
+          if (forceIntro || !introSeen) {
+            document.documentElement.classList.add('intro-pending');
+          }
+        } catch (error) {
+          document.documentElement.classList.add('intro-pending');
+        }
+      })();
+    </script>
     <style>
       html,
       body {
@@ -16,6 +30,26 @@
         background: #07091a;
         color: #fff;
         color-scheme: dark;
+      }
+
+      #intro-gate {
+        display: none;
+      }
+
+      html.intro-pending,
+      html.intro-pending body {
+        overflow: hidden;
+      }
+
+      html.intro-pending #intro-gate {
+        display: grid;
+      }
+
+      html.intro-pending .site-header,
+      html.intro-pending .top-hover-zone,
+      html.intro-pending main,
+      html.intro-pending footer {
+        visibility: hidden;
       }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,6 +60,43 @@
     />
   </head>
   <body class="bg-night text-white antialiased">
+    <section class="intro-gate" id="intro-gate" role="dialog" aria-modal="true" aria-labelledby="intro-title" hidden>
+      <div class="intro-atmosphere" aria-hidden="true">
+        <span class="intro-glow intro-glow-cyan"></span>
+        <span class="intro-glow intro-glow-violet"></span>
+        <span class="intro-ring intro-ring-a"></span>
+        <span class="intro-ring intro-ring-b"></span>
+      </div>
+      <div class="intro-content">
+        <p class="intro-eyebrow" data-intro-en="HARRY CHAN / HARRYWHITE-TW" data-intro-zh="HARRY CHAN / HARRYWHITE-TW">
+          HARRY CHAN / HARRYWHITE-TW
+        </p>
+        <h1
+          id="intro-title"
+          data-intro-en="Welcome to Harry Chan's Portfolio"
+          data-intro-zh="歡迎來到 Harry Chan 的作品與學習空間"
+        >
+          Welcome to Harry Chan's Portfolio
+        </h1>
+        <p
+          class="intro-subtitle"
+          data-intro-en="AI applications, web projects, homework showcases, and public build logs."
+          data-intro-zh="AI 應用、網頁專案、作業成果與工程成長紀錄。"
+        >
+          AI applications, web projects, homework showcases, and public build logs.
+        </p>
+        <button
+          class="intro-enter-button"
+          id="intro-enter"
+          type="button"
+          data-intro-en="Enter Site"
+          data-intro-zh="進入網站"
+        >
+          Enter Site
+        </button>
+      </div>
+    </section>
+
     <div class="site-shell home-gateway-shell min-h-screen overflow-hidden">
       <div class="top-hover-zone" id="top-hover-zone" aria-hidden="true"></div>
       <header class="site-header fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-night/70 backdrop-blur-xl" id="site-header">

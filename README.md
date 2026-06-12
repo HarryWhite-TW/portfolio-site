@@ -152,6 +152,15 @@ Milestone 2.1 redesigns the homepage as a professional brand gateway:
 - Moved deeper content intentionally to the dedicated Portfolio, Homework, Blog, and About pages
 - Preserved the multi-page navigation, auto-hide header, EN / Chinese toggle, and static Vite setup
 
+Milestone 2.1.1 adds a fullscreen intro gate before the homepage:
+
+- Shows a minimal Harry Chan / HarryWhite-TW entrance cover once per browser session
+- Uses Enter to reveal the existing homepage in the same document without a reload
+- Keeps the header, homepage content, and page scroll hidden until the visitor enters
+- Supports keyboard access, focus handoff, and `prefers-reduced-motion`
+- Test the intro again with `index.html?intro=1` or reset with `sessionStorage.removeItem("portfolioIntroSeen")`
+- Confirms M2.1.1 is only an intro layer, not another homepage redesign
+
 ## Phone Preview
 
 To test the site on a phone:
