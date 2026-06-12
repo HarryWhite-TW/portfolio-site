@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Centralized homework hub for Harry Chan's portfolio site." />
+    <title>Homework | Harry Chan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-night text-white antialiased">
+    <div class="site-shell min-h-screen overflow-hidden">
+      <div class="top-hover-zone" id="top-hover-zone" aria-hidden="true"></div>
+      <header class="site-header fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-night/70 backdrop-blur-xl" id="site-header">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+          <a class="flex items-center gap-3" href="index.html" aria-label="Harry Chan home" data-i18n-aria="brandAria"><span class="brand-mark">HC</span><span class="text-sm font-black uppercase tracking-[0.3em] text-white">Harry Chan</span></a>
+          <button class="glass-icon md:hidden" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+          <div class="hidden items-center gap-8 md:flex">
+            <a class="nav-link" href="index.html" data-i18n="navHome">Home</a><a class="nav-link" href="portfolio.html" data-i18n="navPortfolio">Portfolio</a><a class="nav-link" href="homework.html" data-i18n="navHomework">Homework</a><a class="nav-link" href="blog.html" data-i18n="navBlog">Blog</a><a class="nav-link" href="about.html" data-i18n="navAbout">About</a><a class="nav-link" href="contact.html" data-i18n="navContact">Contact</a>
+          </div>
+          <div class="hidden items-center gap-2 md:flex"><a class="language-pill active" href="index.html">EN</a><span class="text-white/30">/</span><a class="language-pill" href="#">中文</a><a class="nav-github-link" href="https://github.com/HarryWhite-TW" target="_blank" rel="noreferrer">GitHub</a></div>
+        </nav>
+        <div class="mobile-panel hidden border-t border-white/10 bg-night/95 px-5 py-5 backdrop-blur-xl md:hidden" id="mobile-menu">
+          <a class="mobile-link" href="index.html" data-i18n="navHome">Home</a><a class="mobile-link" href="portfolio.html" data-i18n="navPortfolio">Portfolio</a><a class="mobile-link" href="homework.html" data-i18n="navHomework">Homework</a><a class="mobile-link" href="blog.html" data-i18n="navBlog">Blog</a><a class="mobile-link" href="about.html" data-i18n="navAbout">About</a><a class="mobile-link" href="contact.html" data-i18n="navContact">Contact</a><a class="mobile-link" href="https://github.com/HarryWhite-TW" target="_blank" rel="noreferrer">GitHub</a>
+          <div class="mt-4 flex items-center gap-2"><a class="language-pill active" href="index.html">EN</a><span class="text-white/30">/</span><a class="language-pill" href="#">中文</a></div>
+        </div>
+      </header>
+
+      <main>
+        <section class="page-hero px-5 pt-32 lg:px-8 lg:pt-40">
+          <div class="mx-auto max-w-7xl">
+            <p class="eyebrow">Homework Hub / Teacher-Friendly Index</p>
+            <h1>Centralized homework browsing for fast inspection.</h1>
+            <p>This page satisfies the requirement that homework is easy to find, scan, and verify from one place.</p>
+            <p class="page-hero-note">中文摘要：這裡是作業集中頁，老師可以快速找到 HW1-HW5 與未來作業項目。</p>
+          </div>
+        </section>
+
+        <section class="page-section px-5 lg:px-8">
+          <div class="mx-auto max-w-7xl">
+            <div class="page-grid homework-index">
+              <article class="page-card"><span>HW1</span><h3>Clock Website</h3><p>Purpose: first static web assignment and GitHub Pages practice.</p><p>Status: Published practice</p><p>Stack: HTML / CSS / JavaScript</p><div class="card-actions"><a href="#" data-placeholder="true">Demo soon</a><a href="#" data-placeholder="true">Source soon</a><a href="#" data-placeholder="true">Notes soon</a></div></article>
+              <article class="page-card"><span>HW2</span><h3>AI Visual Practice</h3><p>Purpose: prompt and visual asset workflow practice.</p><p>Status: Coming soon</p><p>Stack: AI / Design / Web UI</p><div class="card-actions"><a href="#" data-placeholder="true">Demo soon</a><a href="#" data-placeholder="true">Source soon</a><a href="#" data-placeholder="true">Notes soon</a></div></article>
+              <article class="page-card"><span>HW3</span><h3>Input Guardrail Lab</h3><p>Purpose: safer interaction and repeated-input testing practice.</p><p>Status: Prototype</p><p>Stack: JavaScript / QA / Testing</p><div class="card-actions"><a href="#" data-placeholder="true">Demo soon</a><a href="#" data-placeholder="true">Source soon</a><a href="#" data-placeholder="true">Notes soon</a></div></article>
+              <article class="page-card"><span>HW4</span><h3>Future Homework</h3><p>Purpose: placeholder for the next class assignment.</p><p>Status: Coming soon</p><p>Stack: To be confirmed</p><div class="card-actions"><a href="#" data-placeholder="true">Demo soon</a><a href="#" data-placeholder="true">Source soon</a><a href="#" data-placeholder="true">Notes soon</a></div></article>
+              <article class="page-card"><span>HW5</span><h3>Future Homework</h3><p>Purpose: placeholder for the next class assignment.</p><p>Status: Coming soon</p><p>Stack: To be confirmed</p><div class="card-actions"><a href="#" data-placeholder="true">Demo soon</a><a href="#" data-placeholder="true">Source soon</a><a href="#" data-placeholder="true">Notes soon</a></div></article>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="border-t border-white/10 px-5 py-8 lg:px-8"><div class="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-slate-400 md:flex-row md:items-center md:justify-between"><p>Harry Chan Portfolio / Homework Hub</p><p>&copy; 2026 Harry Chan. Built with Vite, Tailwind CSS, and Vanilla JavaScript.</p></div></footer>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

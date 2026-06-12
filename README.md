@@ -2,6 +2,8 @@
 
 A polished personal brand portfolio website for learning AI application development, web development, GitHub Pages, and project-based engineering practice.
 
+The site is now moving from a single homepage toward a multi-page personal brand portfolio, resume extension, project showcase, homework hub, and learning record.
+
 ## Tech Stack
 
 - Vite
@@ -19,6 +21,22 @@ npm run dev:host
 npm run build
 npm run preview
 ```
+
+Most common local commands:
+
+```bash
+npm run dev
+npm run build
+```
+
+## Available Pages
+
+- `index.html` - Home / brand gateway
+- `portfolio.html` - Portfolio architecture shell
+- `homework.html` - Centralized homework hub architecture shell
+- `blog.html` - Blog / learning notes architecture shell
+- `about.html` - About architecture shell
+- `contact.html` - Contact architecture shell
 
 ## Current Milestone
 
@@ -107,6 +125,15 @@ Milestone 1.10.1 refined the interactive polish pass:
 - Added subtle hover/focus signal feedback to homework, roadmap, note, project, and CTA elements
 - Added minor section separators and background washes for more depth without changing the layout
 
+Milestone 2.0 establishes the multi-page architecture foundation:
+
+- Added root-level static page shells for Portfolio, Homework, Blog, About, and Contact
+- Updated top navigation to link to real pages instead of homepage-only anchors
+- Preserved the existing homepage visual direction while turning it into a gateway
+- Added shared active navigation, mobile menu, auto-hide header, language toggle, and scroll reveal behavior across pages
+- Added minimal page-shell CSS for heroes, preview grids, cards, and placeholders
+- Deferred full page design and content buildout to later M2.x milestones
+
 ## Phone Preview
 
 To test the site on a phone:
@@ -137,7 +164,12 @@ Current real contact link:
 
 ## Planned Next Milestones
 
-- Add Portfolio, Blog, About, and Contact pages.
+- M2.1: Redesign the homepage into a shorter brand gateway.
+- M2.2: Build the full Portfolio project showcase.
+- M2.3: Build the full centralized Homework hub.
+- M2.4: Expand Blog, About, and Contact content.
+- M2.5: Polish the visual system and responsive layouts.
+- M2.6: Deployment and QA.
 - Add Chinese pages under `/zh/`.
 - Add real project screenshots and links.
 - Configure and deploy to GitHub Pages.

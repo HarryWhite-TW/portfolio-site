@@ -11,6 +11,7 @@ const topHoverZone = document.querySelector('#top-hover-zone');
 const menuToggle = document.querySelector('#menu-toggle');
 const mobileMenu = document.querySelector('#mobile-menu');
 const languageButtons = document.querySelectorAll('.language-pill');
+const navLinks = document.querySelectorAll('.nav-link, .mobile-link');
 
 const getInitialLanguage = () => {
   const savedLanguage = localStorage.getItem('portfolio-language');
@@ -174,11 +175,12 @@ const renderPage = () => {
   });
 
   registerRevealItems();
+  applyActiveNavigation();
 };
 
 const registerRevealItems = () => {
   const items = document.querySelectorAll(
-    '.proof-strip, .project-card, .galaxy-shell, .roadmap-card, .note-card, .cta-panel',
+    '.proof-strip, .project-card, .galaxy-shell, .roadmap-card, .note-card, .cta-panel, .page-hero, .page-card, .architecture-panel, .contact-row',
   );
 
   items.forEach((item, index) => {
@@ -204,6 +206,23 @@ const registerRevealItems = () => {
   );
 
   items.forEach((item) => observer.observe(item));
+};
+
+const applyActiveNavigation = () => {
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+  navLinks.forEach((link) => {
+    const linkPage = link.getAttribute('href')?.split('/').pop();
+    const isActive = linkPage === currentPage;
+
+    link.classList.toggle('is-active', isActive);
+
+    if (isActive) {
+      link.setAttribute('aria-current', 'page');
+    } else {
+      link.removeAttribute('aria-current');
+    }
+  });
 };
 
 languageButtons.forEach((button) => {
