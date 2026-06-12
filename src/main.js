@@ -1,10 +1,10 @@
 import './style.css';
-import { contactLinks, featuredProjects, homeworkItems, latestNotes, roadmapItems, uiCopy } from './data.js';
+import { contactLinks, featuredProjects, gatewayRoutes, homeworkItems, latestNotes, uiCopy } from './data.js';
 
-const projectGrid = document.querySelector('#featured-project-grid');
-const homeworkGrid = document.querySelector('#homework-grid');
-const roadmapGrid = document.querySelector('#roadmap-grid');
-const notesGrid = document.querySelector('#notes-grid');
+const gatewayGrid = document.querySelector('#gateway-grid');
+const featuredPreviewGrid = document.querySelector('#featured-preview-grid');
+const homeworkPreviewGrid = document.querySelector('#homework-preview-grid');
+const notesPreviewGrid = document.querySelector('#notes-preview-grid');
 const contactLinksList = document.querySelector('#contact-links');
 const siteHeader = document.querySelector('#site-header');
 const topHoverZone = document.querySelector('#top-hover-zone');
@@ -29,8 +29,6 @@ languageButtons.forEach((button) => {
   button.removeAttribute('aria-disabled');
   button.setAttribute('role', 'button');
 });
-
-const renderTags = (tags) => tags.map((tag) => `<span class="tech-tag">${tag}</span>`).join('');
 
 const t = (key) => uiCopy[currentLanguage][key] || uiCopy.en[key] || key;
 
@@ -65,63 +63,53 @@ const renderActionLink = (link, className = 'mini-button') => `
   </a>
 `;
 
-const renderProjectCard = (project, index) => `
-  <article class="glass-card project-card project-card-${project.accent}${index === 0 ? ' project-card-featured' : ''}" tabindex="0">
-    <div class="project-visual">
-      <div class="project-icon">${project.icon}</div>
-      <div class="launch-ring"></div>
-      <div class="mock-window">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="mock-graph">
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-      </div>
-      <p>${localText(project, 'metric')}</p>
-    </div>
-    <div class="flex items-start justify-between gap-4">
-      <span class="status-badge">${localText(project, 'status')}</span>
-      ${project.placeholder ? `<span class="placeholder-badge">${t('linksComingSoon')}</span>` : ''}
-    </div>
+const renderGatewayCard = (route, index) => `
+  <a class="gateway-card reveal-surface" href="${route.href}" style="--reveal-delay: ${index * 60}ms">
+    <span>${localText(route, 'signal')}</span>
+    <h3>${localText(route, 'title')}</h3>
+    <p>${localText(route, 'description')}</p>
+  </a>
+`;
+
+const renderFeaturedPreview = (project, index) => `
+  <article class="preview-card reveal-surface" style="--reveal-delay: ${index * 65}ms">
+    <span class="status-badge">${localText(project, 'status')}</span>
     <h3>${localText(project, 'title')}</h3>
-    <p>${localText(project, 'description')}</p>
-    <div class="mt-5 flex flex-wrap gap-2">${renderTags(localText(project, 'tags'))}</div>
-    <div class="mission-timeline"><span></span><span></span><span></span></div>
-    <div class="project-actions mt-7">${project.links.map((link) => renderActionLink(link)).join('')}</div>
+    <p>${localText(project, 'purpose')}</p>
+    <dl class="preview-meta">
+      <div>
+        <dt>${t('stackLabel')}</dt>
+        <dd>${localText(project, 'stack')}</dd>
+      </div>
+      <div>
+        <dt>${t('statusLabel')}</dt>
+        <dd>${localText(project, 'status')}</dd>
+      </div>
+    </dl>
+    <div class="project-actions">${project.links.map((link) => renderActionLink(link)).join('')}</div>
   </article>
 `;
 
-const renderHomeworkCard = (item, index) => `
-  <article class="homework-card" style="--orbit-delay: ${index * 120}ms" tabindex="0">
-    <div class="homework-label">${item.label}</div>
-    <p class="homework-signal">${localText(item, 'signal')}</p>
-    <h3>${localText(item, 'title')}</h3>
-    <p>${localText(item, 'description')}</p>
-    <span>${item.meta}</span>
-  </article>
-`;
-
-const renderRoadmapCard = (item, index) => `
-  <article class="roadmap-card" tabindex="0">
-    <div class="step-index">${String(index + 1).padStart(2, '0')}</div>
+const renderHomeworkPreview = (item, index) => `
+  <article class="compact-preview-card reveal-surface" style="--reveal-delay: ${index * 60}ms">
+    <span>${item.label}</span>
     <div>
-      <span class="roadmap-signal">${localText(item, 'signal')}</span>
+      <p class="compact-signal">${localText(item, 'signal')}</p>
       <h3>${localText(item, 'title')}</h3>
       <p>${localText(item, 'description')}</p>
+      <small>${item.meta}</small>
     </div>
   </article>
 `;
 
-const renderNoteCard = (note, index) => `
-  <article class="glass-card note-card${index === 0 ? ' note-card-featured' : ''}" tabindex="0">
+const renderNotePreview = (note, index) => `
+  <article class="compact-preview-card reveal-surface" style="--reveal-delay: ${index * 60}ms">
     <span>${localText(note, 'date')}</span>
-    <h3>${localText(note, 'title')}</h3>
-    <p>${localText(note, 'description')}</p>
-    ${renderActionLink(note.link, 'text-link')}
+    <div>
+      <h3>${localText(note, 'title')}</h3>
+      <p>${localText(note, 'description')}</p>
+      ${renderActionLink(note.link, 'text-link')}
+    </div>
   </article>
 `;
 
@@ -143,47 +131,34 @@ const applyStaticCopy = () => {
   });
 };
 
-const renderPage = () => {
-  applyStaticCopy();
+const applyActiveNavigation = () => {
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
-  if (projectGrid) {
-    projectGrid.innerHTML = featuredProjects.map(renderProjectCard).join('');
-  }
+  navLinks.forEach((link) => {
+    const linkPage = link.getAttribute('href')?.split('/').pop();
+    const isActive = linkPage === currentPage;
 
-  if (homeworkGrid) {
-    homeworkGrid.innerHTML = homeworkItems.map(renderHomeworkCard).join('');
-  }
+    link.classList.toggle('is-active', isActive);
 
-  if (roadmapGrid) {
-    roadmapGrid.innerHTML = roadmapItems.map(renderRoadmapCard).join('');
-  }
-
-  if (notesGrid) {
-    notesGrid.innerHTML = latestNotes.map(renderNoteCard).join('');
-  }
-
-  if (contactLinksList) {
-    contactLinksList.innerHTML = contactLinks.map(renderContactLink).join('');
-  }
-
-  languageButtons.forEach((button) => {
-    const isActive = button.dataset.lang === currentLanguage;
-    button.classList.toggle('active', isActive);
-    button.setAttribute('aria-pressed', String(isActive));
+    if (isActive) {
+      link.setAttribute('aria-current', 'page');
+    } else {
+      link.removeAttribute('aria-current');
+    }
   });
-
-  registerRevealItems();
-  applyActiveNavigation();
 };
 
 const registerRevealItems = () => {
   const items = document.querySelectorAll(
-    '.proof-strip, .project-card, .galaxy-shell, .roadmap-card, .note-card, .cta-panel, .page-hero, .page-card, .architecture-panel, .contact-row',
+    '.brand-hero-copy, .brand-orbit-panel, .proof-row, .gateway-card, .preview-card, .compact-preview-card, .cta-panel, .page-hero, .page-card, .architecture-panel, .contact-row',
   );
 
   items.forEach((item, index) => {
     item.classList.add('reveal-item');
-    item.style.setProperty('--reveal-delay', `${Math.min(index * 55, 280)}ms`);
+
+    if (!item.style.getPropertyValue('--reveal-delay')) {
+      item.style.setProperty('--reveal-delay', `${Math.min(index * 45, 240)}ms`);
+    }
   });
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -206,21 +181,37 @@ const registerRevealItems = () => {
   items.forEach((item) => observer.observe(item));
 };
 
-const applyActiveNavigation = () => {
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+const renderPage = () => {
+  applyStaticCopy();
 
-  navLinks.forEach((link) => {
-    const linkPage = link.getAttribute('href')?.split('/').pop();
-    const isActive = linkPage === currentPage;
+  if (gatewayGrid) {
+    gatewayGrid.innerHTML = gatewayRoutes.map(renderGatewayCard).join('');
+  }
 
-    link.classList.toggle('is-active', isActive);
+  if (featuredPreviewGrid) {
+    featuredPreviewGrid.innerHTML = featuredProjects.slice(0, 3).map(renderFeaturedPreview).join('');
+  }
 
-    if (isActive) {
-      link.setAttribute('aria-current', 'page');
-    } else {
-      link.removeAttribute('aria-current');
-    }
+  if (homeworkPreviewGrid) {
+    homeworkPreviewGrid.innerHTML = homeworkItems.slice(0, 3).map(renderHomeworkPreview).join('');
+  }
+
+  if (notesPreviewGrid) {
+    notesPreviewGrid.innerHTML = latestNotes.slice(0, 3).map(renderNotePreview).join('');
+  }
+
+  if (contactLinksList) {
+    contactLinksList.innerHTML = contactLinks.map(renderContactLink).join('');
+  }
+
+  languageButtons.forEach((button) => {
+    const isActive = button.dataset.lang === currentLanguage;
+    button.classList.toggle('active', isActive);
+    button.setAttribute('aria-pressed', String(isActive));
   });
+
+  registerRevealItems();
+  applyActiveNavigation();
 };
 
 languageButtons.forEach((button) => {

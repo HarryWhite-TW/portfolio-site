@@ -144,6 +144,14 @@ Milestone 2.0.1 stabilizes the architecture shells before M2.1:
 - Simplified the roadmap sequence so it reads as an intentional aligned progression
 - Confirmed M2.1 Home Redesign has not started yet
 
+Milestone 2.1 redesigns the homepage as a professional brand gateway:
+
+- Replaced the long homepage content flow with a concise personal brand entrance
+- Added clear routes to Portfolio, Homework, Blog / Notes, and About
+- Kept compact proof signals, selected project previews, homework previews, and notes previews
+- Moved deeper content intentionally to the dedicated Portfolio, Homework, Blog, and About pages
+- Preserved the multi-page navigation, auto-hide header, EN / Chinese toggle, and static Vite setup
+
 ## Phone Preview
 
 To test the site on a phone:
@@ -174,7 +182,6 @@ Current real contact link:
 
 ## Planned Next Milestones
 
-- M2.1: Redesign the homepage into a shorter brand gateway.
 - M2.2: Build the full Portfolio project showcase.
 - M2.3: Build the full centralized Homework hub.
 - M2.4: Expand Blog, About, and Contact content.

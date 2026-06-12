@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Harry Chan's personal AI, web development, and engineering practice portfolio."
+      content="Harry Chan's personal brand portfolio for AI applications, web projects, homework showcases, and build logs."
     />
-    <title>Harry Chan | AI Portfolio</title>
+    <title>Harry Chan | Personal Portfolio</title>
     <style>
       html,
       body {
@@ -26,7 +26,7 @@
     />
   </head>
   <body class="bg-night text-white antialiased">
-    <div class="site-shell min-h-screen overflow-hidden">
+    <div class="site-shell home-gateway-shell min-h-screen overflow-hidden">
       <div class="top-hover-zone" id="top-hover-zone" aria-hidden="true"></div>
       <header class="site-header fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-night/70 backdrop-blur-xl" id="site-header">
         <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 lg:px-8">
@@ -59,15 +59,7 @@
           <div class="hidden shrink-0 items-center gap-2 md:flex">
             <a class="language-pill active" href="index.html">EN</a>
             <span class="text-white/30">/</span>
-            <a
-              class="language-pill is-placeholder"
-              href="#"
-              data-placeholder="true"
-              aria-disabled="true"
-              title="Chinese version coming soon"
-            >
-              中文
-            </a>
+            <a class="language-pill" href="#">中文</a>
             <a class="nav-github-link" href="https://github.com/HarryWhite-TW" target="_blank" rel="noreferrer">GitHub</a>
           </div>
         </nav>
@@ -83,183 +75,139 @@
           <div class="mt-4 flex items-center gap-2">
             <a class="language-pill active" href="index.html">EN</a>
             <span class="text-white/30">/</span>
-            <a
-              class="language-pill is-placeholder"
-              href="#"
-              data-placeholder="true"
-              aria-disabled="true"
-              title="Chinese version coming soon"
-            >
-              中文
-            </a>
+            <a class="language-pill" href="#">中文</a>
           </div>
         </div>
       </header>
 
       <main id="home">
-        <section class="hero-section relative px-5 pb-16 pt-32 lg:px-8 lg:pb-24 lg:pt-40">
-          <div class="orb orb-cyan"></div>
-          <div class="orb orb-violet"></div>
-          <div class="orb orb-warm"></div>
-          <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
-            <div class="relative z-10">
-              <p class="eyebrow" data-i18n="heroEyebrow">AI Mission Control / Project-Based Engineering</p>
-              <h1 class="mt-6 max-w-4xl text-5xl font-black leading-[0.98] text-white sm:text-6xl lg:text-7xl">
-                <span data-i18n="heroTitleA">Building</span>
-                <span class="gradient-text" data-i18n="heroTitleB">AI, Web, and Automation</span>
-                <span data-i18n="heroTitleC">Projects</span>
-              </h1>
-              <p class="mt-7 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl" data-i18n="heroSubtitle">
-                I am learning AI application development through hands-on projects, homework showcases, and engineering practice.
+        <section class="brand-hero px-5 lg:px-8">
+          <div class="hero-ambient" aria-hidden="true">
+            <span class="ambient-line ambient-line-a"></span>
+            <span class="ambient-line ambient-line-b"></span>
+          </div>
+          <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
+            <div class="brand-hero-copy">
+              <p class="eyebrow" data-i18n="heroEyebrow">Harry Chan / HarryWhite-TW</p>
+              <h1 data-i18n="heroTitle">Building AI-assisted projects into public proof.</h1>
+              <p data-i18n="heroSubtitle">
+                A personal brand gateway for AI applications, web projects, homework showcases, and build logs.
               </p>
-              <div class="signal-strip mt-7">
-                <span data-i18n="signalStatic">Static Site</span>
-                <span data-i18n="signalAi">AI Practice</span>
-                <span data-i18n="signalStory">Project Storytelling</span>
+              <div class="hero-signal-strip" aria-label="Portfolio focus">
+                <span data-i18n="heroSignalA">AI Applications</span>
+                <span data-i18n="heroSignalB">Web Projects</span>
+                <span data-i18n="heroSignalC">Build Logs</span>
               </div>
-              <div class="mt-9 flex flex-col gap-4 sm:flex-row">
-                <a class="glow-button" href="portfolio.html" data-i18n="ctaProjects">View Projects</a>
-                <a class="glass-button" href="homework.html" data-i18n="ctaHomework">Explore Homework</a>
+              <div class="hero-actions">
+                <a class="glow-button" href="portfolio.html" data-i18n="ctaProjects">View Portfolio</a>
+                <a class="glass-button" href="homework.html" data-i18n="ctaHomework">Homework Hub</a>
+                <a class="glass-button" href="blog.html" data-i18n="ctaNotes">Read Notes</a>
               </div>
-              <div class="mt-10 grid max-w-2xl grid-cols-3 gap-3">
-                <div class="metric-card">
-                  <span>03+</span>
-                  <p data-i18n="metricProjects">Featured builds</p>
-                </div>
-                <div class="metric-card">
-                  <span>05</span>
-                  <p data-i18n="metricTracks">Learning tracks</p>
-                </div>
-                <div class="metric-card">
-                  <span>100%</span>
-                  <p data-i18n="metricStatic">Static + free</p>
-                </div>
-              </div>
+              <a class="hero-secondary-link" href="about.html" data-i18n="ctaAbout">About Harry</a>
             </div>
 
-            <div class="hero-console relative z-10">
-              <div class="scanner-line"></div>
-              <div class="console-bar">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <div class="command-center">
-                <div class="console-module mission-panel">
-                  <p class="module-label" data-i18n="missionLabel">Portfolio Command Center</p>
-                  <h2 data-i18n="missionTitle">Turning class projects into a public engineering system.</h2>
-                  <div class="mission-bars">
-                    <span style="--bar: 88%"></span>
-                    <span style="--bar: 72%"></span>
-                    <span style="--bar: 64%"></span>
-                  </div>
-                </div>
-                <div class="floating-card card-a">
-                  <span>01</span>
-                  <strong data-i18n="missionPrototype">Prototype</strong>
-                  <p data-i18n="missionPrototypeText">Build small, visible apps.</p>
-                </div>
-                <div class="floating-card card-b">
-                  <span>02</span>
-                  <strong data-i18n="missionDocument">Document</strong>
-                  <p data-i18n="missionDocumentText">Explain the learning path.</p>
-                </div>
-                <div class="code-panel">
-                  <span class="text-cyanGlow">const</span> portfolio = {
-                  <br />
-                  &nbsp;&nbsp;stack: 'Vite + Tailwind',
-                  <br />
-                  &nbsp;&nbsp;mode: 'static',
-                  <br />
-                  &nbsp;&nbsp;focus: 'AI apps',
-                  <br />
-                  &nbsp;&nbsp;goal: 'ship projects'
-                  <br />
-                  };
+            <div class="brand-orbit-panel" aria-label="Portfolio summary">
+              <div class="orbit-ring"></div>
+              <div class="brand-panel-card">
+                <p class="module-label" data-i18n="heroPanelLabel">Brand System</p>
+                <h2 data-i18n="heroPanelTitle">From class assignments to visible engineering work.</h2>
+                <p data-i18n="heroPanelText">
+                  Portfolio, homework, notes, and personal direction now live in a clear multi-page structure.
+                </p>
+                <div class="brand-panel-links">
+                  <span>Portfolio</span>
+                  <span>Homework</span>
+                  <span>Notes</span>
+                  <span>About</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="proof-section px-5 lg:px-8" aria-label="Portfolio status">
-          <div class="proof-strip mx-auto max-w-7xl">
+        <section class="gateway-section section-pad" aria-labelledby="gateway-title">
+          <div class="mx-auto max-w-7xl px-5 lg:px-8">
+            <div class="section-heading compact-heading">
+              <p class="eyebrow" data-i18n="gatewayEyebrow">Site Gateway</p>
+              <h2 id="gateway-title" data-i18n="gatewayTitle">Choose the path that fits your visit.</h2>
+              <p data-i18n="gatewayText">The homepage now points to focused pages instead of trying to hold every detail.</p>
+            </div>
+            <div class="gateway-card-grid mt-8" id="gateway-grid"></div>
+          </div>
+        </section>
+
+        <section class="proof-section px-5 lg:px-8" aria-label="Portfolio proof signals">
+          <div class="proof-row mx-auto max-w-7xl">
+            <p class="eyebrow" data-i18n="proofEyebrow">Proof Signals</p>
             <div>
-              <span>03+</span>
-              <p data-i18n="metricProjects">Launch modules</p>
+              <strong>03+</strong>
+              <span data-i18n="metricProjects">Project modules</span>
             </div>
             <div>
-              <span>05</span>
-              <p data-i18n="metricTracks">Skill orbits</p>
+              <strong>05</strong>
+              <span data-i18n="metricTracks">Skill tracks</span>
             </div>
             <div>
-              <span>100%</span>
-              <p data-i18n="metricStatic">Static + free</p>
+              <strong>100%</strong>
+              <span data-i18n="metricStatic">Static + free</span>
             </div>
             <div>
-              <span>GP</span>
-              <p data-i18n="githubPagesReady">GitHub Pages ready</p>
+              <strong>GP</strong>
+              <span data-i18n="githubPagesReady">GitHub Pages ready</span>
             </div>
           </div>
         </section>
 
-        <section class="section-pad featured-section" id="featured-projects">
+        <section class="preview-section section-pad" aria-labelledby="featured-title">
           <div class="mx-auto max-w-7xl px-5 lg:px-8">
             <div class="section-heading">
-              <p class="eyebrow" data-i18n="featuredEyebrow">Launch Modules</p>
-              <h2 data-i18n="featuredTitle">Project Work, Presented Like Product Work</h2>
-              <p data-i18n="featuredText">Each build gets a clear purpose, visual identity, status, stack, and next action so homework reads like real engineering progress.</p>
-            </div>
-            <div class="showcase-grid mt-8" id="featured-project-grid"></div>
-          </div>
-        </section>
-
-        <section class="section-pad galaxy-section" id="homework-galaxy">
-          <div class="mx-auto max-w-7xl px-5 lg:px-8">
-            <div class="section-heading">
-              <p class="eyebrow" data-i18n="homeworkEyebrow">Homework Signals</p>
-              <h2 data-i18n="homeworkTitle">A Learning Galaxy, Not a Link Dump</h2>
-              <p data-i18n="homeworkText">Assignments are arranged as visible practice signals, with each one connected to a skill, tool, or engineering habit.</p>
-            </div>
-            <div class="galaxy-shell mission-board-shell mt-8">
-              <div class="galaxy-core mission-hub-panel">
-                <span data-i18n="galaxyCore">HW</span>
-                <p data-i18n="galaxyCoreText">Signal Hub</p>
-              </div>
-              <div class="homework-board" id="homework-grid"></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section-pad roadmap-section" id="about-preview">
-          <div class="mx-auto max-w-7xl px-5 lg:px-8">
-            <div class="section-heading">
-              <p class="eyebrow" data-i18n="roadmapEyebrow">Launch Sequence</p>
-              <h2 data-i18n="roadmapTitle">Roadmap From Learner to Builder</h2>
-              <p data-i18n="roadmapText">
-                The homepage tracks the skills that turn class assignments into repeatable project-building practice.
+              <p class="eyebrow" data-i18n="featuredEyebrow">Featured Preview</p>
+              <h2 id="featured-title" data-i18n="featuredTitle">A few proof points, not the whole archive.</h2>
+              <p data-i18n="featuredText">
+                The homepage shows only selected project previews. Full filtering and case studies belong on Portfolio.
               </p>
             </div>
-            <div class="roadmap-grid mt-8" id="roadmap-grid"></div>
-          </div>
-        </section>
-
-        <section class="section-pad notes-section" id="latest-notes">
-          <div class="mx-auto max-w-7xl px-5 lg:px-8">
-            <div class="section-heading">
-              <p class="eyebrow" data-i18n="notesEyebrow">Build Logs</p>
-              <h2 data-i18n="notesTitle">Learning Notes With a Mission-Log Feel</h2>
-              <p data-i18n="notesText">Short reflections connect assignments, tools, decisions, and the habits behind stronger engineering work.</p>
+            <div class="preview-card-grid mt-8" id="featured-preview-grid"></div>
+            <div class="section-action">
+              <a class="glass-button" href="portfolio.html" data-i18n="viewAllProjects">View all projects</a>
             </div>
-            <div class="notes-layout mt-8" id="notes-grid"></div>
           </div>
         </section>
 
-        <section class="cta-section px-5 py-20 lg:px-8" id="contact">
+        <section class="homework-preview-section section-pad" aria-labelledby="homework-title">
+          <div class="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
+            <div class="section-heading left-heading">
+              <p class="eyebrow" data-i18n="homeworkEyebrow">Homework Preview</p>
+              <h2 id="homework-title" data-i18n="homeworkTitle">Teacher-friendly homework is one click away.</h2>
+              <p data-i18n="homeworkText">
+                Recent homework remains visible here, while the full centralized index lives on Homework.
+              </p>
+              <a class="glass-button" href="homework.html" data-i18n="openHomeworkHub">Open Homework Hub</a>
+            </div>
+            <div class="compact-list-grid" id="homework-preview-grid"></div>
+          </div>
+        </section>
+
+        <section class="notes-preview-section section-pad" aria-labelledby="notes-title">
+          <div class="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[1.18fr_0.82fr] lg:px-8">
+            <div class="compact-list-grid" id="notes-preview-grid"></div>
+            <div class="section-heading left-heading lg:order-last">
+              <p class="eyebrow" data-i18n="notesEyebrow">Notes Preview</p>
+              <h2 id="notes-title" data-i18n="notesTitle">Build logs and learning notes stay concise here.</h2>
+              <p data-i18n="notesText">
+                Short previews point to the writing hub without turning the homepage into a blog page.
+              </p>
+              <a class="glass-button" href="blog.html" data-i18n="openNotes">Open Blog / Notes</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="cta-section px-5 py-20 lg:px-8">
           <div class="cta-panel mx-auto max-w-7xl">
             <div>
-              <p class="eyebrow" data-i18n="ctaEyebrow">Final Launch Panel</p>
-              <h2 data-i18n="ctaTitle">Ready to turn the next homework into a stronger project mission.</h2>
+              <p class="eyebrow" data-i18n="ctaEyebrow">Next Step</p>
+              <h2 data-i18n="ctaTitle">Explore the work, then follow the source.</h2>
+              <p data-i18n="ctaText">Start with the Portfolio or Homework Hub, then use GitHub to inspect progress and source code.</p>
             </div>
             <div class="flex flex-col gap-3 sm:flex-row" id="contact-links"></div>
           </div>
@@ -268,7 +216,7 @@
 
       <footer class="border-t border-white/10 px-5 py-8 lg:px-8">
         <div class="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
-          <p data-i18n="footerLeft">Harry Chan Portfolio / AI Mission Control and Engineering Practice</p>
+          <p data-i18n="footerLeft">Harry Chan Portfolio / Personal Brand, AI Practice, and Engineering Logs</p>
           <p data-i18n="footerRight">&copy; 2026 Harry Chan. Built with Vite, Tailwind CSS, and Vanilla JavaScript.</p>
         </div>
       </footer>
