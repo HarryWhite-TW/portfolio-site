@@ -26,6 +26,7 @@ Most common local commands:
 
 ```bash
 npm run dev
+npm run dev -- --host 127.0.0.1 --port 3000
 npm run build
 ```
 
@@ -133,6 +134,15 @@ Milestone 2.0 establishes the multi-page architecture foundation:
 - Added shared active navigation, mobile menu, auto-hide header, language toggle, and scroll reveal behavior across pages
 - Added minimal page-shell CSS for heroes, preview grids, cards, and placeholders
 - Deferred full page design and content buildout to later M2.x milestones
+
+Milestone 2.0.1 stabilizes the architecture shells before M2.1:
+
+- Added critical dark background styling to reduce white flash during page navigation
+- Stabilized shared page hero, section, card grid, and footer rhythm
+- Preserved the homepage as a brand gateway without starting the M2.1 redesign
+- Expanded basic EN / Chinese toggle coverage across the static page shells
+- Simplified the roadmap sequence so it reads as an intentional aligned progression
+- Confirmed M2.1 Home Redesign has not started yet
 
 ## Phone Preview
 

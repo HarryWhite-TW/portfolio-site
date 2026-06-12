@@ -137,6 +137,10 @@ const applyStaticCopy = () => {
   document.querySelectorAll('[data-i18n-aria]').forEach((element) => {
     element.setAttribute('aria-label', t(element.dataset.i18nAria));
   });
+
+  document.querySelectorAll('[data-copy-en][data-copy-zh]').forEach((element) => {
+    element.textContent = currentLanguage === 'zh' ? element.dataset.copyZh : element.dataset.copyEn;
+  });
 };
 
 const renderPage = () => {
@@ -166,12 +170,6 @@ const renderPage = () => {
     const isActive = button.dataset.lang === currentLanguage;
     button.classList.toggle('active', isActive);
     button.setAttribute('aria-pressed', String(isActive));
-  });
-
-  document.querySelectorAll('[data-placeholder="true"]').forEach((link) => {
-    link.addEventListener('click', (event) => {
-      event.preventDefault();
-    });
   });
 
   registerRevealItems();
@@ -235,6 +233,14 @@ languageButtons.forEach((button) => {
 });
 
 renderPage();
+
+document.addEventListener('click', (event) => {
+  const placeholderLink = event.target.closest('[data-placeholder="true"]');
+
+  if (placeholderLink) {
+    event.preventDefault();
+  }
+});
 
 const initHeaderBehavior = () => {
   if (!siteHeader) {

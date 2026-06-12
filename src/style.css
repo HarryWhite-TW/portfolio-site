@@ -11,6 +11,7 @@
 }
 
 html {
+  background: #07091a;
   scroll-behavior: smooth;
 }
 
@@ -240,6 +241,11 @@ body {
 .mobile-link:hover,
 .language-pill:hover {
   color: white;
+}
+
+.brand-wordmark {
+  letter-spacing: 0.22em;
+  white-space: nowrap;
 }
 
 .nav-link.is-active,
@@ -779,6 +785,7 @@ body {
 .page-hero {
   position: relative;
   isolation: isolate;
+  padding-top: clamp(8.75rem, 12vw, 11rem);
   padding-bottom: clamp(3.5rem, 7vw, 6rem);
 }
 
@@ -821,7 +828,7 @@ body {
 
 .page-section {
   position: relative;
-  padding: clamp(3.25rem, 6vw, 5.25rem) 0;
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0;
 }
 
 .page-section::before {
@@ -837,7 +844,7 @@ body {
 
 .page-grid {
   display: grid;
-  gap: 1rem;
+  gap: clamp(0.9rem, 2vw, 1.15rem);
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
 }
 
@@ -858,7 +865,7 @@ body {
 }
 
 .page-card {
-  min-height: 14rem;
+  min-height: 13rem;
   padding: 1.15rem;
 }
 
@@ -1515,7 +1522,7 @@ body {
 }
 
 .roadmap-card:nth-child(even) {
-  margin-left: clamp(0rem, 5vw, 3rem);
+  margin-left: 0;
 }
 
 .step-index {
@@ -1799,7 +1806,7 @@ body {
 
   .roadmap-card:nth-child(even) {
     margin-left: 0;
-    margin-top: 2rem;
+    margin-top: 0;
   }
 
   .notes-layout {

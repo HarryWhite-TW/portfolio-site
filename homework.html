@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Centralized homework hub for Harry Chan's portfolio site." />
     <title>Homework | Harry Chan</title>
+    <style>html,body{min-width:320px;margin:0;background:#07091a;color:#fff;color-scheme:dark;}</style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -13,44 +14,39 @@
     <div class="site-shell min-h-screen overflow-hidden">
       <div class="top-hover-zone" id="top-hover-zone" aria-hidden="true"></div>
       <header class="site-header fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-night/70 backdrop-blur-xl" id="site-header">
-        <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-          <a class="flex items-center gap-3" href="index.html" aria-label="Harry Chan home" data-i18n-aria="brandAria"><span class="brand-mark">HC</span><span class="text-sm font-black uppercase tracking-[0.3em] text-white">Harry Chan</span></a>
+        <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 lg:px-8">
+          <a class="flex shrink-0 items-center gap-3" href="index.html" aria-label="Harry Chan home" data-i18n-aria="brandAria"><span class="brand-mark">HC</span><span class="brand-wordmark text-sm font-black uppercase text-white">Harry Chan</span></a>
           <button class="glass-icon md:hidden" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
-          <div class="hidden items-center gap-8 md:flex">
-            <a class="nav-link" href="index.html" data-i18n="navHome">Home</a><a class="nav-link" href="portfolio.html" data-i18n="navPortfolio">Portfolio</a><a class="nav-link" href="homework.html" data-i18n="navHomework">Homework</a><a class="nav-link" href="blog.html" data-i18n="navBlog">Blog</a><a class="nav-link" href="about.html" data-i18n="navAbout">About</a><a class="nav-link" href="contact.html" data-i18n="navContact">Contact</a>
-          </div>
-          <div class="hidden items-center gap-2 md:flex"><a class="language-pill active" href="index.html">EN</a><span class="text-white/30">/</span><a class="language-pill" href="#">中文</a><a class="nav-github-link" href="https://github.com/HarryWhite-TW" target="_blank" rel="noreferrer">GitHub</a></div>
+          <div class="hidden items-center gap-5 xl:gap-8 md:flex"><a class="nav-link" href="index.html" data-i18n="navHome">Home</a><a class="nav-link" href="portfolio.html" data-i18n="navPortfolio">Portfolio</a><a class="nav-link" href="homework.html" data-i18n="navHomework">Homework</a><a class="nav-link" href="blog.html" data-i18n="navBlog">Blog</a><a class="nav-link" href="about.html" data-i18n="navAbout">About</a><a class="nav-link" href="contact.html" data-i18n="navContact">Contact</a></div>
+          <div class="hidden shrink-0 items-center gap-2 md:flex"><a class="language-pill active" href="index.html">EN</a><span class="text-white/30">/</span><a class="language-pill" href="#">中文</a><a class="nav-github-link" href="https://github.com/HarryWhite-TW" target="_blank" rel="noreferrer">GitHub</a></div>
         </nav>
-        <div class="mobile-panel hidden border-t border-white/10 bg-night/95 px-5 py-5 backdrop-blur-xl md:hidden" id="mobile-menu">
-          <a class="mobile-link" href="index.html" data-i18n="navHome">Home</a><a class="mobile-link" href="portfolio.html" data-i18n="navPortfolio">Portfolio</a><a class="mobile-link" href="homework.html" data-i18n="navHomework">Homework</a><a class="mobile-link" href="blog.html" data-i18n="navBlog">Blog</a><a class="mobile-link" href="about.html" data-i18n="navAbout">About</a><a class="mobile-link" href="contact.html" data-i18n="navContact">Contact</a><a class="mobile-link" href="https://github.com/HarryWhite-TW" target="_blank" rel="noreferrer">GitHub</a>
-          <div class="mt-4 flex items-center gap-2"><a class="language-pill active" href="index.html">EN</a><span class="text-white/30">/</span><a class="language-pill" href="#">中文</a></div>
-        </div>
+        <div class="mobile-panel hidden border-t border-white/10 bg-night/95 px-5 py-5 backdrop-blur-xl md:hidden" id="mobile-menu"><a class="mobile-link" href="index.html" data-i18n="navHome">Home</a><a class="mobile-link" href="portfolio.html" data-i18n="navPortfolio">Portfolio</a><a class="mobile-link" href="homework.html" data-i18n="navHomework">Homework</a><a class="mobile-link" href="blog.html" data-i18n="navBlog">Blog</a><a class="mobile-link" href="about.html" data-i18n="navAbout">About</a><a class="mobile-link" href="contact.html" data-i18n="navContact">Contact</a><a class="mobile-link" href="https://github.com/HarryWhite-TW" target="_blank" rel="noreferrer">GitHub</a><div class="mt-4 flex items-center gap-2"><a class="language-pill active" href="index.html">EN</a><span class="text-white/30">/</span><a class="language-pill" href="#">中文</a></div></div>
       </header>
 
       <main>
-        <section class="page-hero px-5 pt-32 lg:px-8 lg:pt-40">
+        <section class="page-hero px-5 lg:px-8">
           <div class="mx-auto max-w-7xl">
-            <p class="eyebrow">Homework Hub / Teacher-Friendly Index</p>
-            <h1>Centralized homework browsing for fast inspection.</h1>
-            <p>This page satisfies the requirement that homework is easy to find, scan, and verify from one place.</p>
-            <p class="page-hero-note">中文摘要：這裡是作業集中頁，老師可以快速找到 HW1-HW5 與未來作業項目。</p>
+            <p class="eyebrow" data-copy-en="Homework Hub / Teacher-Friendly Index" data-copy-zh="作業中心 / 老師檢查索引">Homework Hub / Teacher-Friendly Index</p>
+            <h1 data-copy-en="Centralized homework browsing for fast inspection." data-copy-zh="集中式作業瀏覽，方便快速檢查。">Centralized homework browsing for fast inspection.</h1>
+            <p data-copy-en="This page satisfies the requirement that homework is easy to find, scan, and verify from one place." data-copy-zh="這個頁面讓所有作業集中在同一處，方便老師快速找到、瀏覽與確認。">This page satisfies the requirement that homework is easy to find, scan, and verify from one place.</p>
+            <p class="page-hero-note" data-copy-en="Shell status: detail pages are intentionally deferred." data-copy-zh="頁面狀態：作業詳細頁目前刻意延後。">Shell status: detail pages are intentionally deferred.</p>
           </div>
         </section>
 
         <section class="page-section px-5 lg:px-8">
           <div class="mx-auto max-w-7xl">
             <div class="page-grid homework-index">
-              <article class="page-card"><span>HW1</span><h3>Clock Website</h3><p>Purpose: first static web assignment and GitHub Pages practice.</p><p>Status: Published practice</p><p>Stack: HTML / CSS / JavaScript</p><div class="card-actions"><a href="#" data-placeholder="true">Demo soon</a><a href="#" data-placeholder="true">Source soon</a><a href="#" data-placeholder="true">Notes soon</a></div></article>
-              <article class="page-card"><span>HW2</span><h3>AI Visual Practice</h3><p>Purpose: prompt and visual asset workflow practice.</p><p>Status: Coming soon</p><p>Stack: AI / Design / Web UI</p><div class="card-actions"><a href="#" data-placeholder="true">Demo soon</a><a href="#" data-placeholder="true">Source soon</a><a href="#" data-placeholder="true">Notes soon</a></div></article>
-              <article class="page-card"><span>HW3</span><h3>Input Guardrail Lab</h3><p>Purpose: safer interaction and repeated-input testing practice.</p><p>Status: Prototype</p><p>Stack: JavaScript / QA / Testing</p><div class="card-actions"><a href="#" data-placeholder="true">Demo soon</a><a href="#" data-placeholder="true">Source soon</a><a href="#" data-placeholder="true">Notes soon</a></div></article>
-              <article class="page-card"><span>HW4</span><h3>Future Homework</h3><p>Purpose: placeholder for the next class assignment.</p><p>Status: Coming soon</p><p>Stack: To be confirmed</p><div class="card-actions"><a href="#" data-placeholder="true">Demo soon</a><a href="#" data-placeholder="true">Source soon</a><a href="#" data-placeholder="true">Notes soon</a></div></article>
-              <article class="page-card"><span>HW5</span><h3>Future Homework</h3><p>Purpose: placeholder for the next class assignment.</p><p>Status: Coming soon</p><p>Stack: To be confirmed</p><div class="card-actions"><a href="#" data-placeholder="true">Demo soon</a><a href="#" data-placeholder="true">Source soon</a><a href="#" data-placeholder="true">Notes soon</a></div></article>
+              <article class="page-card"><span>HW1</span><h3 data-copy-en="Clock Website" data-copy-zh="時鐘網站">Clock Website</h3><p data-copy-en="Purpose: first static web assignment and GitHub Pages practice." data-copy-zh="目的：第一個靜態網頁作業與 GitHub Pages 練習。">Purpose: first static web assignment and GitHub Pages practice.</p><p data-copy-en="Status: Published practice" data-copy-zh="狀態：已發布練習">Status: Published practice</p><p>Stack: HTML / CSS / JavaScript</p><div class="card-actions"><a href="#" data-placeholder="true" data-copy-en="Demo soon" data-copy-zh="展示即將補上">Demo soon</a><a href="#" data-placeholder="true" data-copy-en="Source soon" data-copy-zh="原始碼即將補上">Source soon</a><a href="#" data-placeholder="true" data-copy-en="Notes soon" data-copy-zh="筆記即將補上">Notes soon</a></div></article>
+              <article class="page-card"><span>HW2</span><h3 data-copy-en="AI Visual Practice" data-copy-zh="AI 視覺練習">AI Visual Practice</h3><p data-copy-en="Purpose: prompt and visual asset workflow practice." data-copy-zh="目的：提示與視覺素材流程練習。">Purpose: prompt and visual asset workflow practice.</p><p data-copy-en="Status: Coming soon" data-copy-zh="狀態：即將補上">Status: Coming soon</p><p>Stack: AI / Design / Web UI</p><div class="card-actions"><a href="#" data-placeholder="true" data-copy-en="Demo soon" data-copy-zh="展示即將補上">Demo soon</a><a href="#" data-placeholder="true" data-copy-en="Source soon" data-copy-zh="原始碼即將補上">Source soon</a><a href="#" data-placeholder="true" data-copy-en="Notes soon" data-copy-zh="筆記即將補上">Notes soon</a></div></article>
+              <article class="page-card"><span>HW3</span><h3 data-copy-en="Input Guardrail Lab" data-copy-zh="輸入防護實驗">Input Guardrail Lab</h3><p data-copy-en="Purpose: safer interaction and repeated-input testing practice." data-copy-zh="目的：更安全互動與重複輸入測試練習。">Purpose: safer interaction and repeated-input testing practice.</p><p data-copy-en="Status: Prototype" data-copy-zh="狀態：原型">Status: Prototype</p><p>Stack: JavaScript / QA / Testing</p><div class="card-actions"><a href="#" data-placeholder="true" data-copy-en="Demo soon" data-copy-zh="展示即將補上">Demo soon</a><a href="#" data-placeholder="true" data-copy-en="Source soon" data-copy-zh="原始碼即將補上">Source soon</a><a href="#" data-placeholder="true" data-copy-en="Notes soon" data-copy-zh="筆記即將補上">Notes soon</a></div></article>
+              <article class="page-card"><span>HW4</span><h3 data-copy-en="Future Homework" data-copy-zh="未來作業">Future Homework</h3><p data-copy-en="Purpose: placeholder for the next class assignment." data-copy-zh="目的：預留給下一個課堂作業。">Purpose: placeholder for the next class assignment.</p><p data-copy-en="Status: Coming soon" data-copy-zh="狀態：即將補上">Status: Coming soon</p><p data-copy-en="Stack: To be confirmed" data-copy-zh="Stack: 待確認">Stack: To be confirmed</p><div class="card-actions"><a href="#" data-placeholder="true" data-copy-en="Demo soon" data-copy-zh="展示即將補上">Demo soon</a><a href="#" data-placeholder="true" data-copy-en="Source soon" data-copy-zh="原始碼即將補上">Source soon</a><a href="#" data-placeholder="true" data-copy-en="Notes soon" data-copy-zh="筆記即將補上">Notes soon</a></div></article>
+              <article class="page-card"><span>HW5</span><h3 data-copy-en="Future Homework" data-copy-zh="未來作業">Future Homework</h3><p data-copy-en="Purpose: placeholder for a future assignment." data-copy-zh="目的：預留給未來作業。">Purpose: placeholder for a future assignment.</p><p data-copy-en="Status: Coming soon" data-copy-zh="狀態：即將補上">Status: Coming soon</p><p data-copy-en="Stack: To be confirmed" data-copy-zh="Stack: 待確認">Stack: To be confirmed</p><div class="card-actions"><a href="#" data-placeholder="true" data-copy-en="Demo soon" data-copy-zh="展示即將補上">Demo soon</a><a href="#" data-placeholder="true" data-copy-en="Source soon" data-copy-zh="原始碼即將補上">Source soon</a><a href="#" data-placeholder="true" data-copy-en="Notes soon" data-copy-zh="筆記即將補上">Notes soon</a></div></article>
             </div>
           </div>
         </section>
       </main>
 
-      <footer class="border-t border-white/10 px-5 py-8 lg:px-8"><div class="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-slate-400 md:flex-row md:items-center md:justify-between"><p>Harry Chan Portfolio / Homework Hub</p><p>&copy; 2026 Harry Chan. Built with Vite, Tailwind CSS, and Vanilla JavaScript.</p></div></footer>
+      <footer class="border-t border-white/10 px-5 py-8 lg:px-8"><div class="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-slate-400 md:flex-row md:items-center md:justify-between"><p data-i18n="footerLeft">Harry Chan Portfolio / AI Mission Control and Engineering Practice</p><p data-i18n="footerRight">&copy; 2026 Harry Chan. Built with Vite, Tailwind CSS, and Vanilla JavaScript.</p></div></footer>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>
