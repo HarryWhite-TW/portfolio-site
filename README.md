@@ -161,6 +161,13 @@ Milestone 2.1.1 adds a fullscreen intro gate before the homepage:
 - Test the intro again with `index.html?intro=1` or reset with `sessionStorage.removeItem("portfolioIntroSeen")`
 - Confirms M2.1.1 is only an intro layer, not another homepage redesign
 
+Milestone 2.1.2 cleans up public-facing personal brand copy:
+
+- Reframed homepage, page shells, project previews, practice items, and notes around Harry Chan's professional portfolio direction
+- Changed visible navigation from Homework to Lab while preserving the `homework.html` route
+- Replaced student-submission and page-specification wording with concise visitor-facing English and Traditional Chinese copy
+- Preserved the fullscreen intro, multi-page navigation, language toggle, auto-hide header, existing layouts, and static Vite setup
+
 ## Phone Preview
 
 To test the site on a phone:
