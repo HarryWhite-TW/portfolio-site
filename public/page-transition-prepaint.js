@@ -1,15 +1,16 @@
 (function () {
-  try {
-    window.sessionStorage && window.sessionStorage.removeItem('portfolioPageTransition');
-  } catch (error) {
-    // Legacy transition state is optional cleanup only.
-  }
+  var root = document.documentElement;
 
-  document.documentElement.classList.remove(
-    'page-transition-entering',
-    'page-transition-leaving',
-    'page-transition-returning',
-    'page-transition-ready',
-  );
-  document.documentElement.removeAttribute('aria-busy');
+  try {
+    var transitionKey = 'portfolioPageEntering';
+    var shouldEnter = window.sessionStorage && window.sessionStorage.getItem(transitionKey) === '1';
+
+    window.sessionStorage && window.sessionStorage.removeItem(transitionKey);
+
+    if (shouldEnter && !root.classList.contains('intro-pending')) {
+      root.classList.add('page-entering');
+    }
+  } catch (error) {
+    root.classList.remove('page-entering');
+  }
 })();
