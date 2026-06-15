@@ -3,14 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Harry Chan's practice lab for hands-on coursework, experiments, and engineering exercises." />
+    <meta
+      name="description"
+      content="Harry Chan's Practice Lab for interactive machine learning demos, AI visual experiments, data science workflows, and foundational web builds."
+    />
     <title>Practice Lab | Harry Chan</title>
     <script src="./page-transition-prepaint.js"></script>
-    <style>html,body{min-width:320px;margin:0;background:#07091a;color:#fff;color-scheme:dark;}</style>
+    <style>
+      html,
+      body {
+        min-width: 320px;
+        margin: 0;
+        background: #07091a;
+        color: #fff;
+        color-scheme: dark;
+      }
+    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./page-transition.css" />
+    <link rel="stylesheet" href="/src/practice-lab.css" />
     <script defer src="./page-transition.js"></script>
   </head>
   <body class="bg-night text-white antialiased">
@@ -18,38 +34,225 @@
       <div class="top-hover-zone" id="top-hover-zone" aria-hidden="true"></div>
       <header class="site-header fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-night/70 backdrop-blur-xl" id="site-header">
         <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 lg:px-8">
-          <a class="flex shrink-0 items-center gap-3" href="index.html" aria-label="Harry Chan home" data-i18n-aria="brandAria"><span class="brand-mark">HC</span><span class="brand-wordmark text-sm font-black uppercase text-white">Harry Chan</span></a>
-          <button class="glass-icon md:hidden" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
-          <div class="hidden items-center gap-5 xl:gap-8 md:flex"><a class="nav-link" href="index.html" data-i18n="navHome">Home</a><a class="nav-link" href="portfolio.html" data-i18n="navPortfolio">Portfolio</a><a class="nav-link" href="homework.html" data-i18n="navHomework">Lab</a><a class="nav-link" href="blog.html" data-i18n="navBlog">Blog</a><a class="nav-link" href="about.html" data-i18n="navAbout">About</a><a class="nav-link" href="contact.html" data-i18n="navContact">Contact</a></div>
-          <div class="hidden shrink-0 items-center gap-2 md:flex"><a class="language-pill active" href="index.html">EN</a><span class="text-white/30">/</span><a class="language-pill" href="#">中文</a><a class="nav-github-link" href="https://github.com/HarryWhite-TW" target="_blank" rel="noreferrer">GitHub</a></div>
+          <a class="flex shrink-0 items-center gap-3" href="index.html" aria-label="Harry Chan home" data-i18n-aria="brandAria">
+            <span class="brand-mark">HC</span>
+            <span class="brand-wordmark text-sm font-black uppercase text-white">Harry Chan</span>
+          </a>
+          <button class="glass-icon md:hidden" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="hidden items-center gap-5 xl:gap-8 md:flex">
+            <a class="nav-link" href="index.html" data-i18n="navHome">Home</a>
+            <a class="nav-link" href="portfolio.html" data-i18n="navPortfolio">Portfolio</a>
+            <a class="nav-link" href="homework.html" data-i18n="navHomework">Lab</a>
+            <a class="nav-link" href="blog.html" data-i18n="navBlog">Blog</a>
+            <a class="nav-link" href="about.html" data-i18n="navAbout">About</a>
+            <a class="nav-link" href="contact.html" data-i18n="navContact">Contact</a>
+          </div>
+          <div class="hidden shrink-0 items-center gap-2 md:flex">
+            <a class="language-pill active" href="index.html">EN</a>
+            <span class="text-white/30">/</span>
+            <a class="language-pill" href="#">中文</a>
+            <a class="nav-github-link" href="https://github.com/HarryWhite-TW" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
         </nav>
-        <div class="mobile-panel hidden border-t border-white/10 bg-night/95 px-5 py-5 backdrop-blur-xl md:hidden" id="mobile-menu"><a class="mobile-link" href="index.html" data-i18n="navHome">Home</a><a class="mobile-link" href="portfolio.html" data-i18n="navPortfolio">Portfolio</a><a class="mobile-link" href="homework.html" data-i18n="navHomework">Lab</a><a class="mobile-link" href="blog.html" data-i18n="navBlog">Blog</a><a class="mobile-link" href="about.html" data-i18n="navAbout">About</a><a class="mobile-link" href="contact.html" data-i18n="navContact">Contact</a><a class="mobile-link" href="https://github.com/HarryWhite-TW" target="_blank" rel="noreferrer">GitHub</a><div class="mt-4 flex items-center gap-2"><a class="language-pill active" href="index.html">EN</a><span class="text-white/30">/</span><a class="language-pill" href="#">中文</a></div></div>
+        <div class="mobile-panel hidden border-t border-white/10 bg-night/95 px-5 py-5 backdrop-blur-xl md:hidden" id="mobile-menu">
+          <a class="mobile-link" href="index.html" data-i18n="navHome">Home</a>
+          <a class="mobile-link" href="portfolio.html" data-i18n="navPortfolio">Portfolio</a>
+          <a class="mobile-link" href="homework.html" data-i18n="navHomework">Lab</a>
+          <a class="mobile-link" href="blog.html" data-i18n="navBlog">Blog</a>
+          <a class="mobile-link" href="about.html" data-i18n="navAbout">About</a>
+          <a class="mobile-link" href="contact.html" data-i18n="navContact">Contact</a>
+          <a class="mobile-link" href="https://github.com/HarryWhite-TW" target="_blank" rel="noreferrer">GitHub</a>
+          <div class="mt-4 flex items-center gap-2">
+            <a class="language-pill active" href="index.html">EN</a>
+            <span class="text-white/30">/</span>
+            <a class="language-pill" href="#">中文</a>
+          </div>
+        </div>
       </header>
 
-      <main>
+      <main class="lab-main">
         <section class="page-hero px-5 lg:px-8">
           <div class="mx-auto max-w-7xl">
             <p class="eyebrow" data-copy-en="Practice Lab" data-copy-zh="實作紀錄">Practice Lab</p>
-            <h1 data-copy-en="Hands-on work, experiments, and coursework in progress." data-copy-zh="持續累積的實作、實驗與課程專案。">Hands-on work, experiments, and coursework in progress.</h1>
-            <p data-copy-en="This is the working index for small builds, focused exercises, and practical experiments that show how I learn by making." data-copy-zh="這裡整理小型作品、聚焦練習與實作實驗，呈現我如何透過動手建置來學習。">This is the working index for small builds, focused exercises, and practical experiments that show how I learn by making.</p>
-            <p class="page-hero-note" data-copy-en="HW labels stay here as useful references for matching each exercise to its source context." data-copy-zh="HW 編號會保留，方便對照每個練習的原始脈絡。">HW labels stay here as useful references for matching each exercise to its source context.</p>
+            <h1
+              data-copy-en="Hands-on builds that turn lessons into working demos."
+              data-copy-zh="把課程與練習，轉化成可以操作與驗證的作品。"
+            >
+              Hands-on builds that turn lessons into working demos.
+            </h1>
+            <p
+              data-copy-en="This lab collects interactive machine learning pages, AI experiments, data science workflows, and foundational web builds with real source history and honest limitations."
+              data-copy-zh="這裡整理互動式機器學習網頁、AI 實驗、資料科學流程與基礎網頁作品，保留真實原始碼、驗證方式與限制。"
+            >
+              This lab collects interactive machine learning pages, AI experiments, data science workflows, and foundational web builds with real source history and honest limitations.
+            </p>
+            <p
+              class="page-hero-note"
+              data-copy-en="HW numbering follows the original assignment sequence; only repositories with reviewable evidence are shown."
+              data-copy-zh="HW 編號沿用原始作業順序；目前只展示具有可查閱原始碼或成果證據的專案。"
+            >
+              HW numbering follows the original assignment sequence; only repositories with reviewable evidence are shown.
+            </p>
+
+            <div class="lab-summary" aria-label="Practice Lab summary">
+              <div><strong>05</strong><span data-copy-en="Documented labs" data-copy-zh="已整理實作">Documented labs</span></div>
+              <div><strong>03</strong><span data-copy-en="Public demos" data-copy-zh="公開展示">Public demos</span></div>
+              <div><strong>02</strong><span data-copy-en="Local or source-only builds" data-copy-zh="本機或原始碼展示">Local or source-only builds</span></div>
+            </div>
           </div>
         </section>
 
-        <section class="page-section px-5 lg:px-8">
-          <div class="mx-auto max-w-7xl">
-            <div class="page-grid homework-index">
-              <article class="page-card"><span>HW1</span><h3 data-copy-en="Clock Website" data-copy-zh="時鐘網站">Clock Website</h3><p data-copy-en="Purpose: practice real-time display, layout clarity, and static publishing." data-copy-zh="目的：練習即時顯示、版面清晰度與靜態網站發布。">Purpose: practice real-time display, layout clarity, and static publishing.</p><p data-copy-en="Status: Published practice" data-copy-zh="狀態：已發布實作">Status: Published practice</p><p>Stack: HTML / CSS / JavaScript</p><div class="card-actions"><a href="#" data-placeholder="true" data-copy-en="Demo soon" data-copy-zh="展示即將補上">Demo soon</a><a href="#" data-placeholder="true" data-copy-en="Source soon" data-copy-zh="原始碼即將補上">Source soon</a><a href="#" data-placeholder="true" data-copy-en="Notes soon" data-copy-zh="筆記即將補上">Notes soon</a></div></article>
-              <article class="page-card"><span>HW2</span><h3 data-copy-en="AI Visual Generation Study" data-copy-zh="AI 視覺生成研究">AI Visual Generation Study</h3><p data-copy-en="Purpose: explore prompt design, generated visual assets, and responsible presentation." data-copy-zh="目的：探索提示設計、生成式視覺素材與負責任呈現方式。">Purpose: explore prompt design, generated visual assets, and responsible presentation.</p><p data-copy-en="Status: Coming soon" data-copy-zh="狀態：即將補上">Status: Coming soon</p><p>Stack: AI / Design / Web UI</p><div class="card-actions"><a href="#" data-placeholder="true" data-copy-en="Demo soon" data-copy-zh="展示即將補上">Demo soon</a><a href="#" data-placeholder="true" data-copy-en="Source soon" data-copy-zh="原始碼即將補上">Source soon</a><a href="#" data-placeholder="true" data-copy-en="Notes soon" data-copy-zh="筆記即將補上">Notes soon</a></div></article>
-              <article class="page-card"><span>HW3</span><h3 data-copy-en="Input Guardrail Lab" data-copy-zh="輸入防護實驗">Input Guardrail Lab</h3><p data-copy-en="Purpose: practice safer interaction patterns, validation, and repeated-input testing." data-copy-zh="目的：練習更安全的互動模式、驗證流程與重複輸入測試。">Purpose: practice safer interaction patterns, validation, and repeated-input testing.</p><p data-copy-en="Status: Prototype" data-copy-zh="狀態：原型">Status: Prototype</p><p>Stack: JavaScript / QA / Testing</p><div class="card-actions"><a href="#" data-placeholder="true" data-copy-en="Demo soon" data-copy-zh="展示即將補上">Demo soon</a><a href="#" data-placeholder="true" data-copy-en="Source soon" data-copy-zh="原始碼即將補上">Source soon</a><a href="#" data-placeholder="true" data-copy-en="Notes soon" data-copy-zh="筆記即將補上">Notes soon</a></div></article>
-              <article class="page-card"><span>HW4</span><h3 data-copy-en="Upcoming Lab" data-copy-zh="後續實作">Upcoming Lab</h3><p data-copy-en="Purpose: reserved for a future hands-on build." data-copy-zh="目的：保留給後續的動手實作。">Purpose: reserved for a future hands-on build.</p><p data-copy-en="Status: Coming soon" data-copy-zh="狀態：即將補上">Status: Coming soon</p><p data-copy-en="Stack: To be confirmed" data-copy-zh="Stack: 待確認">Stack: To be confirmed</p><div class="card-actions"><a href="#" data-placeholder="true" data-copy-en="Demo soon" data-copy-zh="展示即將補上">Demo soon</a><a href="#" data-placeholder="true" data-copy-en="Source soon" data-copy-zh="原始碼即將補上">Source soon</a><a href="#" data-placeholder="true" data-copy-en="Notes soon" data-copy-zh="筆記即將補上">Notes soon</a></div></article>
-              <article class="page-card"><span>HW5</span><h3 data-copy-en="Upcoming Lab" data-copy-zh="後續實作">Upcoming Lab</h3><p data-copy-en="Purpose: reserved for another practical build." data-copy-zh="目的：保留給另一個實作練習。">Purpose: reserved for another practical build.</p><p data-copy-en="Status: Coming soon" data-copy-zh="狀態：即將補上">Status: Coming soon</p><p data-copy-en="Stack: To be confirmed" data-copy-zh="Stack: 待確認">Stack: To be confirmed</p><div class="card-actions"><a href="#" data-placeholder="true" data-copy-en="Demo soon" data-copy-zh="展示即將補上">Demo soon</a><a href="#" data-placeholder="true" data-copy-en="Source soon" data-copy-zh="原始碼即將補上">Source soon</a><a href="#" data-placeholder="true" data-copy-en="Notes soon" data-copy-zh="筆記即將補上">Notes soon</a></div></article>
+        <section class="lab-section" aria-labelledby="published-labs-title">
+          <div class="lab-section-shell">
+            <div class="lab-section-heading">
+              <p class="eyebrow" data-copy-en="Published Labs" data-copy-zh="公開實作">Published Labs</p>
+              <h2 id="published-labs-title" data-copy-en="Projects that can be opened and reviewed now." data-copy-zh="目前可以直接開啟並查閱的作品。">
+                Projects that can be opened and reviewed now.
+              </h2>
+              <p
+                data-copy-en="These projects include a public browser demo, source repository, and enough documentation to explain the learning goal and implementation boundary."
+                data-copy-zh="這些專案具備公開瀏覽展示、原始碼與足夠文件，可說明學習目標、實作方式與目前邊界。"
+              >
+                These projects include a public browser demo, source repository, and enough documentation to explain the learning goal and implementation boundary.
+              </p>
+            </div>
+
+            <div class="lab-feature-grid">
+              <article class="lab-feature">
+                <div class="lab-feature-top">
+                  <span class="lab-index">HW6 / DATA SCIENCE</span>
+                  <span class="lab-status" data-copy-en="Published dashboard" data-copy-zh="已發布儀表板">Published dashboard</span>
+                </div>
+                <h2 data-copy-en="50 Startups CRISP-DM Workflow" data-copy-zh="50 Startups CRISP-DM 預測流程">
+                  50 Startups CRISP-DM Workflow
+                </h2>
+                <p
+                  class="lab-lead"
+                  data-copy-en="A reproducible startup-profit regression workflow built on synthetic teaching data, with feature selection comparison, model metrics, visual galleries, and a technical whitepaper."
+                  data-copy-zh="使用可重現的合成教學資料建立新創公司獲利迴歸流程，包含特徵選擇比較、模型指標、視覺圖表與技術白皮書。"
+                >
+                  A reproducible startup-profit regression workflow built on synthetic teaching data, with feature selection comparison, model metrics, visual galleries, and a technical whitepaper.
+                </p>
+                <div class="lab-stack"><span>Python</span><span>scikit-learn</span><span>CRISP-DM</span><span>Matplotlib</span><span>GitHub Pages</span></div>
+                <div class="lab-evidence">
+                  <span data-copy-en="R2, MAE, RMSE, and 5-fold cross-validation" data-copy-zh="R2、MAE、RMSE 與五折交叉驗證">R2, MAE, RMSE, and 5-fold cross-validation</span>
+                  <span data-copy-en="Five feature-selection methods compared" data-copy-zh="比較五種特徵選擇方法">Five feature-selection methods compared</span>
+                  <span data-copy-en="Synthetic dataset and limits stated clearly" data-copy-zh="清楚標示合成資料與解讀限制">Synthetic dataset and limits stated clearly</span>
+                </div>
+                <div class="lab-visual chart-visual" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+                <div class="lab-actions">
+                  <a class="lab-link primary" href="https://harrywhite-tw.github.io/hw6_50_startups_crispdm/" target="_blank" rel="noreferrer" data-copy-en="Open Demo" data-copy-zh="開啟展示">Open Demo</a>
+                  <a class="lab-link secondary" href="https://github.com/HarryWhite-TW/hw6_50_startups_crispdm" target="_blank" rel="noreferrer" data-copy-en="View Source" data-copy-zh="查看原始碼">View Source</a>
+                  <a class="lab-link secondary" href="https://github.com/HarryWhite-TW/hw6_50_startups_crispdm/blob/main/docs/HW6_TECHNICAL_WHITEPAPER.md" target="_blank" rel="noreferrer" data-copy-en="Whitepaper" data-copy-zh="技術白皮書">Whitepaper</a>
+                </div>
+              </article>
+
+              <article class="lab-feature">
+                <div class="lab-feature-top">
+                  <span class="lab-index">HW5 / INTERACTIVE WEB</span>
+                  <span class="lab-status" data-copy-en="Published interactive site" data-copy-zh="已發布互動網站">Published interactive site</span>
+                </div>
+                <h2 data-copy-en="Machine Learning Top 10 Explorer" data-copy-zh="機器學習 Top 10 互動探索網站">
+                  Machine Learning Top 10 Explorer
+                </h2>
+                <p
+                  class="lab-lead"
+                  data-copy-en="A static interactive learning website covering ten common machine learning algorithms, search and filters, parameter sandboxes, a comparison matrix, quizzes, and a demo-only AI tutor interface."
+                  data-copy-zh="以靜態前端整理十種常見機器學習演算法，包含搜尋篩選、參數沙盒、比較矩陣、小測驗與僅供展示的 AI 助教介面。"
+                >
+                  A static interactive learning website covering ten common machine learning algorithms, search and filters, parameter sandboxes, a comparison matrix, quizzes, and a demo-only AI tutor interface.
+                </p>
+                <div class="lab-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>LocalStorage</span><span>GitHub Pages</span></div>
+                <div class="lab-evidence">
+                  <span data-copy-en="Ten algorithm learning modules" data-copy-zh="十個演算法學習模組">Ten algorithm learning modules</span>
+                  <span data-copy-en="Search, filters, quiz, and comparison matrix" data-copy-zh="搜尋、篩選、測驗與比較矩陣">Search, filters, quiz, and comparison matrix</span>
+                  <span data-copy-en="AI tutor is clearly labeled demo-only" data-copy-zh="AI 助教清楚標示為展示模式">AI tutor is clearly labeled demo-only</span>
+                </div>
+                <div class="lab-visual algorithm-visual" aria-hidden="true"><i>Linear</i><i>Tree</i><i>SVM</i><i>KNN</i><i>K-Means</i><i>Forest</i><i>Bayes</i><i>PCA</i><i>Boost</i><i>Logistic</i></div>
+                <div class="lab-actions">
+                  <a class="lab-link primary" href="https://harrywhite-tw.github.io/hw5_ml_top10_algorithms/" target="_blank" rel="noreferrer" data-copy-en="Open Demo" data-copy-zh="開啟展示">Open Demo</a>
+                  <a class="lab-link secondary" href="https://github.com/HarryWhite-TW/hw5_ml_top10_algorithms" target="_blank" rel="noreferrer" data-copy-en="View Source" data-copy-zh="查看原始碼">View Source</a>
+                  <a class="lab-link secondary" href="https://github.com/HarryWhite-TW/hw5_ml_top10_algorithms/blob/main/BUILD_LOG.md" target="_blank" rel="noreferrer" data-copy-en="Build Log" data-copy-zh="建置紀錄">Build Log</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="lab-section" aria-labelledby="focused-labs-title">
+          <div class="lab-section-shell">
+            <div class="lab-section-heading">
+              <p class="eyebrow" data-copy-en="Focused Exercises" data-copy-zh="聚焦練習">Focused Exercises</p>
+              <h2 id="focused-labs-title" data-copy-en="Smaller projects with a clear learning target." data-copy-zh="目標明確的小型專案與技術練習。">
+                Smaller projects with a clear learning target.
+              </h2>
+            </div>
+
+            <div class="lab-card-grid">
+              <article class="lab-card">
+                <div class="lab-card-top"><span class="lab-index">HW3 / GENERATIVE AI</span><span class="lab-status" data-copy-en="Public Streamlit demo" data-copy-zh="公開 Streamlit 展示">Public Streamlit demo</span></div>
+                <h3 data-copy-en="Cosmos Text-to-Image App" data-copy-zh="Cosmos 文字生成圖片應用">Cosmos Text-to-Image App</h3>
+                <p data-copy-en="A mobile-friendly Streamlit interface for prompt input, style and aspect controls, negative prompts, seeds, API-key safety, and a clearly labeled fallback demo mode." data-copy-zh="支援手機的 Streamlit 介面，包含提示詞、風格與比例控制、負面提示、種子、API Key 安全處理，以及清楚標示的替代展示模式。">A mobile-friendly Streamlit interface for prompt input, style and aspect controls, negative prompts, seeds, API-key safety, and a clearly labeled fallback demo mode.</p>
+                <div class="lab-stack"><span>Python</span><span>Streamlit</span><span>Hugging Face</span><span>API Safety</span></div>
+                <div class="lab-card-visual image-visual" aria-hidden="true"></div>
+                <div class="lab-actions">
+                  <a class="lab-link primary" href="https://hw3-cosmos-text2image-pwhobrcgb9z79ob6zg7h8s.streamlit.app" target="_blank" rel="noreferrer" data-copy-en="Open Demo" data-copy-zh="開啟展示">Open Demo</a>
+                  <a class="lab-link secondary" href="https://github.com/HarryWhite-TW/hw3-cosmos-text2image" target="_blank" rel="noreferrer" data-copy-en="View Source" data-copy-zh="查看原始碼">View Source</a>
+                </div>
+              </article>
+
+              <article class="lab-card">
+                <div class="lab-card-top"><span class="lab-index">HW4 / REGRESSION</span><span class="lab-status" data-copy-en="Local Streamlit demo" data-copy-zh="本機 Streamlit 展示">Local Streamlit demo</span></div>
+                <h3 data-copy-en="Linear Regression Outlier Demo" data-copy-zh="線性迴歸與離群值互動展示">Linear Regression Outlier Demo</h3>
+                <p data-copy-en="An interactive synthetic-data regression exercise with adjustable parameters, residual analysis, ranked top-ten outliers, and CRISP-DM organization." data-copy-zh="使用可調參數的合成資料進行迴歸練習，包含殘差分析、前十名離群值排序與 CRISP-DM 結構。">An interactive synthetic-data regression exercise with adjustable parameters, residual analysis, ranked top-ten outliers, and CRISP-DM organization.</p>
+                <div class="lab-stack"><span>Python</span><span>Streamlit</span><span>scikit-learn</span><span>Matplotlib</span></div>
+                <div class="lab-card-visual regression-visual" aria-hidden="true"></div>
+                <div class="lab-actions">
+                  <a class="lab-link primary" href="https://github.com/HarryWhite-TW/hw4-linear-regression-outlier-streamlit" target="_blank" rel="noreferrer" data-copy-en="View Source" data-copy-zh="查看原始碼">View Source</a>
+                  <span class="lab-note" data-copy-en="Runs locally at Streamlit port 8501" data-copy-zh="需在本機以 Streamlit 8501 埠執行">Runs locally at Streamlit port 8501</span>
+                </div>
+              </article>
+
+              <article class="lab-card">
+                <div class="lab-card-top"><span class="lab-index">HW1 / WEB FOUNDATION</span><span class="lab-status" data-copy-en="Source record" data-copy-zh="原始碼紀錄">Source record</span></div>
+                <h3 data-copy-en="Real-time Clock Website" data-copy-zh="即時時鐘網站">Real-time Clock Website</h3>
+                <p data-copy-en="A first from-scratch static page that practices HTML structure, visual layout, JavaScript time updates, local verification, and isolated GitHub publishing." data-copy-zh="第一個從零建立的靜態頁面，練習 HTML 結構、視覺排版、JavaScript 時間更新、本機驗證與獨立 GitHub 發布。">A first from-scratch static page that practices HTML structure, visual layout, JavaScript time updates, local verification, and isolated GitHub publishing.</p>
+                <div class="lab-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>GitHub</span></div>
+                <div class="lab-card-visual clock-visual" aria-hidden="true">12:34:56</div>
+                <div class="lab-actions">
+                  <a class="lab-link primary" href="https://github.com/HarryWhite-TW/hw1-L2-DIC1-GitHub-Hello-Page" target="_blank" rel="noreferrer" data-copy-en="View Source" data-copy-zh="查看原始碼">View Source</a>
+                  <span class="lab-note" data-copy-en="Foundational publishing exercise" data-copy-zh="基礎發布練習">Foundational publishing exercise</span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="lab-section" aria-labelledby="lab-boundary-title">
+          <div class="lab-section-shell">
+            <div class="lab-closing-panel">
+              <p class="eyebrow" data-copy-en="Lab Boundary" data-copy-zh="實作頁定位">Lab Boundary</p>
+              <h2 id="lab-boundary-title" data-copy-en="The Lab preserves breadth; the Portfolio focuses on depth." data-copy-zh="實作頁保留廣度，作品集聚焦深度。">
+                The Lab preserves breadth; the Portfolio focuses on depth.
+              </h2>
+              <p data-copy-en="Smaller assignments remain visible here with their original numbering and honest status. Projects are promoted to the main Portfolio only when their product story, engineering evidence, and visual assets are strong enough." data-copy-zh="較小型作業在此保留原始編號與真實狀態；只有當產品敘事、工程證據與視覺素材足夠完整時，才會升級到主要作品集。">Smaller assignments remain visible here with their original numbering and honest status. Projects are promoted to the main Portfolio only when their product story, engineering evidence, and visual assets are strong enough.</p>
+              <div class="lab-actions">
+                <a class="lab-link secondary" href="portfolio.html" data-copy-en="Open Portfolio" data-copy-zh="查看作品集">Open Portfolio</a>
+                <a class="lab-link secondary" href="https://github.com/HarryWhite-TW" target="_blank" rel="noreferrer" data-copy-en="Browse All Repositories" data-copy-zh="瀏覽所有儲存庫">Browse All Repositories</a>
+              </div>
             </div>
           </div>
         </section>
       </main>
 
-      <footer class="border-t border-white/10 px-5 py-8 lg:px-8"><div class="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-slate-400 md:flex-row md:items-center md:justify-between"><p data-i18n="footerLeft">Harry Chan Portfolio / Personal Brand, AI Practice, and Engineering Notes</p><p data-i18n="footerRight">&copy; 2026 Harry Chan. Built with Vite, Tailwind CSS, and Vanilla JavaScript.</p></div></footer>
+      <footer class="border-t border-white/10 px-5 py-8 lg:px-8">
+        <div class="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
+          <p data-i18n="footerLeft">Harry Chan Portfolio / Personal Brand, AI Practice, and Engineering Notes</p>
+          <p data-i18n="footerRight">&copy; 2026 Harry Chan. Built with Vite, Tailwind CSS, and Vanilla JavaScript.</p>
+        </div>
+      </footer>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>
