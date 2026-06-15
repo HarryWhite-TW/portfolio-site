@@ -1,6 +1,6 @@
 :root {
-  --page-transition-duration: 220ms;
-  --page-transition-enter-duration: 440ms;
+  --page-transition-duration: 140ms;
+  --page-transition-enter-duration: 260ms;
   --page-transition-ease: cubic-bezier(0.22, 0.72, 0.2, 1);
   --page-transition-cyan: 56, 248, 255;
   --page-transition-violet: 168, 85, 247;
@@ -14,7 +14,7 @@ body::before {
   pointer-events: none;
   visibility: hidden;
   opacity: 0;
-  transform: scale(0.98);
+  transform: scale(0.99);
   background:
     radial-gradient(circle at 48% 42%, rgba(var(--page-transition-cyan), 0.14), transparent 20rem),
     radial-gradient(circle at 62% 58%, rgba(var(--page-transition-violet), 0.12), transparent 30rem),
@@ -48,14 +48,14 @@ html.page-transition-entering body::before {
 
 html.page-transition-entering .site-shell {
   opacity: 0;
-  transform: translateY(0.7rem) scale(0.995);
-  filter: blur(6px);
+  transform: translateY(0.45rem) scale(0.997);
+  filter: blur(4px);
 }
 
 html.page-transition-entering.page-transition-ready body::before,
 html.page-transition-returning.page-transition-ready body::before {
   opacity: 0;
-  transform: scale(1.025);
+  transform: scale(1.012);
 }
 
 html.page-transition-entering.page-transition-ready .site-shell,
@@ -64,9 +64,9 @@ html.page-transition-returning.page-transition-ready .site-shell {
   transform: translateY(0) scale(1);
   filter: blur(0);
   transition:
-    opacity var(--page-transition-enter-duration) ease 30ms,
-    transform var(--page-transition-enter-duration) var(--page-transition-ease) 30ms,
-    filter 320ms ease 30ms;
+    opacity var(--page-transition-enter-duration) ease 10ms,
+    transform var(--page-transition-enter-duration) var(--page-transition-ease) 10ms,
+    filter 190ms ease 10ms;
 }
 
 html.page-transition-leaving body::before {
@@ -74,9 +74,9 @@ html.page-transition-leaving body::before {
 }
 
 html.page-transition-leaving .site-shell {
-  opacity: 0.22;
-  transform: scale(0.992);
-  filter: blur(5px);
+  opacity: 0.28;
+  transform: scale(0.995);
+  filter: blur(3px);
   transition:
     opacity var(--page-transition-duration) ease,
     transform var(--page-transition-duration) var(--page-transition-ease),
@@ -84,16 +84,16 @@ html.page-transition-leaving .site-shell {
 }
 
 html.page-transition-leaving .site-header {
-  opacity: 0.35;
-  transform: translateY(-0.35rem);
+  opacity: 0.45;
+  transform: translateY(-0.2rem);
   transition:
-    opacity 160ms ease,
+    opacity 110ms ease,
     transform var(--page-transition-duration) var(--page-transition-ease);
 }
 
 html.page-transition-returning .site-shell {
-  opacity: 0.35;
-  transform: translateY(0.35rem);
+  opacity: 0.45;
+  transform: translateY(0.2rem);
 }
 
 html.intro-pending body::before,
@@ -103,20 +103,20 @@ html.intro-exiting body::before {
 
 @media (max-width: 767px) {
   :root {
-    --page-transition-duration: 180ms;
-    --page-transition-enter-duration: 360ms;
+    --page-transition-duration: 110ms;
+    --page-transition-enter-duration: 220ms;
   }
 
   html.page-transition-entering .site-shell,
   html.page-transition-leaving .site-shell {
-    filter: blur(3px);
+    filter: blur(2px);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   :root {
-    --page-transition-duration: 70ms;
-    --page-transition-enter-duration: 90ms;
+    --page-transition-duration: 45ms;
+    --page-transition-enter-duration: 70ms;
   }
 
   body::before,
