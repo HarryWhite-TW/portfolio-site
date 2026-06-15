@@ -1,0 +1,213 @@
+:root {
+  --intro-transition-ease: cubic-bezier(0.2, 0.75, 0.2, 1);
+}
+
+html.intro-exiting,
+html.intro-exiting body {
+  overflow: hidden;
+}
+
+.intro-gate {
+  clip-path: circle(150% at 50% 50%);
+  will-change: clip-path, opacity;
+}
+
+html.intro-exiting .intro-gate.intro-exiting {
+  opacity: 1 !important;
+  transform: none !important;
+  clip-path: circle(0% at 50% 50%);
+  transition:
+    clip-path 820ms var(--intro-transition-ease),
+    opacity 120ms ease 700ms !important;
+}
+
+html.intro-exiting .intro-gate.intro-exiting .intro-content {
+  opacity: 0 !important;
+  transform: translateY(-1.6rem) scale(0.97) !important;
+  filter: blur(14px);
+  transition:
+    opacity 320ms ease,
+    transform 520ms var(--intro-transition-ease),
+    filter 420ms ease !important;
+}
+
+html.intro-exiting .intro-gate.intro-exiting .intro-enter-button {
+  transform: translateY(0.5rem) scale(0.9) !important;
+  filter: blur(6px) saturate(1.15);
+}
+
+html.intro-exiting .intro-gate.intro-exiting .intro-ring {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1.32);
+  animation: none !important;
+  transition:
+    opacity 640ms ease,
+    transform 820ms var(--intro-transition-ease);
+}
+
+html.intro-exiting .intro-gate.intro-exiting .intro-ring-b {
+  transform: translate(-50%, -50%) scale(1.5);
+  transition-delay: 30ms;
+}
+
+html.intro-exiting .intro-gate.intro-exiting .intro-glow {
+  opacity: 0.12;
+  transform: scale(1.3);
+  animation: none !important;
+  transition:
+    opacity 720ms ease,
+    transform 820ms var(--intro-transition-ease);
+}
+
+html.intro-exiting body::after {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  content: '';
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(var(--cyan), 0.18), transparent 18rem),
+    radial-gradient(circle at 50% 50%, rgba(var(--violet), 0.12), transparent 32rem);
+  mix-blend-mode: screen;
+  animation: introTransitionBloom 820ms var(--intro-transition-ease) both;
+}
+
+html.intro-exiting .home-gateway-shell {
+  animation: homeShellReveal 820ms var(--intro-transition-ease) both;
+}
+
+html.intro-exiting .site-header {
+  animation: homeHeaderReveal 560ms var(--intro-transition-ease) 150ms both;
+}
+
+html.intro-exiting .brand-hero-copy {
+  animation: homeHeroCopyReveal 640ms var(--intro-transition-ease) 120ms both;
+}
+
+html.intro-exiting .brand-orbit-panel {
+  animation: homeOrbitReveal 620ms var(--intro-transition-ease) 190ms both;
+}
+
+html.intro-exiting .brand-hero::before,
+html.intro-exiting .brand-hero::after,
+html.intro-exiting .hero-ambient {
+  animation: homeAtmosphereReveal 720ms var(--intro-transition-ease) 100ms both;
+}
+
+@keyframes introTransitionBloom {
+  0% {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+
+  38% {
+    opacity: 0.82;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.24);
+  }
+}
+
+@keyframes homeShellReveal {
+  from {
+    opacity: 0.12;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes homeHeaderReveal {
+  from {
+    opacity: 0;
+    translate: 0 -1.25rem;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes homeHeroCopyReveal {
+  from {
+    opacity: 0;
+    transform: translateY(2rem) scale(0.985);
+    filter: blur(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes homeOrbitReveal {
+  from {
+    opacity: 0;
+    transform: translateX(1.25rem) scale(0.94);
+    filter: blur(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes homeAtmosphereReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 767px) {
+  html.intro-exiting .brand-hero-copy {
+    animation-duration: 560ms;
+  }
+
+  html.intro-exiting .brand-orbit-panel {
+    animation-delay: 130ms;
+    animation-duration: 540ms;
+  }
+
+  html.intro-exiting body::after {
+    background:
+      radial-gradient(circle at 50% 42%, rgba(var(--cyan), 0.15), transparent 14rem),
+      radial-gradient(circle at 50% 55%, rgba(var(--violet), 0.1), transparent 22rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.intro-exiting .intro-gate.intro-exiting,
+  html.intro-exiting .intro-gate.intro-exiting .intro-content,
+  html.intro-exiting .intro-gate.intro-exiting .intro-ring,
+  html.intro-exiting .intro-gate.intro-exiting .intro-glow {
+    transition-duration: 1ms !important;
+  }
+
+  html.intro-exiting body::after {
+    display: none;
+  }
+
+  html.intro-exiting .home-gateway-shell,
+  html.intro-exiting .site-header,
+  html.intro-exiting .brand-hero-copy,
+  html.intro-exiting .brand-orbit-panel,
+  html.intro-exiting .brand-hero::before,
+  html.intro-exiting .brand-hero::after,
+  html.intro-exiting .hero-ambient {
+    animation: none !important;
+  }
+}
