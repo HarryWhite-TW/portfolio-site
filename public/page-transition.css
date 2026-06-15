@@ -1,61 +1,91 @@
+:root {
+  --page-transition-bg: #07091a;
+  --page-transition-duration: 160ms;
+  --page-transition-ease: cubic-bezier(0.22, 0.72, 0.2, 1);
+}
+
+html,
+body {
+  background-color: var(--page-transition-bg);
+}
+
 @view-transition {
   navigation: auto;
 }
 
+::view-transition {
+  background: var(--page-transition-bg);
+}
+
+::view-transition-group(root),
+::view-transition-image-pair(root),
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: 180ms;
-  animation-timing-function: cubic-bezier(0.22, 0.72, 0.2, 1);
+  background: var(--page-transition-bg);
+}
+
+::view-transition-group(root) {
+  animation-duration: var(--page-transition-duration);
+  animation-timing-function: var(--page-transition-ease);
+  animation-fill-mode: both;
+}
+
+::view-transition-image-pair(root) {
+  isolation: isolate;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: var(--page-transition-duration);
+  animation-timing-function: var(--page-transition-ease);
+  animation-fill-mode: both;
   mix-blend-mode: normal;
+  backface-visibility: hidden;
+  transform: none;
+  filter: none;
 }
 
 ::view-transition-old(root) {
-  animation-name: pageViewOut;
+  animation-name: pageFadeOut;
 }
 
 ::view-transition-new(root) {
-  animation-name: pageViewIn;
+  animation-name: pageFadeIn;
 }
 
-@keyframes pageViewOut {
+@keyframes pageFadeOut {
   from {
     opacity: 1;
-    transform: scale(1);
-    filter: blur(0);
   }
 
   to {
     opacity: 0;
-    transform: scale(0.997);
-    filter: blur(1px);
   }
 }
 
-@keyframes pageViewIn {
+@keyframes pageFadeIn {
   from {
     opacity: 0;
-    transform: scale(1.003);
-    filter: blur(1px);
   }
 
   to {
     opacity: 1;
-    transform: scale(1);
-    filter: blur(0);
   }
 }
 
 @media (max-width: 767px) {
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation-duration: 150ms;
+  :root {
+    --page-transition-duration: 140ms;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  :root {
+    --page-transition-duration: 1ms;
+  }
+
   ::view-transition-old(root),
   ::view-transition-new(root) {
-    animation-duration: 1ms;
     animation-name: none;
   }
 }
