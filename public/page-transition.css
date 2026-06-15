@@ -1,6 +1,7 @@
 :root {
   --page-transition-bg: #07091a;
-  --page-transition-duration: 160ms;
+  --page-exit-duration: 72ms;
+  --page-enter-duration: 120ms;
   --page-transition-ease: cubic-bezier(0.22, 0.72, 0.2, 1);
 }
 
@@ -9,83 +10,56 @@ body {
   background-color: var(--page-transition-bg);
 }
 
-@view-transition {
-  navigation: auto;
+html.page-leaving,
+html.page-entering,
+html.page-leaving body,
+html.page-entering body {
+  overflow: hidden;
 }
 
-::view-transition {
-  background: var(--page-transition-bg);
+html.page-leaving .site-shell {
+  opacity: 0.78;
+  transform: scale(0.9985);
+  transition:
+    opacity var(--page-exit-duration) ease,
+    transform var(--page-exit-duration) var(--page-transition-ease);
 }
 
-::view-transition-group(root),
-::view-transition-image-pair(root),
-::view-transition-old(root),
-::view-transition-new(root) {
-  background: var(--page-transition-bg);
+html.page-entering .site-shell {
+  opacity: 0.88;
+  transform: translateY(2px);
 }
 
-::view-transition-group(root) {
-  animation-duration: var(--page-transition-duration);
-  animation-timing-function: var(--page-transition-ease);
-  animation-fill-mode: both;
+html.page-entering.page-ready .site-shell {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity var(--page-enter-duration) ease,
+    transform var(--page-enter-duration) var(--page-transition-ease);
 }
 
-::view-transition-image-pair(root) {
-  isolation: isolate;
-}
-
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: var(--page-transition-duration);
-  animation-timing-function: var(--page-transition-ease);
-  animation-fill-mode: both;
-  mix-blend-mode: normal;
-  backface-visibility: hidden;
+html.intro-pending .site-shell,
+html.intro-exiting .site-shell {
+  opacity: 1;
   transform: none;
-  filter: none;
-}
-
-::view-transition-old(root) {
-  animation-name: pageFadeOut;
-}
-
-::view-transition-new(root) {
-  animation-name: pageFadeIn;
-}
-
-@keyframes pageFadeOut {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes pageFadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
 }
 
 @media (max-width: 767px) {
   :root {
-    --page-transition-duration: 140ms;
+    --page-exit-duration: 58ms;
+    --page-enter-duration: 96ms;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   :root {
-    --page-transition-duration: 1ms;
+    --page-exit-duration: 1ms;
+    --page-enter-duration: 1ms;
   }
 
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation-name: none;
+  html.page-leaving .site-shell,
+  html.page-entering .site-shell,
+  html.page-entering.page-ready .site-shell {
+    transform: none;
   }
 }
