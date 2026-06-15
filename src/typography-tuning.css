@@ -1,0 +1,129 @@
+/*
+ * Shared typography tuning for bilingual desktop and mobile layouts.
+ * This file intentionally overrides only large display headings so the
+ * existing visual system, spacing, and component styles remain unchanged.
+ */
+
+html body .brand-hero-copy h1,
+html body .page-hero h1,
+html body .portfolio-story-shell .portfolio-story-copy h2,
+html body .brand-panel-card h2 {
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+html body .brand-hero-copy h1 {
+  max-width: 54rem;
+  font-size: clamp(3rem, 6.25vw, 5.85rem);
+  line-height: 0.98;
+}
+
+html[lang='zh-Hant'] body .brand-hero-copy h1 {
+  max-width: 45rem;
+  font-size: clamp(2.9rem, 5.65vw, 5rem);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+}
+
+html body .brand-panel-card h2 {
+  font-size: clamp(1.55rem, 3vw, 2.2rem);
+  line-height: 1.08;
+}
+
+html[lang='zh-Hant'] body .brand-panel-card h2 {
+  font-size: clamp(1.45rem, 2.65vw, 1.95rem);
+  line-height: 1.16;
+}
+
+html body .page-hero h1 {
+  max-width: 54rem;
+  font-size: clamp(2.5rem, 5.25vw, 4.65rem);
+  line-height: 1.02;
+}
+
+html[lang='zh-Hant'] body .page-hero h1 {
+  max-width: 50rem;
+  font-size: clamp(2.4rem, 4.75vw, 4.15rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+html body .portfolio-story-shell .portfolio-story-copy h2 {
+  max-width: 36rem;
+  font-size: clamp(2rem, 3.85vw, 3.65rem);
+  line-height: 1.02;
+}
+
+html body .portfolio-story-shell.supporting-story .portfolio-story-copy h2 {
+  font-size: clamp(1.95rem, 3.35vw, 3.15rem);
+}
+
+html[lang='zh-Hant'] body .portfolio-story-shell .portfolio-story-copy h2 {
+  max-width: 33rem;
+  font-size: clamp(1.95rem, 3.35vw, 3.15rem);
+  line-height: 1.08;
+  letter-spacing: -0.018em;
+}
+
+html[lang='zh-Hant'] body .portfolio-story-shell.supporting-story .portfolio-story-copy h2 {
+  font-size: clamp(1.9rem, 3.05vw, 2.85rem);
+}
+
+@media (max-width: 1023px) {
+  html body .brand-hero-copy h1 {
+    max-width: 46rem;
+    font-size: clamp(2.8rem, 8.5vw, 4.8rem);
+  }
+
+  html[lang='zh-Hant'] body .brand-hero-copy h1 {
+    max-width: 41rem;
+    font-size: clamp(2.65rem, 7.8vw, 4.25rem);
+  }
+
+  html body .page-hero h1 {
+    font-size: clamp(2.35rem, 7vw, 4rem);
+  }
+
+  html[lang='zh-Hant'] body .page-hero h1 {
+    font-size: clamp(2.25rem, 6.4vw, 3.65rem);
+  }
+}
+
+@media (max-width: 767px) {
+  html body .brand-hero-copy h1 {
+    font-size: clamp(2.45rem, 12.5vw, 3.55rem);
+    line-height: 1;
+  }
+
+  html[lang='zh-Hant'] body .brand-hero-copy h1 {
+    font-size: clamp(2.3rem, 11.25vw, 3.15rem);
+    line-height: 1.08;
+  }
+
+  html body .brand-panel-card h2,
+  html[lang='zh-Hant'] body .brand-panel-card h2 {
+    font-size: clamp(1.4rem, 7vw, 1.85rem);
+  }
+
+  html body .page-hero h1 {
+    font-size: clamp(2.15rem, 10.5vw, 3.2rem);
+    line-height: 1.04;
+  }
+
+  html[lang='zh-Hant'] body .page-hero h1 {
+    font-size: clamp(2.05rem, 9.5vw, 2.9rem);
+    line-height: 1.12;
+  }
+
+  html body .portfolio-story-shell .portfolio-story-copy h2,
+  html body .portfolio-story-shell.supporting-story .portfolio-story-copy h2 {
+    font-size: clamp(1.9rem, 9.5vw, 2.75rem);
+    line-height: 1.05;
+  }
+
+  html[lang='zh-Hant'] body .portfolio-story-shell .portfolio-story-copy h2,
+  html[lang='zh-Hant'] body .portfolio-story-shell.supporting-story .portfolio-story-copy h2 {
+    font-size: clamp(1.85rem, 8.6vw, 2.5rem);
+    line-height: 1.12;
+  }
+}
