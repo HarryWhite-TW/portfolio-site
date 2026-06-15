@@ -1,3 +1,4 @@
+import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 
 const injectSharedStyles = {
@@ -31,4 +32,16 @@ const injectSharedStyles = {
 export default defineConfig({
   base: './',
   plugins: [injectSharedStyles],
+  build: {
+    rollupOptions: {
+      input: {
+        home: resolve(__dirname, 'index.html'),
+        portfolio: resolve(__dirname, 'portfolio.html'),
+        lab: resolve(__dirname, 'homework.html'),
+        blog: resolve(__dirname, 'blog.html'),
+        about: resolve(__dirname, 'about.html'),
+        contact: resolve(__dirname, 'contact.html'),
+      },
+    },
+  },
 });
