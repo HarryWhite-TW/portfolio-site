@@ -1,130 +1,61 @@
-:root {
-  --page-transition-duration: 140ms;
-  --page-transition-enter-duration: 260ms;
-  --page-transition-ease: cubic-bezier(0.22, 0.72, 0.2, 1);
-  --page-transition-cyan: 56, 248, 255;
-  --page-transition-violet: 168, 85, 247;
+@view-transition {
+  navigation: auto;
 }
 
-body::before {
-  position: fixed;
-  inset: 0;
-  z-index: 9997;
-  content: '';
-  pointer-events: none;
-  visibility: hidden;
-  opacity: 0;
-  transform: scale(0.99);
-  background:
-    radial-gradient(circle at 48% 42%, rgba(var(--page-transition-cyan), 0.14), transparent 20rem),
-    radial-gradient(circle at 62% 58%, rgba(var(--page-transition-violet), 0.12), transparent 30rem),
-    linear-gradient(145deg, #030512 0%, #071226 45%, #050718 100%);
-  transition:
-    opacity var(--page-transition-duration) ease,
-    transform var(--page-transition-duration) var(--page-transition-ease),
-    visibility 0s linear var(--page-transition-duration);
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 180ms;
+  animation-timing-function: cubic-bezier(0.22, 0.72, 0.2, 1);
+  mix-blend-mode: normal;
 }
 
-html.page-transition-entering,
-html.page-transition-leaving,
-html.page-transition-returning,
-html.page-transition-entering body,
-html.page-transition-leaving body,
-html.page-transition-returning body {
-  overflow: hidden;
+::view-transition-old(root) {
+  animation-name: pageViewOut;
 }
 
-html.page-transition-entering body::before,
-html.page-transition-returning body::before,
-html.page-transition-leaving body::before {
-  visibility: visible;
-  transform: scale(1);
-  transition-delay: 0s;
+::view-transition-new(root) {
+  animation-name: pageViewIn;
 }
 
-html.page-transition-entering body::before {
-  opacity: 1;
+@keyframes pageViewOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.997);
+    filter: blur(1px);
+  }
 }
 
-html.page-transition-entering .site-shell {
-  opacity: 0;
-  transform: translateY(0.45rem) scale(0.997);
-  filter: blur(4px);
-}
+@keyframes pageViewIn {
+  from {
+    opacity: 0;
+    transform: scale(1.003);
+    filter: blur(1px);
+  }
 
-html.page-transition-entering.page-transition-ready body::before,
-html.page-transition-returning.page-transition-ready body::before {
-  opacity: 0;
-  transform: scale(1.012);
-}
-
-html.page-transition-entering.page-transition-ready .site-shell,
-html.page-transition-returning.page-transition-ready .site-shell {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  filter: blur(0);
-  transition:
-    opacity var(--page-transition-enter-duration) ease 10ms,
-    transform var(--page-transition-enter-duration) var(--page-transition-ease) 10ms,
-    filter 190ms ease 10ms;
-}
-
-html.page-transition-leaving body::before {
-  opacity: 1;
-}
-
-html.page-transition-leaving .site-shell {
-  opacity: 0.28;
-  transform: scale(0.995);
-  filter: blur(3px);
-  transition:
-    opacity var(--page-transition-duration) ease,
-    transform var(--page-transition-duration) var(--page-transition-ease),
-    filter var(--page-transition-duration) ease;
-}
-
-html.page-transition-leaving .site-header {
-  opacity: 0.45;
-  transform: translateY(-0.2rem);
-  transition:
-    opacity 110ms ease,
-    transform var(--page-transition-duration) var(--page-transition-ease);
-}
-
-html.page-transition-returning .site-shell {
-  opacity: 0.45;
-  transform: translateY(0.2rem);
-}
-
-html.intro-pending body::before,
-html.intro-exiting body::before {
-  display: none;
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
 }
 
 @media (max-width: 767px) {
-  :root {
-    --page-transition-duration: 110ms;
-    --page-transition-enter-duration: 220ms;
-  }
-
-  html.page-transition-entering .site-shell,
-  html.page-transition-leaving .site-shell {
-    filter: blur(2px);
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 150ms;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :root {
-    --page-transition-duration: 45ms;
-    --page-transition-enter-duration: 70ms;
-  }
-
-  body::before,
-  html.page-transition-entering.page-transition-ready .site-shell,
-  html.page-transition-returning.page-transition-ready .site-shell,
-  html.page-transition-leaving .site-shell,
-  html.page-transition-leaving .site-header {
-    transform: none !important;
-    filter: none !important;
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 1ms;
+    animation-name: none;
   }
 }
