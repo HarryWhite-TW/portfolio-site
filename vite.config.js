@@ -15,6 +15,14 @@ const injectSharedStyles = {
           },
           injectTo: 'head',
         },
+        {
+          tag: 'link',
+          attrs: {
+            rel: 'stylesheet',
+            href: '/src/typography-tuning.css',
+          },
+          injectTo: 'head',
+        },
       ];
     },
   },
