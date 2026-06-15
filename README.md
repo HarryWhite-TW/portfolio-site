@@ -1,8 +1,25 @@
-# Harry Chan AI Portfolio
+# Harry Chan Personal Portfolio
 
-A polished personal brand portfolio website for learning AI application development, web development, GitHub Pages, and project-based engineering practice.
+A multi-page personal brand and engineering portfolio for Harry Chan / HarryWhite-TW.
 
-The site is now moving from a single homepage toward a multi-page personal brand portfolio, resume extension, project showcase, homework hub, and learning record.
+The site presents selected AI, web, automation, QA, and hands-on engineering work through project showcases, practice records, build notes, and a clear personal direction.
+
+## Current Direction
+
+The website is designed as:
+
+- a professional portfolio;
+- a resume extension;
+- a project showcase;
+- a Practice Lab for smaller builds and experiments;
+- an engineering notes and learning record;
+- a personal brand entry point for interviews, collaboration, and public sharing.
+
+The site is not positioned as a homework submission page. Course-related work may appear inside the Practice Lab, but the public narrative focuses on what was built, how it was validated, what was learned, and how the work is improving.
+
+The long-term architecture and copy rules are defined in:
+
+- [`docs/SITE_ARCHITECTURE_PLAN.md`](docs/SITE_ARCHITECTURE_PLAN.md)
 
 ## Tech Stack
 
@@ -10,199 +27,221 @@ The site is now moving from a single homepage toward a multi-page personal brand
 - Tailwind CSS
 - Vanilla JavaScript
 - Static HTML
-- Free hosting target: GitHub Pages
+- GitHub Pages target
+- No backend
+- No database
+- No paid service requirement
+
+The current stack is intentionally lightweight. The main constraints are content quality, case-study structure, visual consistency, and motion design—not framework capability.
 
 ## Local Development
 
+Install dependencies:
+
 ```bash
 npm install
-npm run dev
-npm run dev:host
-npm run build
-npm run preview
 ```
 
-Most common local commands:
+Start the default development server:
 
 ```bash
 npm run dev
+```
+
+On restricted Windows classroom environments, use a known available local port:
+
+```bash
 npm run dev -- --host 127.0.0.1 --port 3000
+```
+
+Build the production site:
+
+```bash
 npm run build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
 ```
 
 ## Available Pages
 
-- `index.html` - Home / brand gateway
-- `portfolio.html` - Portfolio architecture shell
-- `homework.html` - Centralized homework hub architecture shell
-- `blog.html` - Blog / learning notes architecture shell
-- `about.html` - About architecture shell
-- `contact.html` - Contact architecture shell
+- `index.html` — fullscreen intro and Home brand gateway
+- `portfolio.html` — selected project showcase and future case studies
+- `homework.html` — Practice Lab / 實作紀錄; filename retained for route compatibility
+- `blog.html` — Build Logs, technical notes, AI workflow notes, reflections, and project decisions
+- `about.html` — background, direction, skills, working principles, and growth path
+- `contact.html` — GitHub, email, resume, and contact paths
 
-## Current Milestone
+## Navigation Labels
 
-Milestone 1 built the project foundation and the English homepage:
+Public navigation uses:
 
-- Cyber glass visual direction
-- Responsive header and mobile menu
-- Strong hero section
-- Featured project cards
-- Homework galaxy
-- Learning roadmap
-- Latest learning notes
-- Footer/contact placeholders
+- Home / 首頁
+- Portfolio / 作品集
+- Lab / 實作
+- Blog / 筆記
+- About / 關於
+- Contact / 聯絡
+- EN / 中文
+- GitHub
 
-Milestone 1.5 reviewed, polished, and stabilized the homepage before adding more pages:
+The public label is `Lab`; the route remains `homework.html` to avoid breaking existing links.
 
-- Clear placeholder handling in `src/data.js`
-- Real GitHub profile link added
-- Future Chinese page link marked as coming soon
-- Safer responsive project card actions
-- Refined cyber glass visual details
+## Implemented Foundation
 
-Milestone 1.6 upgraded the homepage into a more premium AI/developer landing page:
+### Multi-page architecture
 
-- Richer layered background depth
-- Larger hero command-center visual
-- More varied section treatments
-- Showcase-style project cards with polished placeholder visuals
-- Stronger spacing, hierarchy, and mobile behavior
+- Shared navigation and footer behavior
+- Active navigation states
+- Desktop and mobile navigation
+- Auto-hide header behavior
+- English / Traditional Chinese switching
+- Static page routing without a framework migration
 
-Milestone 1.7 sharpened the creative direction into an AI Mission Control Portfolio:
+### Fullscreen intro
 
-- Mission-control hero with active mission, radar, signal, and launch details
-- Featured projects presented as launch modules
-- Homework shown as orbiting mission signals
-- Roadmap styled as a launch sequence
-- Learning notes styled as build logs
-- Lightweight EN / Chinese homepage language toggle with `localStorage`
+- Minimal entrance cover shown once per browser session
+- Enter action reveals the Home page in the same document
+- Header and page scroll remain hidden until entry
+- Keyboard focus handoff
+- `prefers-reduced-motion` support
 
-Milestone 1.7.1 stabilized the Mission Control homepage:
+To replay the intro:
 
-- Rebuilt Homework Galaxy as a grid/flex mission board
-- Kept orbit rings and signal paths as decorative backgrounds only
-- Removed fragile absolute positioning from homework content cards
-- Improved tablet and mobile stability for the hero and homework sections
+```text
+index.html?intro=1
+```
 
-Milestone 1.7.2 entered Layout Lock:
+Or reset it in the browser console:
 
-- Locked Homework Galaxy into a balanced hub + mission-board layout
-- Prevented homework cards from being squeezed into a single desktop row
-- Normalized section spacing and CTA breathing room
-- Preserved the EN / Chinese toggle and data-driven rendering
+```javascript
+sessionStorage.removeItem("portfolioIntroSeen")
+```
 
-Milestone 1.8 redesigned the homepage composition:
+### Brand-copy cleanup
 
-- Added a compact proof/status strip after the hero
-- Reworked featured projects into a bento showcase with one primary launch module
-- Simplified Homework Galaxy into an intentional mission board
-- Turned the roadmap into a more connected launch sequence
-- Reworked learning notes into an editorial build-log layout
-- Tightened CTA and overall vertical rhythm
+- Visitor-facing copy now focuses on projects, practice, engineering decisions, and ongoing development
+- Visible navigation changed from Homework to Lab
+- Removed teacher-inspection, assignment-submission, page-shell, and milestone language from public pages
+- Preserved the existing routes, layout system, language switch, and intro behavior
 
-Milestone 1.9 rebuilt the homepage visual system:
+## Content Model
 
-- Reduced repeated dark glass-card treatments across sections
-- Shifted projects toward brighter case-study surfaces
-- Replaced the forced galaxy feel with a cleaner Homework Mission Board
-- Slimmed the roadmap into a launch-sequence stepper
-- Made learning notes feel more editorial and less like generic cards
-- Kept the hero, language toggle, placeholders, and data-driven rendering intact
+### Portfolio
 
-Milestone 1.10 fixed screenshot-review polish issues:
+Mature project entries should eventually include:
 
-- Repositioned the proof strip so it no longer feels cut off below the hero
-- Reduced primary featured project height and empty space
-- Softened bright panels into integrated cyan/violet/slate surfaces
-- Added CSS-only aurora depth and lightweight scroll reveal motion
-- Added reduced-motion handling for accessibility
+- project value and context;
+- representative screenshots;
+- Harry's role and responsibilities;
+- technology stack;
+- core workflow or architecture;
+- engineering decisions;
+- testing or validation;
+- current result and limitations;
+- Live Demo, GitHub Source, and Build Log links.
 
-Milestone 1.10.1 refined the interactive polish pass:
+### Practice Lab
 
-- Added an auto-hide header that reveals on scroll-up, top-edge hover, header hover, keyboard focus, and mobile menu open state
-- Lightened the header into a premium glass navigation layer
-- Softened project card reflection/shine effects
-- Integrated the Homework Mission Board hub into the dark cyan/slate command-center style
-- Added subtle hover/focus signal feedback to homework, roadmap, note, project, and CTA elements
-- Added minor section separators and background washes for more depth without changing the layout
+Smaller builds and exercises should include:
 
-Milestone 2.0 establishes the multi-page architecture foundation:
+- purpose;
+- skills practiced;
+- technology stack;
+- current status;
+- validation or testing;
+- Demo, Source, and Notes links.
 
-- Added root-level static page shells for Portfolio, Homework, Blog, About, and Contact
-- Updated top navigation to link to real pages instead of homepage-only anchors
-- Preserved the existing homepage visual direction while turning it into a gateway
-- Added shared active navigation, mobile menu, auto-hide header, language toggle, and scroll reveal behavior across pages
-- Added minimal page-shell CSS for heroes, preview grids, cards, and placeholders
-- Deferred full page design and content buildout to later M2.x milestones
+HW identifiers may remain for traceability, but they should not define the website's public identity.
 
-Milestone 2.0.1 stabilizes the architecture shells before M2.1:
+### Blog / Notes
 
-- Added critical dark background styling to reduce white flash during page navigation
-- Stabilized shared page hero, section, card grid, and footer rhythm
-- Preserved the homepage as a brand gateway without starting the M2.1 redesign
-- Expanded basic EN / Chinese toggle coverage across the static page shells
-- Simplified the roadmap sequence so it reads as an intentional aligned progression
-- Confirmed M2.1 Home Redesign has not started yet
+Planned editorial categories:
 
-Milestone 2.1 redesigns the homepage as a professional brand gateway:
-
-- Replaced the long homepage content flow with a concise personal brand entrance
-- Added clear routes to Portfolio, Homework, Blog / Notes, and About
-- Kept compact proof signals, selected project previews, homework previews, and notes previews
-- Moved deeper content intentionally to the dedicated Portfolio, Homework, Blog, and About pages
-- Preserved the multi-page navigation, auto-hide header, EN / Chinese toggle, and static Vite setup
-
-Milestone 2.1.1 adds a fullscreen intro gate before the homepage:
-
-- Shows a minimal Harry Chan / HarryWhite-TW entrance cover once per browser session
-- Uses Enter to reveal the existing homepage in the same document without a reload
-- Keeps the header, homepage content, and page scroll hidden until the visitor enters
-- Supports keyboard access, focus handoff, and `prefers-reduced-motion`
-- Test the intro again with `index.html?intro=1` or reset with `sessionStorage.removeItem("portfolioIntroSeen")`
-- Confirms M2.1.1 is only an intro layer, not another homepage redesign
-
-Milestone 2.1.2 cleans up public-facing personal brand copy:
-
-- Reframed homepage, page shells, project previews, practice items, and notes around Harry Chan's professional portfolio direction
-- Changed visible navigation from Homework to Lab while preserving the `homework.html` route
-- Replaced student-submission and page-specification wording with concise visitor-facing English and Traditional Chinese copy
-- Preserved the fullscreen intro, multi-page navigation, language toggle, auto-hide header, existing layouts, and static Vite setup
-
-## Phone Preview
-
-To test the site on a phone:
-
-1. Run `npm run dev:host`.
-2. In Windows PowerShell, run `ipconfig`.
-3. Find the computer's IPv4 address, such as `192.168.1.25`.
-4. On the phone, open `http://<IPv4>:5173`, replacing `<IPv4>` with that address.
-5. Make sure the phone and computer are on the same Wi-Fi network.
-6. If the phone cannot connect, allow Node.js through Windows Firewall and try again.
+- Build Logs
+- Technical Notes
+- AI Workflow Notes
+- Reflections
+- Project Decisions
 
 ## Placeholder Content
 
-Some links currently use placeholders in `src/data.js`:
+Some links are still placeholders:
 
 - Email address
+- Resume
 - Portfolio URL
 - Project live demos
-- Project source code
+- Project source-code links
 - Project notes
-- Blog note pages
+- Full article pages
 
-Replace these when the real links are ready.
+Placeholders must remain clearly marked or non-interactive until real destinations are available.
 
-Current real contact link:
+Current real public link:
 
 - GitHub: <https://github.com/HarryWhite-TW>
 
-## Planned Next Milestones
+## Milestone Status
 
-- M2.2: Build the full Portfolio project showcase.
-- M2.3: Build the full centralized Homework hub.
-- M2.4: Expand Blog, About, and Contact content.
-- M2.5: Polish the visual system and responsive layouts.
-- M2.6: Deployment and QA.
-- Add Chinese pages under `/zh/`.
-- Add real project screenshots and links.
-- Configure and deploy to GitHub Pages.
+### Completed
+
+- M1.x — initial visual system, responsive homepage, mission-control direction, layout stabilization, and interactive polish
+- M2.0 — multi-page architecture
+- M2.0.1 — page-shell and language stabilization
+- M2.1 — Home redesigned as a brand gateway
+- M2.1.1 — fullscreen intro
+- M2.1.2 — professional public-copy cleanup
+- M2.1R — architecture, brand positioning, Practice Lab terminology, and documentation alignment
+
+### Next
+
+#### M2.1T — Intro transition polish
+
+- Improve the transition from the fullscreen intro to Home
+- Establish a continuous motion language
+- Preserve keyboard access, reduced-motion support, and mobile usability
+
+#### M2.2 — Portfolio core
+
+- Select two or three representative projects
+- Add real screenshots and case-study content
+- Connect valid Demo, Source, and Build Log links
+
+#### M2.3 — Practice Lab
+
+- Organize current builds and HW records
+- Add purpose, practice focus, validation, and real links
+
+#### M2.4 — Blog, About, and Contact content
+
+- Add real engineering notes
+- Complete the personal narrative
+- Add reliable contact and resume paths
+
+#### M2.5 — Visual and motion polish
+
+- Refine design tokens and motion tokens
+- Improve page transitions and responsive layouts
+- Reduce repeated card rhythms
+
+#### M2.6 — Deployment and QA
+
+- Production build
+- GitHub Pages deployment
+- Link validation
+- Language validation
+- Intro and transition validation
+- Keyboard and reduced-motion validation
+- Desktop, tablet, and mobile QA
+
+## Working Rules
+
+- Update the architecture plan before making a major direction change.
+- Keep visitor-facing copy free of internal milestone and page-specification language.
+- Prefer real project content over additional decorative effects.
+- Keep each milestone small, reviewable, build-validated, committed, and pushed.
+- Do not add a heavy framework or animation library without a demonstrated need.
