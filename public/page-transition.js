@@ -2,8 +2,8 @@
   var root = document.documentElement;
   var transitionKey = 'portfolioPageTransition';
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var leaveDelay = reducedMotion ? 80 : 220;
-  var enterCleanupDelay = reducedMotion ? 140 : 560;
+  var leaveDelay = reducedMotion ? 45 : 120;
+  var enterCleanupDelay = reducedMotion ? 110 : 360;
   var navigating = false;
 
   function clearTransitionState() {
@@ -129,9 +129,8 @@
     navigating = false;
   });
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', revealPage, { once: true });
-  } else {
-    revealPage();
-  }
+  // This script is loaded with defer, so the document has already been parsed.
+  // Reveal immediately instead of waiting for DOMContentLoaded, which also waits
+  // for the Vite module graph and caused the transition cover to linger.
+  revealPage();
 })();
