@@ -3,74 +3,476 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Selected projects from Harry Chan across AI applications, web experiences, QA practice, and automation experiments." />
+    <meta
+      name="description"
+      content="Selected engineering case studies from Harry Chan across local-first AI applications, deterministic backend guardrails, QA, and web experience development."
+    />
     <title>Portfolio | Harry Chan</title>
     <script src="./page-transition-prepaint.js"></script>
-    <style>html,body{min-width:320px;margin:0;background:#07091a;color:#fff;color-scheme:dark;}</style>
+    <style>
+      html,
+      body {
+        min-width: 320px;
+        margin: 0;
+        background: #07091a;
+        color: #fff;
+        color-scheme: dark;
+      }
+    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./page-transition.css" />
+    <link rel="stylesheet" href="/src/portfolio-case-studies.css" />
     <script defer src="./page-transition.js"></script>
   </head>
   <body class="bg-night text-white antialiased">
     <div class="site-shell min-h-screen overflow-hidden">
       <div class="top-hover-zone" id="top-hover-zone" aria-hidden="true"></div>
-      <header class="site-header fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-night/70 backdrop-blur-xl" id="site-header">
+      <header
+        class="site-header fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-night/70 backdrop-blur-xl"
+        id="site-header"
+      >
         <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 lg:px-8">
-          <a class="flex shrink-0 items-center gap-3" href="index.html" aria-label="Harry Chan home" data-i18n-aria="brandAria"><span class="brand-mark">HC</span><span class="brand-wordmark text-sm font-black uppercase text-white">Harry Chan</span></a>
-          <button class="glass-icon md:hidden" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+          <a class="flex shrink-0 items-center gap-3" href="index.html" aria-label="Harry Chan home" data-i18n-aria="brandAria">
+            <span class="brand-mark">HC</span>
+            <span class="brand-wordmark text-sm font-black uppercase text-white">Harry Chan</span>
+          </a>
+
+          <button
+            class="glass-icon md:hidden"
+            id="menu-toggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
           <div class="hidden items-center gap-5 xl:gap-8 md:flex">
-            <a class="nav-link" href="index.html" data-i18n="navHome">Home</a><a class="nav-link" href="portfolio.html" data-i18n="navPortfolio">Portfolio</a><a class="nav-link" href="homework.html" data-i18n="navHomework">Lab</a><a class="nav-link" href="blog.html" data-i18n="navBlog">Blog</a><a class="nav-link" href="about.html" data-i18n="navAbout">About</a><a class="nav-link" href="contact.html" data-i18n="navContact">Contact</a>
+            <a class="nav-link" href="index.html" data-i18n="navHome">Home</a>
+            <a class="nav-link" href="portfolio.html" data-i18n="navPortfolio">Portfolio</a>
+            <a class="nav-link" href="homework.html" data-i18n="navHomework">Lab</a>
+            <a class="nav-link" href="blog.html" data-i18n="navBlog">Blog</a>
+            <a class="nav-link" href="about.html" data-i18n="navAbout">About</a>
+            <a class="nav-link" href="contact.html" data-i18n="navContact">Contact</a>
           </div>
-          <div class="hidden shrink-0 items-center gap-2 md:flex"><a class="language-pill active" href="index.html">EN</a><span class="text-white/30">/</span><a class="language-pill" href="#">中文</a><a class="nav-github-link" href="https://github.com/HarryWhite-TW" target="_blank" rel="noreferrer">GitHub</a></div>
+
+          <div class="hidden shrink-0 items-center gap-2 md:flex">
+            <a class="language-pill active" href="index.html">EN</a>
+            <span class="text-white/30">/</span>
+            <a class="language-pill" href="#">中文</a>
+            <a class="nav-github-link" href="https://github.com/HarryWhite-TW" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
         </nav>
+
         <div class="mobile-panel hidden border-t border-white/10 bg-night/95 px-5 py-5 backdrop-blur-xl md:hidden" id="mobile-menu">
-          <a class="mobile-link" href="index.html" data-i18n="navHome">Home</a><a class="mobile-link" href="portfolio.html" data-i18n="navPortfolio">Portfolio</a><a class="mobile-link" href="homework.html" data-i18n="navHomework">Lab</a><a class="mobile-link" href="blog.html" data-i18n="navBlog">Blog</a><a class="mobile-link" href="about.html" data-i18n="navAbout">About</a><a class="mobile-link" href="contact.html" data-i18n="navContact">Contact</a><a class="mobile-link" href="https://github.com/HarryWhite-TW" target="_blank" rel="noreferrer">GitHub</a>
-          <div class="mt-4 flex items-center gap-2"><a class="language-pill active" href="index.html">EN</a><span class="text-white/30">/</span><a class="language-pill" href="#">中文</a></div>
+          <a class="mobile-link" href="index.html" data-i18n="navHome">Home</a>
+          <a class="mobile-link" href="portfolio.html" data-i18n="navPortfolio">Portfolio</a>
+          <a class="mobile-link" href="homework.html" data-i18n="navHomework">Lab</a>
+          <a class="mobile-link" href="blog.html" data-i18n="navBlog">Blog</a>
+          <a class="mobile-link" href="about.html" data-i18n="navAbout">About</a>
+          <a class="mobile-link" href="contact.html" data-i18n="navContact">Contact</a>
+          <a class="mobile-link" href="https://github.com/HarryWhite-TW" target="_blank" rel="noreferrer">GitHub</a>
+          <div class="mt-4 flex items-center gap-2">
+            <a class="language-pill active" href="index.html">EN</a>
+            <span class="text-white/30">/</span>
+            <a class="language-pill" href="#">中文</a>
+          </div>
         </div>
       </header>
 
-      <main>
+      <main class="portfolio-main">
         <section class="page-hero px-5 lg:px-8">
           <div class="mx-auto max-w-7xl">
-            <p class="eyebrow" data-copy-en="Portfolio" data-copy-zh="作品集">Portfolio</p>
-            <h1 data-copy-en="Selected projects across AI, web, QA, and automation." data-copy-zh="橫跨 AI、網頁、QA 與自動化的精選作品。">Selected projects across AI, web, QA, and automation.</h1>
-            <p data-copy-en="A focused view of what I am building now: practical interfaces, AI-assisted workflows, quality-minded experiments, and public source history." data-copy-zh="聚焦目前正在累積的作品：實用介面、AI 輔助工作流、重視品質的實驗，以及公開的原始碼紀錄。">A focused view of what I am building now: practical interfaces, AI-assisted workflows, quality-minded experiments, and public source history.</p>
-            <p class="page-hero-note" data-copy-en="Case studies and live links will be added as each project is ready." data-copy-zh="每個作品整理完成後，會陸續補上案例說明與展示連結。">Case studies and live links will be added as each project is ready.</p>
-          </div>
-        </section>
-
-        <section class="page-section px-5 lg:px-8">
-          <div class="mx-auto max-w-7xl">
-            <div class="section-heading">
-              <p class="eyebrow" data-copy-en="Categories" data-copy-zh="分類">Categories</p>
-              <h2 data-copy-en="Ways to read the work." data-copy-zh="從不同角度閱讀作品。">Ways to read the work.</h2>
-              <p data-copy-en="Each category reflects a current skill direction and the kind of engineering practice behind it." data-copy-zh="每個分類都對應目前的技能方向，以及背後累積的工程實作。">Each category reflects a current skill direction and the kind of engineering practice behind it.</p>
-            </div>
-            <div class="page-grid mt-8">
-              <article class="page-card"><span data-copy-en="Featured" data-copy-zh="精選">Featured</span><h3 data-copy-en="Representative builds" data-copy-zh="代表作品">Representative builds</h3><p data-copy-en="Projects selected for clarity, learning value, and relevance to my current direction." data-copy-zh="依照清晰度、學習價值與目前方向挑選出的作品。">Projects selected for clarity, learning value, and relevance to my current direction.</p></article>
-              <article class="page-card"><span data-copy-en="AI Application" data-copy-zh="AI 應用">AI Application</span><h3 data-copy-en="AI-assisted workflows" data-copy-zh="AI 輔助工作流">AI-assisted workflows</h3><p data-copy-en="Prompt design, generated assets, interaction ideas, and responsible presentation." data-copy-zh="提示設計、生成素材、互動想法與負責任的呈現方式。">Prompt design, generated assets, interaction ideas, and responsible presentation.</p></article>
-              <article class="page-card"><span data-copy-en="Web UI / Frontend" data-copy-zh="Web UI / 前端">Web UI / Frontend</span><h3 data-copy-en="Interface builds" data-copy-zh="介面實作">Interface builds</h3><p data-copy-en="Responsive static interfaces using Vite, Tailwind CSS, and Vanilla JavaScript." data-copy-zh="使用 Vite、Tailwind CSS 與 Vanilla JavaScript 建置的響應式靜態介面。">Responsive static interfaces using Vite, Tailwind CSS, and Vanilla JavaScript.</p></article>
-              <article class="page-card"><span data-copy-en="Practice Lab" data-copy-zh="實作紀錄">Practice Lab</span><h3 data-copy-en="Hands-on exercises" data-copy-zh="動手練習">Hands-on exercises</h3><p data-copy-en="Coursework and experiments reframed as practical engineering growth." data-copy-zh="把課程專案與實驗整理成可追蹤的工程成長紀錄。">Coursework and experiments reframed as practical engineering growth.</p></article>
-              <article class="page-card"><span data-copy-en="QA Testing" data-copy-zh="QA 測試">QA Testing</span><h3 data-copy-en="Quality habits" data-copy-zh="品質習慣">Quality habits</h3><p data-copy-en="Checks for behavior, links, layout, accessibility, and edge cases." data-copy-zh="檢查行為、連結、版面、可及性與邊界情境。">Checks for behavior, links, layout, accessibility, and edge cases.</p></article>
-              <article class="page-card"><span data-copy-en="Automation" data-copy-zh="自動化">Automation</span><h3 data-copy-en="Workflow experiments" data-copy-zh="流程實驗">Workflow experiments</h3><p data-copy-en="Repeatable build, review, and publishing workflows." data-copy-zh="可重複的建置、檢查與發布流程。">Repeatable build, review, and publishing workflows.</p></article>
+            <p class="eyebrow" data-copy-en="Selected Engineering Work" data-copy-zh="精選工程作品">Selected Engineering Work</p>
+            <h1
+              data-copy-en="Real projects, documented decisions, and testable boundaries."
+              data-copy-zh="以真實專案、可追溯決策與可驗證邊界呈現工程實作。"
+            >
+              Real projects, documented decisions, and testable boundaries.
+            </h1>
+            <p
+              data-copy-en="Three case studies that represent my current direction: a local-first document workbench, a deterministic input guardrail core, and the portfolio platform used to present the work."
+              data-copy-zh="三個代表目前方向的案例：本機優先的文件知識工作台、確定性輸入防護核心，以及用來呈現作品的個人品牌平台。"
+            >
+              Three case studies that represent my current direction: a local-first document workbench, a deterministic input guardrail core, and the portfolio platform used to present the work.
+            </p>
+            <div class="portfolio-intro-strip" aria-label="Portfolio focus areas">
+              <span data-copy-en="AI Application" data-copy-zh="AI 應用">AI Application</span>
+              <span data-copy-en="Backend + QA" data-copy-zh="後端＋QA">Backend + QA</span>
+              <span data-copy-en="Local-first" data-copy-zh="本機優先">Local-first</span>
+              <span data-copy-en="Web Experience" data-copy-zh="網頁體驗">Web Experience</span>
             </div>
           </div>
         </section>
 
-        <section class="page-section px-5 lg:px-8">
-          <div class="mx-auto max-w-7xl">
-            <div class="architecture-panel">
-              <p class="eyebrow" data-copy-en="Project Index" data-copy-zh="作品索引">Project Index</p>
-              <h2 data-copy-en="Detailed project cards are coming soon." data-copy-zh="詳細作品卡片即將補上。">Detailed project cards are coming soon.</h2>
-              <p data-copy-en="The next pass will add stronger project summaries, status labels, demo links, GitHub source links, and build notes as the work is prepared." data-copy-zh="接下來會在作品整理完成後，補上更完整的摘要、狀態、展示連結、GitHub 原始碼與建置筆記。">The next pass will add stronger project summaries, status labels, demo links, GitHub source links, and build notes as the work is prepared.</p>
+        <section class="portfolio-story-section" aria-labelledby="law-title">
+          <article class="portfolio-story-shell featured-story">
+            <div class="portfolio-story-copy">
+              <div class="project-kicker-row">
+                <span class="project-status" data-copy-en="Local demo / In development" data-copy-zh="本機展示／持續開發中">
+                  Local demo / In development
+                </span>
+                <span class="project-index">01 / FLAGSHIP</span>
+              </div>
+              <h2 id="law-title" data-copy-en="Local AI Workbench" data-copy-zh="本機 AI 文件知識工作台">
+                Local AI Workbench
+              </h2>
+              <p
+                class="project-lead"
+                data-copy-en="A local-first document-to-knowledge workbench for scanning, searching, reviewing, summarizing, auditing, and exporting local document knowledge artifacts."
+                data-copy-zh="一套以本機優先為核心的文件知識工作台，用於掃描、搜尋、檢視、摘要、稽核與匯出本機文件知識成果。"
+              >
+                A local-first document-to-knowledge workbench for scanning, searching, reviewing, summarizing, auditing, and exporting local document knowledge artifacts.
+              </p>
+
+              <div class="project-tags" aria-label="Local AI Workbench technologies">
+                <span class="project-tag">FastAPI</span>
+                <span class="project-tag">Python</span>
+                <span class="project-tag">SQLite</span>
+                <span class="project-tag">React</span>
+                <span class="project-tag">TypeScript</span>
+                <span class="project-tag">Vite</span>
+              </div>
+
+              <div class="project-proof-grid">
+                <div class="project-proof-item">
+                  <strong data-copy-en="Local-first boundary" data-copy-zh="本機優先邊界">Local-first boundary</strong>
+                  <span
+                    data-copy-en="Source documents remain local and the product runtime avoids uncontrolled writeback."
+                    data-copy-zh="來源文件保留在本機，產品執行階段不進行未受控寫回。"
+                  >
+                    Source documents remain local and the product runtime avoids uncontrolled writeback.
+                  </span>
+                </div>
+                <div class="project-proof-item">
+                  <strong data-copy-en="Reviewable workflow" data-copy-zh="可審查流程">Reviewable workflow</strong>
+                  <span
+                    data-copy-en="Scan, search, inspect, summarize, preview Markdown, check destination, then export."
+                    data-copy-zh="掃描、搜尋、檢視、摘要、預覽 Markdown、檢查目的地，再進行匯出。"
+                  >
+                    Scan, search, inspect, summarize, preview Markdown, check destination, then export.
+                  </span>
+                </div>
+                <div class="project-proof-item">
+                  <strong data-copy-en="Explicit product limits" data-copy-zh="明確產品限制">Explicit product limits</strong>
+                  <span
+                    data-copy-en="No public SaaS claim, autonomous product writeback, OCR, or semantic search in the current baseline."
+                    data-copy-zh="目前基線不宣稱公開 SaaS、自主產品寫回、OCR 或語意搜尋。"
+                  >
+                    No public SaaS claim, autonomous product writeback, OCR, or semantic search in the current baseline.
+                  </span>
+                </div>
+                <div class="project-proof-item">
+                  <strong data-copy-en="Test and audit evidence" data-copy-zh="測試與稽核證據">Test and audit evidence</strong>
+                  <span
+                    data-copy-en="Automated tests, destination checks, local artifacts, and visible audit context support review."
+                    data-copy-zh="自動化測試、目的地檢查、本機成果與可見稽核脈絡支援審查。"
+                  >
+                    Automated tests, destination checks, local artifacts, and visible audit context support review.
+                  </span>
+                </div>
+              </div>
+
+              <div class="project-links">
+                <a
+                  class="project-primary-link"
+                  href="https://github.com/HarryWhite-TW/local-ai-workbench"
+                  target="_blank"
+                  rel="noreferrer"
+                  data-copy-en="View Source"
+                  data-copy-zh="查看原始碼"
+                >
+                  View Source
+                </a>
+                <a
+                  class="project-secondary-link"
+                  href="https://github.com/HarryWhite-TW/local-ai-workbench#workbench-demo-walkthrough"
+                  target="_blank"
+                  rel="noreferrer"
+                  data-copy-en="Demo Guide"
+                  data-copy-zh="展示指南"
+                >
+                  Demo Guide
+                </a>
+                <span class="project-local-note" data-copy-en="Local runtime" data-copy-zh="本機執行">Local runtime</span>
+              </div>
+            </div>
+
+            <div class="portfolio-story-visual" aria-label="Local AI Workbench interface concept">
+              <div class="visual-window">
+                <div class="visual-window-bar">
+                  <div class="visual-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+                  <span>localhost / document-workbench</span>
+                </div>
+                <div class="workbench-grid" aria-hidden="true">
+                  <div class="workbench-pane">
+                    <span class="workbench-label">Documents</span>
+                    <div class="workbench-search"></div>
+                    <div class="workbench-list"><i></i><i></i><i></i><i></i><i></i></div>
+                  </div>
+                  <div class="workbench-pane">
+                    <span class="workbench-label">Document Detail</span>
+                    <div class="workbench-document"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                  </div>
+                  <div class="workbench-pane">
+                    <span class="workbench-label">Summary + Audit</span>
+                    <div class="workbench-summary-card">
+                      <strong>Deterministic summary</strong>
+                      <p>Preview, destination status, and export context remain visible before local write.</p>
+                    </div>
+                    <div class="audit-strip"><span></span><span></span><span></span><span></span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="portfolio-story-section" aria-labelledby="reverb-title">
+          <article class="portfolio-story-shell supporting-story visual-first">
+            <div class="portfolio-story-visual" aria-label="Reverb deterministic pipeline concept">
+              <div class="pipeline-visual">
+                <div class="pipeline-heading">
+                  <strong>Deterministic Pipeline</strong>
+                  <span>ProcessingResult</span>
+                </div>
+                <div class="pipeline-flow" aria-hidden="true">
+                  <div class="pipeline-node"><span>type_guard</span><em>validate</em></div>
+                  <div class="pipeline-node"><span>strip_spaces</span><em>normalize</em></div>
+                  <div class="pipeline-node"><span>trim_edges</span><em>clean</em></div>
+                  <div class="pipeline-node"><span>collapse_spaces</span><em>normalize</em></div>
+                  <div class="pipeline-node highlight"><span>fallback_if_empty</span><em>early return</em></div>
+                  <div class="pipeline-node"><span>symbol_cleaner</span><em>normalize</em></div>
+                  <div class="pipeline-node highlight"><span>final result</span><em>contract</em></div>
+                </div>
+                <div class="contract-pills" aria-hidden="true">
+                  <span>StepEvent</span>
+                  <span>ErrorItem</span>
+                  <span>correlation_id</span>
+                  <span>CLI / JSON</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-story-copy">
+              <div class="project-kicker-row">
+                <span class="project-status" data-copy-en="Demo-ready core" data-copy-zh="可展示核心">Demo-ready core</span>
+                <span class="project-index">02 / BACKEND + QA</span>
+              </div>
+              <h2 id="reverb-title" data-copy-en="Reverb Core" data-copy-zh="Reverb 確定性輸入防護核心">Reverb Core</h2>
+              <p
+                class="project-lead"
+                data-copy-en="A contract-first deterministic input guardrail layer that makes preprocessing behavior observable, traceable, and test-protected."
+                data-copy-zh="一套以合約為核心的確定性輸入防護層，讓前處理行為可觀測、可追蹤並受到測試保護。"
+              >
+                A contract-first deterministic input guardrail layer that makes preprocessing behavior observable, traceable, and test-protected.
+              </p>
+
+              <div class="project-tags" aria-label="Reverb Core technologies">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">Pytest</span>
+                <span class="project-tag">Streamlit</span>
+                <span class="project-tag">Docker</span>
+                <span class="project-tag">CLI</span>
+                <span class="project-tag">JSON</span>
+              </div>
+
+              <div class="project-proof-grid">
+                <div class="project-proof-item">
+                  <strong data-copy-en="Stable contracts" data-copy-zh="穩定合約">Stable contracts</strong>
+                  <span data-copy-en="ProcessingResult, StepEvent, ErrorItem, and per-call correlation IDs." data-copy-zh="ProcessingResult、StepEvent、ErrorItem 與每次呼叫的 correlation ID。">
+                    ProcessingResult, StepEvent, ErrorItem, and per-call correlation IDs.
+                  </span>
+                </div>
+                <div class="project-proof-item">
+                  <strong data-copy-en="Layered testing" data-copy-zh="分層測試">Layered testing</strong>
+                  <span data-copy-en="Unit, integration, contract, e2e, regression, CLI, and public API checks." data-copy-zh="單元、整合、合約、端對端、回歸、CLI 與公開 API 檢查。">
+                    Unit, integration, contract, e2e, regression, CLI, and public API checks.
+                  </span>
+                </div>
+                <div class="project-proof-item">
+                  <strong data-copy-en="Multiple demo surfaces" data-copy-zh="多種展示介面">Multiple demo surfaces</strong>
+                  <span data-copy-en="CLI, JSON mode, Docker, and an optional bilingual Streamlit inspector." data-copy-zh="CLI、JSON 模式、Docker，以及可選的雙語 Streamlit 檢視器。">
+                    CLI, JSON mode, Docker, and an optional bilingual Streamlit inspector.
+                  </span>
+                </div>
+                <div class="project-proof-item">
+                  <strong data-copy-en="Honest scope" data-copy-zh="誠實範圍">Honest scope</strong>
+                  <span data-copy-en="Not presented as a production SDK, model runtime, or completed API integration." data-copy-zh="不宣稱為正式 SDK、模型執行環境或已完成的 API 整合。">
+                    Not presented as a production SDK, model runtime, or completed API integration.
+                  </span>
+                </div>
+              </div>
+
+              <div class="project-links">
+                <a
+                  class="project-primary-link"
+                  href="https://github.com/HarryWhite-TW/reverb-core"
+                  target="_blank"
+                  rel="noreferrer"
+                  data-copy-en="View Source"
+                  data-copy-zh="查看原始碼"
+                >
+                  View Source
+                </a>
+                <a
+                  class="project-secondary-link"
+                  href="https://github.com/HarryWhite-TW/reverb-core/blob/master/docs/INPUT_INSPECTOR_DEMO.md"
+                  target="_blank"
+                  rel="noreferrer"
+                  data-copy-en="Inspector Guide"
+                  data-copy-zh="檢視器指南"
+                >
+                  Inspector Guide
+                </a>
+                <span class="project-local-note" data-copy-en="Local UI + CLI demo" data-copy-zh="本機 UI＋CLI 展示">Local UI + CLI demo</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="portfolio-story-section" aria-labelledby="site-title">
+          <article class="portfolio-story-shell supporting-story">
+            <div class="portfolio-story-copy">
+              <div class="project-kicker-row">
+                <span class="project-status" data-copy-en="In development" data-copy-zh="持續開發中">In development</span>
+                <span class="project-index">03 / WEB EXPERIENCE</span>
+              </div>
+              <h2 id="site-title" data-copy-en="Harry Chan Personal Portfolio" data-copy-zh="Harry Chan 個人品牌作品集">
+                Harry Chan Personal Portfolio
+              </h2>
+              <p
+                class="project-lead"
+                data-copy-en="A bilingual multi-page personal brand website for presenting selected projects, practice records, engineering notes, and professional direction."
+                data-copy-zh="一個雙語多頁式個人品牌網站，用於呈現精選作品、實作紀錄、工程筆記與專業方向。"
+              >
+                A bilingual multi-page personal brand website for presenting selected projects, practice records, engineering notes, and professional direction.
+              </p>
+
+              <div class="project-tags" aria-label="Portfolio technologies">
+                <span class="project-tag">Vite</span>
+                <span class="project-tag">Tailwind CSS</span>
+                <span class="project-tag">Vanilla JavaScript</span>
+                <span class="project-tag">Static HTML</span>
+                <span class="project-tag">GitHub Pages target</span>
+              </div>
+
+              <div class="project-proof-grid">
+                <div class="project-proof-item">
+                  <strong data-copy-en="Multi-page architecture" data-copy-zh="多頁式架構">Multi-page architecture</strong>
+                  <span data-copy-en="Home, Portfolio, Practice Lab, Blog, About, and Contact have separate responsibilities." data-copy-zh="首頁、作品集、實作、筆記、關於與聯絡各自具有明確責任。">
+                    Home, Portfolio, Practice Lab, Blog, About, and Contact have separate responsibilities.
+                  </span>
+                </div>
+                <div class="project-proof-item">
+                  <strong data-copy-en="Bilingual presentation" data-copy-zh="雙語呈現">Bilingual presentation</strong>
+                  <span data-copy-en="English and Traditional Chinese copy share the same page structure and navigation." data-copy-zh="英文與繁體中文共用相同頁面結構與導覽。">
+                    English and Traditional Chinese copy share the same page structure and navigation.
+                  </span>
+                </div>
+                <div class="project-proof-item">
+                  <strong data-copy-en="Progressive interaction" data-copy-zh="漸進式互動">Progressive interaction</strong>
+                  <span data-copy-en="Session-based intro, keyboard handling, reduced motion, responsive navigation, and stable page switching." data-copy-zh="單次工作階段 Intro、鍵盤處理、減少動態、響應式導覽與穩定頁面切換。">
+                    Session-based intro, keyboard handling, reduced motion, responsive navigation, and stable page switching.
+                  </span>
+                </div>
+                <div class="project-proof-item">
+                  <strong data-copy-en="Static deployment path" data-copy-zh="靜態部署路徑">Static deployment path</strong>
+                  <span data-copy-en="The current architecture remains compatible with GitHub Pages and a future custom domain." data-copy-zh="目前架構仍相容 GitHub Pages 與未來自訂網域。">
+                    The current architecture remains compatible with GitHub Pages and a future custom domain.
+                  </span>
+                </div>
+              </div>
+
+              <div class="project-links">
+                <a
+                  class="project-primary-link"
+                  href="https://github.com/HarryWhite-TW/portfolio-site"
+                  target="_blank"
+                  rel="noreferrer"
+                  data-copy-en="View Source"
+                  data-copy-zh="查看原始碼"
+                >
+                  View Source
+                </a>
+                <a
+                  class="project-secondary-link"
+                  href="about.html"
+                  data-copy-en="About the Direction"
+                  data-copy-zh="了解發展方向"
+                >
+                  About the Direction
+                </a>
+                <span class="project-local-note" data-copy-en="Public URL pending" data-copy-zh="公開網址準備中">Public URL pending</span>
+              </div>
+            </div>
+
+            <div class="portfolio-story-visual" aria-label="Personal portfolio interface concept">
+              <div class="site-preview" aria-hidden="true">
+                <div class="site-preview-nav">
+                  <div class="site-preview-brand"></div>
+                  <div class="site-preview-links"><i></i><i></i><i></i><i></i><i></i></div>
+                </div>
+                <div class="site-preview-body">
+                  <div class="site-preview-hero">
+                    <div class="site-preview-copy"><strong></strong><i></i><i></i><i></i></div>
+                    <div class="site-preview-orbit"></div>
+                  </div>
+                  <div class="site-preview-cards"><i></i><i></i><i></i></div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="portfolio-story-section" aria-labelledby="portfolio-next-title">
+          <div class="portfolio-closing-panel">
+            <p class="eyebrow" data-copy-en="More Work" data-copy-zh="更多作品">More Work</p>
+            <h2
+              id="portfolio-next-title"
+              data-copy-en="Smaller builds and course projects remain visible in the Practice Lab."
+              data-copy-zh="較小型的實作與課程專案仍會完整保留在實作紀錄中。"
+            >
+              Smaller builds and course projects remain visible in the Practice Lab.
+            </h2>
+            <p
+              data-copy-en="The main Portfolio stays focused on a few deep engineering stories, while the Lab keeps the broader learning and publishing history accessible."
+              data-copy-zh="主要作品集聚焦少數深入工程案例，實作紀錄則保留更完整的學習與發布歷程。"
+            >
+              The main Portfolio stays focused on a few deep engineering stories, while the Lab keeps the broader learning and publishing history accessible.
+            </p>
+            <div class="project-links">
+              <a class="project-secondary-link" href="homework.html" data-copy-en="Open Practice Lab" data-copy-zh="開啟實作紀錄">
+                Open Practice Lab
+              </a>
+              <a
+                class="project-secondary-link"
+                href="https://github.com/HarryWhite-TW"
+                target="_blank"
+                rel="noreferrer"
+                data-copy-en="Browse GitHub"
+                data-copy-zh="瀏覽 GitHub"
+              >
+                Browse GitHub
+              </a>
             </div>
           </div>
         </section>
       </main>
 
-      <footer class="border-t border-white/10 px-5 py-8 lg:px-8"><div class="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-slate-400 md:flex-row md:items-center md:justify-between"><p data-i18n="footerLeft">Harry Chan Portfolio / Personal Brand, AI Practice, and Engineering Notes</p><p data-i18n="footerRight">&copy; 2026 Harry Chan. Built with Vite, Tailwind CSS, and Vanilla JavaScript.</p></div></footer>
+      <footer class="border-t border-white/10 px-5 py-8 lg:px-8">
+        <div class="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
+          <p data-i18n="footerLeft">Harry Chan Portfolio / Personal Brand, AI Practice, and Engineering Notes</p>
+          <p data-i18n="footerRight">&copy; 2026 Harry Chan. Built with Vite, Tailwind CSS, and Vanilla JavaScript.</p>
+        </div>
+      </footer>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>
