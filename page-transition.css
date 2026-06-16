@@ -1,0 +1,13 @@
+/*
+ * Runtime page-transition hook.
+ * The approved static-site navigation currently uses a minimal transition model.
+ * This file exists so production builds and deployed pages do not request a missing asset.
+ */
+
+html {
+  background: #07091a;
+}
+
+body {
+  background: #07091a;
+}
