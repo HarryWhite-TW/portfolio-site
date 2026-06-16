@@ -1,21 +1,20 @@
 # Harry Chan Personal Portfolio
 
-A multi-page personal brand and engineering portfolio for Harry Chan / HarryWhite-TW.
+A public candidate version of Harry Chan's personal brand and engineering portfolio.
 
-The site presents selected AI, web, automation, QA, and hands-on engineering work through project showcases, practice records, build notes, and a clear personal direction.
+This site is not a homework submission site and is not yet positioned as a final professional resume site. It is a deployment candidate for presenting selected projects, practice evidence, engineering notes, background, and verified public contact paths.
 
-## Current Direction
+## Project Positioning
 
-The website is designed as:
+The website is designed to support:
 
-- a professional portfolio;
-- a resume extension;
-- a project showcase;
-- a Practice Lab for smaller builds and experiments;
-- an engineering notes and learning record;
-- a personal brand entry point for interviews, collaboration, and public sharing.
+- selected engineering case studies;
+- a Practice Lab for course-related work, small builds, and implementation evidence;
+- engineering notes about reusable working methods, validation discipline, frontend quality, and AI collaboration;
+- background, QA-minded direction, engineering principles, and toolkit;
+- public paths for GitHub, portfolio navigation, practice evidence, and notes.
 
-The site is not positioned as a homework submission page. Course-related work may appear inside the Practice Lab, but the public narrative focuses on what was built, how it was validated, what was learned, and how the work is improving.
+Course-related work may appear inside the Practice Lab, but the public narrative focuses on what was built, how it was validated, what was learned, and how the work is improving.
 
 The long-term architecture and copy rules are defined in:
 
@@ -32,7 +31,7 @@ The long-term architecture and copy rules are defined in:
 - No database
 - No paid service requirement
 
-The current stack is intentionally lightweight. The main constraints are content quality, case-study structure, visual consistency, and motion design—not framework capability.
+The current stack is intentionally lightweight. The main constraints are content quality, case-study structure, visual consistency, motion behavior, accessibility sanity checks, and deployment readiness.
 
 ## Local Development
 
@@ -68,24 +67,24 @@ npm run preview
 
 ## Available Pages
 
-- `index.html` — fullscreen intro and Home brand gateway
-- `portfolio.html` — selected project showcase and future case studies
-- `homework.html` — Practice Lab / 實作紀錄; filename retained for route compatibility
-- `blog.html` — Build Logs, technical notes, AI workflow notes, reflections, and project decisions
-- `about.html` — background, direction, skills, working principles, and growth path
-- `contact.html` — GitHub, email, resume, and contact paths
+- `index.html`: Home brand gateway and intro
+- `portfolio.html`: selected engineering case studies
+- `homework.html`: Practice Lab, retaining course and small-build evidence; filename retained for route compatibility
+- `blog.html`: engineering notes about reusable working methods, validation discipline, frontend quality, and AI collaboration
+- `about.html`: background, QA-minded direction, engineering principles, and toolkit
+- `contact.html`: verified public paths only; GitHub, Portfolio, Practice Lab, and Notes first; email and resume intentionally withheld until privacy review
 
 ## Navigation Labels
 
 Public navigation uses:
 
-- Home / 首頁
-- Portfolio / 作品集
-- Lab / 實作
-- Blog / 筆記
-- About / 關於
-- Contact / 聯絡
-- EN / 中文
+- Home
+- Portfolio
+- Lab
+- Blog
+- About
+- Contact
+- EN
 - GitHub
 
 The public label is `Lab`; the route remains `homework.html` to avoid breaking existing links.
@@ -121,18 +120,20 @@ Or reset it in the browser console:
 sessionStorage.removeItem("portfolioIntroSeen")
 ```
 
-### Brand-copy cleanup
+### Public copy and content foundation
 
-- Visitor-facing copy now focuses on projects, practice, engineering decisions, and ongoing development
+- Visitor-facing copy focuses on projects, practice, engineering decisions, and ongoing development
 - Visible navigation changed from Homework to Lab
-- Removed teacher-inspection, assignment-submission, page-shell, and milestone language from public pages
-- Preserved the existing routes, layout system, language switch, and intro behavior
+- Homework-related evidence is retained as Practice Lab material
+- Blog, About, and Contact pages have public-candidate content foundations
+- Contact avoids unverified private paths until deployment and privacy review
+- Routes, layout system, language switch, and intro behavior remain stable
 
 ## Content Model
 
 ### Portfolio
 
-Mature project entries should eventually include:
+Mature project entries should include:
 
 - project value and context;
 - representative screenshots;
@@ -142,7 +143,7 @@ Mature project entries should eventually include:
 - engineering decisions;
 - testing or validation;
 - current result and limitations;
-- Live Demo, GitHub Source, and Build Log links.
+- Live Demo, GitHub Source, and Build Log links where available.
 
 ### Practice Lab
 
@@ -153,95 +154,76 @@ Smaller builds and exercises should include:
 - technology stack;
 - current status;
 - validation or testing;
-- Demo, Source, and Notes links.
+- Demo, Source, and Notes links where available.
 
 HW identifiers may remain for traceability, but they should not define the website's public identity.
 
 ### Blog / Notes
 
-Planned editorial categories:
+Current editorial direction:
 
-- Build Logs
-- Technical Notes
-- AI Workflow Notes
-- Reflections
-- Project Decisions
+- reusable working methods;
+- validation discipline;
+- frontend quality;
+- AI collaboration;
+- build decisions and project notes.
 
 ## Placeholder Content
 
-Some links are still placeholders:
+This version is a public candidate, not an empty early shell. Some project demos and public links are already present where available, while other destinations remain intentionally conservative until deployment QA is complete.
 
-- Email address
-- Resume
-- Portfolio URL
-- Project live demos
-- Project source-code links
-- Project notes
-- Full article pages
-
-Placeholders must remain clearly marked or non-interactive until real destinations are available.
+- Email and resume are intentionally withheld until deployment and privacy review.
+- Some project links may still point to placeholder or future-work destinations.
+- Some deeper case-study pages, screenshots, and full article pages remain future improvements.
+- Placeholder or future-work links should remain clearly marked or non-interactive until real destinations are available.
 
 Current real public link:
 
 - GitHub: <https://github.com/HarryWhite-TW>
 
-## Milestone Status
+## Completed Status
 
-### Completed
+- M2.0 multi-page architecture
+- M2.0.1 page shell and language stabilization
+- M2.1 Home brand gateway
+- M2.1.1 fullscreen intro
+- M2.1.2 professional public copy cleanup
+- M2.1R architecture and documentation alignment
+- M2.1T intro transition polish
+- M2.2 Portfolio core case-study structure
+- M2.3 Practice Lab structure and public evidence organization
+- M2.4 Blog / About / Contact content foundation
+- M2.5 visual and motion polish
+- M2.5.1 Blog wording and button alignment refinement
+- M2.6R README / release status alignment
 
-- M1.x — initial visual system, responsive homepage, mission-control direction, layout stabilization, and interactive polish
-- M2.0 — multi-page architecture
-- M2.0.1 — page-shell and language stabilization
-- M2.1 — Home redesigned as a brand gateway
-- M2.1.1 — fullscreen intro
-- M2.1.2 — professional public-copy cleanup
-- M2.1R — architecture, brand positioning, Practice Lab terminology, and documentation alignment
+## Next / Remaining Work
 
-### Next
-
-#### M2.1T — Intro transition polish
-
-- Improve the transition from the fullscreen intro to Home
-- Establish a continuous motion language
-- Preserve keyboard access, reduced-motion support, and mobile usability
-
-#### M2.2 — Portfolio core
-
-- Select two or three representative projects
-- Add real screenshots and case-study content
-- Connect valid Demo, Source, and Build Log links
-
-#### M2.3 — Practice Lab
-
-- Organize current builds and HW records
-- Add purpose, practice focus, validation, and real links
-
-#### M2.4 — Blog, About, and Contact content
-
-- Add real engineering notes
-- Complete the personal narrative
-- Add reliable contact and resume paths
-
-#### M2.5 — Visual and motion polish
-
-- Refine design tokens and motion tokens
-- Improve page transitions and responsive layouts
-- Reduce repeated card rhythms
-
-#### M2.6 — Deployment and QA
+### M2.6Q Local release QA
 
 - Production build
-- GitHub Pages deployment
-- Link validation
-- Language validation
-- Intro and transition validation
-- Keyboard and reduced-motion validation
-- Desktop, tablet, and mobile QA
+- Six-page navigation check
+- Language switching check
+- Internal and external link check
+- Intro replay check
+- Reduced-motion / keyboard sanity check
+
+### M2.7 GitHub Pages deployment
+
+- Deploy public site
+- Verify final URL
+- Update Contact and README with final public URL
+
+### Later improvements
+
+- Stronger project screenshots
+- Deeper case-study pages
+- Optional resume/contact expansion after privacy review
 
 ## Working Rules
 
 - Update the architecture plan before making a major direction change.
 - Keep visitor-facing copy free of internal milestone and page-specification language.
 - Prefer real project content over additional decorative effects.
-- Keep each milestone small, reviewable, build-validated, committed, and pushed.
+- Keep each milestone small, reviewable, and build-validated.
 - Do not add a heavy framework or animation library without a demonstrated need.
