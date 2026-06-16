@@ -24,6 +24,14 @@ const injectSharedStyles = {
           },
           injectTo: 'head',
         },
+        {
+          tag: 'link',
+          attrs: {
+            rel: 'stylesheet',
+            href: '/src/m2-5-polish.css',
+          },
+          injectTo: 'head',
+        },
       ];
     },
   },
