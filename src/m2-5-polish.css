@@ -79,21 +79,50 @@ html[lang='zh-Hant'] body .editorial-main .article-meta {
   padding-inline: 1.2rem;
 }
 
+html body .editorial-main .note-feature .read-link,
+html body .editorial-main .note-feature .read-link:visited,
+html body .editorial-main .note-feature .read-link:hover,
+html body .editorial-main .note-feature .read-link:focus-visible,
+html body .editorial-main .note-feature .read-link:active,
+html body .editorial-main .note-card .read-link,
+html body .editorial-main .note-card .read-link:visited,
+html body .editorial-main .note-card .read-link:hover,
+html body .editorial-main .note-card .read-link:focus-visible,
+html body .editorial-main .note-card .read-link:active {
+  color: #020617;
+  -webkit-text-fill-color: #020617;
+  text-shadow: none;
+}
+
 .lab-card {
   display: flex;
   flex-direction: column;
 }
 
-.lab-card .lab-card-visual {
-  margin-top: auto;
+.lab-feature {
+  display: flex;
+  flex-direction: column;
 }
 
+.lab-card .lab-card-visual {
+  margin-top: 1.15rem;
+}
+
+.lab-feature .lab-visual,
+.lab-card .lab-card-visual {
+  flex: 0 0 auto;
+}
+
+.lab-feature .lab-actions,
 .lab-card .lab-actions {
   min-height: 3rem;
   align-items: center;
-  margin-top: 1.25rem;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 1.25rem;
 }
 
+.lab-feature .lab-link,
 .lab-card .lab-link,
 .lab-card .lab-note {
   min-width: 7.5rem;
@@ -171,6 +200,7 @@ html[lang='zh-Hant'] body .editorial-main .article-meta {
 
   .editorial-actions .editorial-link,
   .editorial-actions .editorial-link.primary,
+  .lab-feature .lab-link,
   .lab-card .lab-link,
   .lab-card .lab-note {
     width: 100%;

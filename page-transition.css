@@ -19,12 +19,12 @@ html.page-transition-preparing body {
 }
 
 html.page-transition-ready body {
-  animation: pageSurfaceIn 180ms ease-out both;
+  animation: pageSurfaceIn var(--motion-fast, 140ms) var(--ease-out, ease-out) both;
 }
 
 html.page-transition-clicked body {
-  opacity: 0.98;
-  transition: opacity 70ms ease;
+  opacity: 0.985;
+  transition: opacity 80ms var(--ease-out, ease-out);
 }
 
 @keyframes pageSurfaceIn {

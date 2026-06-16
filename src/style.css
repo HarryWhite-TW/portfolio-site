@@ -8,6 +8,14 @@
   --violet: 168, 85, 247;
   --pink: 236, 72, 153;
   --amber: 251, 191, 36;
+  --motion-fast: 140ms;
+  --motion-base: 220ms;
+  --motion-slow: 360ms;
+  --motion-hero: 5600ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --focus-ring: 0 0 0 3px rgba(var(--cyan), 0.2);
+  --surface-lift-shadow: 0 34px 90px rgba(0, 0, 0, 0.34), 0 0 42px rgba(var(--cyan), 0.13);
 }
 
 html {
@@ -2679,6 +2687,154 @@ body.intro-active .intro-gate,
 
   .compact-preview-card {
     grid-template-columns: 1fr;
+  }
+}
+
+/* M2.8A motion foundation: subtle, tokenized interactions for static bilingual pages. */
+.glow-button,
+.glass-button,
+.mini-button,
+.text-link,
+.language-pill,
+.nav-github-link,
+.hero-secondary-link,
+.gateway-card,
+.preview-card,
+.compact-preview-card,
+.cta-panel,
+.lab-feature,
+.lab-card,
+.lab-closing-panel,
+.portfolio-story-shell,
+.portfolio-closing-panel,
+.project-proof-item {
+  transition-duration: var(--motion-base);
+  transition-timing-function: var(--ease-out);
+}
+
+.glow-button,
+.glass-button,
+.mini-button,
+.language-pill,
+.nav-github-link,
+.hero-secondary-link,
+.lab-link,
+.project-primary-link,
+.project-secondary-link {
+  transform: translateY(0);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .gateway-card:hover,
+  .preview-card:hover,
+  .compact-preview-card:hover,
+  .cta-panel:hover,
+  .lab-feature:hover,
+  .lab-card:hover,
+  .lab-closing-panel:hover,
+  .portfolio-story-shell:hover,
+  .portfolio-closing-panel:hover {
+    border-color: rgba(var(--cyan), 0.44);
+    box-shadow: var(--surface-lift-shadow);
+    transform: translateY(-4px);
+  }
+
+  .project-proof-item:hover {
+    border-left-color: rgba(var(--cyan), 0.72);
+    background: rgba(var(--cyan), 0.055);
+    transform: translateY(-2px);
+  }
+
+  .glow-button:hover,
+  .glass-button:hover,
+  .mini-button:hover,
+  .language-pill:hover,
+  .nav-github-link:hover,
+  .hero-secondary-link:hover,
+  .lab-link:hover,
+  .project-primary-link:hover,
+  .project-secondary-link:hover {
+    transform: translateY(-2px);
+  }
+
+  .brand-panel-card:hover {
+    animation: none;
+    border-color: rgba(var(--cyan), 0.4);
+    box-shadow: 0 34px 90px rgba(0, 0, 0, 0.34), 0 0 46px rgba(var(--cyan), 0.15);
+    transform: translateY(-4px);
+  }
+}
+
+.gateway-card:focus-visible,
+.preview-card:focus-visible,
+.compact-preview-card:focus-visible,
+.cta-panel:focus-within,
+.lab-feature:focus-within,
+.lab-card:focus-within,
+.lab-closing-panel:focus-within,
+.portfolio-story-shell:focus-within,
+.portfolio-closing-panel:focus-within,
+.glow-button:focus-visible,
+.glass-button:focus-visible,
+.mini-button:focus-visible,
+.text-link:focus-visible,
+.language-pill:focus-visible,
+.nav-github-link:focus-visible,
+.hero-secondary-link:focus-visible,
+.lab-link:focus-visible,
+.project-primary-link:focus-visible,
+.project-secondary-link:focus-visible {
+  outline: 2px solid rgba(var(--cyan), 0.82);
+  outline-offset: 4px;
+  box-shadow: var(--focus-ring), 0 0 34px rgba(var(--cyan), 0.16);
+}
+
+.glow-button:active,
+.glass-button:active,
+.mini-button:active,
+.language-pill:active,
+.nav-github-link:active,
+.lab-link:active,
+.project-primary-link:active,
+.project-secondary-link:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.mini-button.is-placeholder,
+.glass-button.is-placeholder,
+.text-link.is-placeholder,
+[data-placeholder='true'] {
+  cursor: not-allowed;
+  opacity: 0.68;
+  transform: none !important;
+}
+
+.reveal-item {
+  transition-duration: var(--motion-slow);
+  transition-timing-function: var(--ease-out);
+}
+
+@media (min-width: 768px) {
+  .brand-orbit-panel::before {
+    animation: heroGlowDrift var(--motion-hero) var(--ease-soft) infinite alternate;
+  }
+
+  .brand-panel-card {
+    transition:
+      transform var(--motion-slow) var(--ease-soft),
+      border-color var(--motion-base) var(--ease-out),
+      box-shadow var(--motion-base) var(--ease-out);
+    animation: heroPanelFloat 7200ms var(--ease-soft) infinite alternate;
+  }
+}
+
+@keyframes heroPanelFloat {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-6px);
   }
 }
 
