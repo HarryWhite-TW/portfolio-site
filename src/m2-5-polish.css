@@ -28,6 +28,36 @@ html[lang='zh-Hant'] body .editorial-callout h2 {
   letter-spacing: -0.015em;
 }
 
+.editorial-main .story-panel h2 {
+  max-width: 46rem;
+  font-size: clamp(1.95rem, 3.25vw, 2.9rem);
+  line-height: 1.08;
+}
+
+html[lang='zh-Hant'] body .editorial-main .story-panel h2 {
+  max-width: 44rem;
+  font-size: clamp(1.9rem, 3vw, 2.75rem);
+  line-height: 1.14;
+  text-wrap: balance;
+}
+
+html[lang='zh-Hant'] body .editorial-main .article-meta {
+  gap: 0.5rem;
+  letter-spacing: 0.065em;
+}
+
+.editorial-actions {
+  align-items: center;
+}
+
+.editorial-actions .editorial-link,
+.editorial-actions .editorial-link.primary {
+  min-width: 8.75rem;
+  min-height: 3rem;
+  margin-top: 0;
+  padding-inline: 1.2rem;
+}
+
 .contact-layout {
   align-items: start;
 }
@@ -68,6 +98,12 @@ html[lang='zh-Hant'] body .editorial-callout h2 {
     font-size: clamp(2.2rem, 6.2vw, 3.45rem);
   }
 
+  .editorial-main .story-panel h2,
+  html[lang='zh-Hant'] body .editorial-main .story-panel h2 {
+    max-width: 100%;
+    font-size: clamp(1.85rem, 5.2vw, 2.65rem);
+  }
+
   .contact-intro {
     align-self: auto;
   }
@@ -86,5 +122,11 @@ html[lang='zh-Hant'] body .editorial-callout h2 {
     max-width: 100%;
     font-size: clamp(2.05rem, 9vw, 2.8rem);
     line-height: 1.14;
+  }
+
+  .editorial-actions .editorial-link,
+  .editorial-actions .editorial-link.primary {
+    width: 100%;
+    min-width: 0;
   }
 }
