@@ -2292,8 +2292,7 @@ body.intro-active .intro-gate,
   margin-top: 1.6rem;
 }
 
-.hero-signal-strip span,
-.brand-panel-links span {
+.hero-signal-strip span {
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 9999px;
   padding: 0.5rem 0.75rem;
@@ -2376,13 +2375,6 @@ body.intro-active .intro-gate,
   margin-top: 1rem;
   color: rgb(148 163 184);
   line-height: 1.7;
-}
-
-.brand-panel-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-  margin-top: 1.3rem;
 }
 
 .compact-heading {
@@ -2620,6 +2612,10 @@ body.intro-active .intro-gate,
   margin-top: 0.7rem;
   color: white;
   font-weight: 900;
+}
+
+.notes-preview-section .compact-preview-card .text-link {
+  display: none;
 }
 
 .cta-panel p:not(.eyebrow) {
