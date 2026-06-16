@@ -1,8 +1,10 @@
 # Harry Chan Personal Portfolio
 
-A public candidate version of Harry Chan's personal brand and engineering portfolio.
+A deployed public portfolio and release candidate version of Harry Chan's personal brand and engineering portfolio.
 
-This site is not a homework submission site and is not yet positioned as a final professional resume site. It is a deployment candidate for presenting selected projects, practice evidence, engineering notes, background, and verified public contact paths.
+Live site: <https://harrywhite-tw.github.io/portfolio-site/>
+
+This site is not a homework submission site and is not yet positioned as a final professional resume site. It is a public release candidate for presenting selected projects, practice evidence, engineering notes, background, and verified public contact paths.
 
 ## Project Positioning
 
@@ -31,7 +33,7 @@ The long-term architecture and copy rules are defined in:
 - No database
 - No paid service requirement
 
-The current stack is intentionally lightweight. The main constraints are content quality, case-study structure, visual consistency, motion behavior, accessibility sanity checks, and deployment readiness.
+The current stack is intentionally lightweight. The main constraints are content quality, case-study structure, visual consistency, motion behavior, accessibility sanity checks, and release readiness.
 
 ## Local Development
 
@@ -72,7 +74,16 @@ npm run preview
 - `homework.html`: Practice Lab, retaining course and small-build evidence; filename retained for route compatibility
 - `blog.html`: engineering notes about reusable working methods, validation discipline, frontend quality, and AI collaboration
 - `about.html`: background, QA-minded direction, engineering principles, and toolkit
-- `contact.html`: verified public paths only; GitHub, Portfolio, Practice Lab, and Notes first; email and resume intentionally withheld until privacy review
+- `contact.html`: verified public paths only; live portfolio, GitHub, Portfolio, Practice Lab, and Notes first; email and resume intentionally withheld until privacy review
+
+Static Traditional Chinese pages are available at:
+
+- `/zh/index.html`
+- `/zh/portfolio.html`
+- `/zh/homework.html`
+- `/zh/blog.html`
+- `/zh/about.html`
+- `/zh/contact.html`
 
 ## Navigation Labels
 
@@ -126,7 +137,7 @@ sessionStorage.removeItem("portfolioIntroSeen")
 - Visible navigation changed from Homework to Lab
 - Homework-related evidence is retained as Practice Lab material
 - Blog, About, and Contact pages have public-candidate content foundations
-- Contact avoids unverified private paths until deployment and privacy review
+- Contact avoids unverified private paths until privacy review
 - Routes, layout system, language switch, and intro behavior remain stable
 
 ## Content Model
@@ -170,15 +181,16 @@ Current editorial direction:
 
 ## Placeholder Content
 
-This version is a public candidate, not an empty early shell. Some project demos and public links are already present where available, while other destinations remain intentionally conservative until deployment QA is complete.
+This version is a deployed public release candidate, not an empty early shell. Some project demos and public links are already present where available, while other destinations remain intentionally conservative until privacy review or later content expansion.
 
-- Email and resume are intentionally withheld until deployment and privacy review.
+- Email and resume are intentionally withheld until privacy review.
 - Some project links may still point to placeholder or future-work destinations.
 - Some deeper case-study pages, screenshots, and full article pages remain future improvements.
 - Placeholder or future-work links should remain clearly marked or non-interactive until real destinations are available.
 
-Current real public link:
+Current real public links:
 
+- Live site: <https://harrywhite-tw.github.io/portfolio-site/>
 - GitHub: <https://github.com/HarryWhite-TW>
 
 ## Completed Status
@@ -196,23 +208,18 @@ Current real public link:
 - M2.5 visual and motion polish
 - M2.5.1 Blog wording and button alignment refinement
 - M2.6R README / release status alignment
+- M2.6Q static bilingual route architecture
+- M2.7 GitHub Pages deployment
+- M2.7R release documentation alignment
 
 ## Next / Remaining Work
 
-### M2.6Q Local release QA
+### Release QA follow-up
 
-- Production build
-- Six-page navigation check
-- Language switching check
-- Internal and external link check
-- Intro replay check
-- Reduced-motion / keyboard sanity check
-
-### M2.7 GitHub Pages deployment
-
-- Deploy public site
-- Verify final URL
-- Update Contact and README with final public URL
+- Verify deployed English and Traditional Chinese routes
+- Check internal and external links after public deployment
+- Recheck intro replay, reduced-motion behavior, and keyboard navigation
+- Keep README and Contact aligned with the live public URL
 
 ### Later improvements
 
