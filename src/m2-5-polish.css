@@ -1,0 +1,90 @@
+/*
+ * M2.5 first-pass polish.
+ * Scope: layout rhythm and responsive readability only.
+ * No content changes, no new dependencies, and no redesign of the approved pages.
+ */
+
+.editorial-main .page-hero {
+  padding-bottom: clamp(3rem, 5.5vw, 5rem);
+}
+
+.editorial-main .page-hero + .editorial-section {
+  padding-top: clamp(2.75rem, 5vw, 4.75rem);
+}
+
+html[lang='zh-Hant'] body .editorial-main .page-hero h1 {
+  max-width: 60rem;
+  font-size: clamp(2.35rem, 4.35vw, 3.95rem);
+  line-height: 1.1;
+  letter-spacing: -0.018em;
+}
+
+html[lang='zh-Hant'] body .editorial-heading h2,
+html[lang='zh-Hant'] body .story-panel h2,
+html[lang='zh-Hant'] body .about-story h2,
+html[lang='zh-Hant'] body .contact-intro h2,
+html[lang='zh-Hant'] body .editorial-callout h2 {
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+}
+
+.contact-layout {
+  align-items: start;
+}
+
+.contact-intro {
+  align-self: start;
+}
+
+.contact-status-grid {
+  margin-top: 1.6rem;
+}
+
+.story-panel,
+.note-feature,
+.note-card,
+.about-card,
+.timeline-panel,
+.contact-path,
+.contact-intro,
+.editorial-callout {
+  overflow-wrap: break-word;
+}
+
+@media (min-width: 1024px) {
+  .editorial-main .page-hero {
+    padding-top: clamp(6.75rem, 10vw, 8.75rem);
+  }
+
+  .editorial-section {
+    padding-top: clamp(3.25rem, 5.5vw, 5.25rem);
+    padding-bottom: clamp(3.25rem, 5.5vw, 5.25rem);
+  }
+}
+
+@media (max-width: 1023px) {
+  html[lang='zh-Hant'] body .editorial-main .page-hero h1 {
+    max-width: 48rem;
+    font-size: clamp(2.2rem, 6.2vw, 3.45rem);
+  }
+
+  .contact-intro {
+    align-self: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .editorial-main .page-hero {
+    padding-bottom: clamp(2.5rem, 8vw, 3.75rem);
+  }
+
+  .editorial-main .page-hero + .editorial-section {
+    padding-top: clamp(2.35rem, 8vw, 3.5rem);
+  }
+
+  html[lang='zh-Hant'] body .editorial-main .page-hero h1 {
+    max-width: 100%;
+    font-size: clamp(2.05rem, 9vw, 2.8rem);
+    line-height: 1.14;
+  }
+}
