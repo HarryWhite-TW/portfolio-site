@@ -1,7 +1,8 @@
 /*
  * Runtime page-transition hook for the static multi-page portfolio.
- * The goal is a small, reliable page entrance cue without white flashes,
- * blocking overlays, heavy filters, or layout-jumping decorative effects.
+ * Release-candidate policy: prioritize stable navigation over decorative motion.
+ * Keep only a tiny opacity cue and avoid animating text, transforms, filters,
+ * or other properties that can cause CJK font re-rasterization jank.
  */
 
 html {
@@ -18,89 +19,32 @@ html.page-transition-preparing body {
 }
 
 html.page-transition-ready body {
-  animation: pageSurfaceIn 260ms ease-out both;
-}
-
-html.page-transition-ready .page-hero .eyebrow,
-html.page-transition-ready .page-hero h1,
-html.page-transition-ready .page-hero p,
-html.page-transition-ready .brand-hero-copy .eyebrow,
-html.page-transition-ready .brand-hero-copy h1,
-html.page-transition-ready .brand-hero-copy p,
-html.page-transition-ready .brand-hero-copy .hero-signal-strip,
-html.page-transition-ready .brand-hero-copy .hero-actions,
-html.page-transition-ready .brand-hero-copy .hero-secondary-link {
-  animation: pageTitleIn 320ms ease-out both;
-  will-change: opacity, transform;
-  backface-visibility: hidden;
-}
-
-html.page-transition-ready .page-hero h1,
-html.page-transition-ready .brand-hero-copy h1 {
-  animation-delay: 35ms;
-}
-
-html.page-transition-ready .page-hero p,
-html.page-transition-ready .brand-hero-copy p,
-html.page-transition-ready .brand-hero-copy .hero-signal-strip {
-  animation-delay: 70ms;
-}
-
-html.page-transition-ready .brand-hero-copy .hero-actions,
-html.page-transition-ready .brand-hero-copy .hero-secondary-link {
-  animation-delay: 95ms;
+  animation: pageSurfaceIn 180ms ease-out both;
 }
 
 html.page-transition-clicked body {
-  opacity: 0.96;
-  transition: opacity 90ms ease;
+  opacity: 0.98;
+  transition: opacity 70ms ease;
 }
 
 @keyframes pageSurfaceIn {
   from {
-    opacity: 0.9;
+    opacity: 0.94;
   }
 
   to {
     opacity: 1;
-  }
-}
-
-@keyframes pageTitleIn {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 5px, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html.copy-pending body,
-  html.page-transition-preparing body {
-    opacity: 1;
-  }
-
-  html.page-transition-ready body,
-  html.page-transition-ready .page-hero .eyebrow,
-  html.page-transition-ready .page-hero h1,
-  html.page-transition-ready .page-hero p,
-  html.page-transition-ready .brand-hero-copy .eyebrow,
-  html.page-transition-ready .brand-hero-copy h1,
-  html.page-transition-ready .brand-hero-copy p,
-  html.page-transition-ready .brand-hero-copy .hero-signal-strip,
-  html.page-transition-ready .brand-hero-copy .hero-actions,
-  html.page-transition-ready .brand-hero-copy .hero-secondary-link {
-    animation-duration: 1ms;
-    animation-delay: 0ms;
-    transform: none;
-  }
-
+  html.page-transition-preparing body,
   html.page-transition-clicked body {
     opacity: 1;
-    transition-duration: 1ms;
+  }
+
+  html.page-transition-ready body {
+    animation-duration: 1ms;
   }
 }
