@@ -12,6 +12,12 @@
   padding-top: clamp(2.75rem, 5vw, 4.75rem);
 }
 
+.page-hero.reveal-item {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
 html[lang='zh-Hant'] body .editorial-main .page-hero h1 {
   max-width: 60rem;
   font-size: clamp(2.35rem, 4.35vw, 3.95rem);
@@ -111,7 +117,7 @@ html[lang='zh-Hant'] body .editorial-main .article-meta {
 .note-feature,
 .note-card,
 .about-card,
-.timeline-panel,
+timeline-panel,
 .contact-path,
 .contact-intro,
 .editorial-callout,
