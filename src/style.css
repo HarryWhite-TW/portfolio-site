@@ -2412,12 +2412,13 @@ body.intro-active .intro-gate,
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 1rem;
   padding: 1.15rem;
+  cursor: default;
   color: white;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.105), rgba(255, 255, 255, 0.045)),
-    radial-gradient(circle at 100% 0%, rgba(var(--cyan), 0.1), transparent 10rem);
-  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.22);
-  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.038)),
+    radial-gradient(circle at 100% 0%, rgba(var(--cyan), 0.055), transparent 10rem);
+  box-shadow: 0 16px 46px rgba(0, 0, 0, 0.16);
+  transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
 }
 
 .gateway-card span,
@@ -2452,8 +2453,6 @@ body.intro-active .intro-gate,
   line-height: 1.65;
 }
 
-.gateway-card:hover,
-.gateway-card:focus-visible,
 .preview-card:hover,
 .preview-card:focus-visible,
 .compact-preview-card:hover,
@@ -2721,7 +2720,6 @@ body.intro-active .intro-gate,
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .gateway-card:hover,
   .preview-card:hover,
   .compact-preview-card:hover,
   .cta-panel:hover,
@@ -2761,7 +2759,6 @@ body.intro-active .intro-gate,
   }
 }
 
-.gateway-card:focus-visible,
 .preview-card:focus-visible,
 .compact-preview-card:focus-visible,
 .cta-panel:focus-within,

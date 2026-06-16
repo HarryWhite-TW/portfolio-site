@@ -182,10 +182,31 @@
           <div class="mx-auto max-w-7xl px-5 lg:px-8">
             <div class="section-heading compact-heading">
               <p class="eyebrow" data-i18n="gatewayEyebrow">探索網站</p>
-              <h2 id="gateway-title" data-i18n="gatewayTitle">從你想了解的方向開始。</h2>
-              <p data-i18n="gatewayText">瀏覽精選作品、實作紀錄、技術筆記與成長脈絡。</p>
+              <h2 id="gateway-title" data-i18n="gatewayTitle">這個作品集整理了哪些方向。</h2>
+              <p data-i18n="gatewayText">快速理解作品、實作證據、工程筆記與個人方向。</p>
             </div>
-            <div class="gateway-card-grid mt-8" id="gateway-grid"></div>
+            <div class="gateway-card-grid mt-8" aria-label="作品集方向總覽">
+              <article class="gateway-card reveal-surface" style="--reveal-delay: 0ms">
+                <span>精選作品</span>
+                <h3>作品集</h3>
+                <p>代表性專案與技術方向。</p>
+              </article>
+              <article class="gateway-card reveal-surface" style="--reveal-delay: 60ms">
+                <span>實作證據</span>
+                <h3>實作</h3>
+                <p>課程實作、展示與本機練習紀錄。</p>
+              </article>
+              <article class="gateway-card reveal-surface" style="--reveal-delay: 120ms">
+                <span>工程筆記</span>
+                <h3>Blog / 筆記</h3>
+                <p>工程判斷、需求整理與 AI 協作紀錄。</p>
+              </article>
+              <article class="gateway-card reveal-surface" style="--reveal-delay: 180ms">
+                <span>個人方向</span>
+                <h3>關於</h3>
+                <p>背景、學習方向與工作原則。</p>
+              </article>
+            </div>
           </div>
         </section>
 
