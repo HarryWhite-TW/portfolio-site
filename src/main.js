@@ -17,8 +17,10 @@ const introEnterButton = document.querySelector('#intro-enter');
 const introStorageKey = 'portfolioIntroSeen';
 
 const getInitialLanguage = () => {
-  const savedLanguage = localStorage.getItem('portfolio-language');
-  return savedLanguage === 'zh' ? 'zh' : 'en';
+  const pageLanguage = document.documentElement.lang.toLowerCase();
+  const isChineseRoute = window.location.pathname.split('/').includes('zh');
+
+  return pageLanguage.startsWith('zh') || isChineseRoute ? 'zh' : 'en';
 };
 
 let currentLanguage = getInitialLanguage();
@@ -30,7 +32,6 @@ languageButtons.forEach((button) => {
   button.classList.remove('is-placeholder');
   button.removeAttribute('data-placeholder');
   button.removeAttribute('aria-disabled');
-  button.setAttribute('role', 'button');
 });
 
 const t = (key) => uiCopy[currentLanguage][key] || uiCopy.en[key] || key;
@@ -41,12 +42,6 @@ const localText = (item, key) => {
   }
 
   return item[key];
-};
-
-const applyIntroCopy = () => {
-  document.querySelectorAll('[data-intro-en][data-intro-zh]').forEach((element) => {
-    element.textContent = currentLanguage === 'zh' ? element.dataset.introZh : element.dataset.introEn;
-  });
 };
 
 const getActionLabel = (link) => {
@@ -126,19 +121,6 @@ const renderContactLink = (link) => renderActionLink(link, 'glass-button justify
 
 const applyStaticCopy = () => {
   document.documentElement.lang = currentLanguage === 'zh' ? 'zh-Hant' : 'en';
-  applyIntroCopy();
-
-  document.querySelectorAll('[data-i18n]').forEach((element) => {
-    element.textContent = t(element.dataset.i18n);
-  });
-
-  document.querySelectorAll('[data-i18n-aria]').forEach((element) => {
-    element.setAttribute('aria-label', t(element.dataset.i18nAria));
-  });
-
-  document.querySelectorAll('[data-copy-en][data-copy-zh]').forEach((element) => {
-    element.textContent = currentLanguage === 'zh' ? element.dataset.copyZh : element.dataset.copyEn;
-  });
 };
 
 const applyActiveNavigation = () => {
@@ -225,11 +207,8 @@ const renderPage = () => {
 };
 
 languageButtons.forEach((button) => {
-  button.addEventListener('click', (event) => {
-    event.preventDefault();
-    currentLanguage = button.dataset.lang === 'zh' ? 'zh' : 'en';
-    localStorage.setItem('portfolio-language', currentLanguage);
-    renderPage();
+  button.addEventListener('click', () => {
+    localStorage.setItem('portfolio-language', button.dataset.lang === 'zh' ? 'zh' : 'en');
   });
 });
 

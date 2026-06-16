@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-Hant" class="notranslate" translate="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Harry Chan ??????????????????AI ???????????" />
+    <title>???? | Harry Chan</title>
+    <script src="../page-transition-prepaint.js"></script>
+    <style>
+      html,
+      body {
+        min-width: 320px;
+        margin: 0;
+        background: #07091a;
+        color: #fff;
+        color-scheme: dark;
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../page-transition.css" />
+    <link rel="stylesheet" href="/src/editorial-pages.css" />
+    <script defer src="../page-transition.js"></script>
+  </head>
+  <body class="bg-night text-white antialiased">
+    <div class="site-shell min-h-screen overflow-hidden">
+      <div class="top-hover-zone" id="top-hover-zone" aria-hidden="true"></div>
+      <header class="site-header fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-night/70 backdrop-blur-xl" id="site-header">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 lg:px-8">
+          <a class="flex shrink-0 items-center gap-3" href="index.html" aria-label="Harry Chan 首頁" data-i18n-aria="brandAria"><span class="brand-mark">HC</span><span class="brand-wordmark text-sm font-black uppercase text-white">Harry Chan</span></a>
+          <button class="glass-icon md:hidden" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+          <div class="hidden items-center gap-5 xl:gap-8 md:flex"><a class="nav-link" href="index.html" data-i18n="navHome">首頁</a><a class="nav-link" href="portfolio.html" data-i18n="navPortfolio">作品集</a><a class="nav-link" href="homework.html" data-i18n="navHomework">實作</a><a class="nav-link" href="blog.html" data-i18n="navBlog">筆記</a><a class="nav-link" href="about.html" data-i18n="navAbout">關於</a><a class="nav-link" href="contact.html" data-i18n="navContact">聯絡</a></div>
+          <div class="hidden shrink-0 items-center gap-2 md:flex"><a class="language-pill" href="../blog.html">EN</a><span class="text-white/30">/</span><a class="language-pill active" href="blog.html">中文</a><a class="nav-github-link" href="https://github.com/HarryWhite-TW" target="_blank" rel="noreferrer">GitHub</a></div>
+        </nav>
+        <div class="mobile-panel hidden border-t border-white/10 bg-night/95 px-5 py-5 backdrop-blur-xl md:hidden" id="mobile-menu"><a class="mobile-link" href="index.html" data-i18n="navHome">首頁</a><a class="mobile-link" href="portfolio.html" data-i18n="navPortfolio">作品集</a><a class="mobile-link" href="homework.html" data-i18n="navHomework">實作</a><a class="mobile-link" href="blog.html" data-i18n="navBlog">筆記</a><a class="mobile-link" href="about.html" data-i18n="navAbout">關於</a><a class="mobile-link" href="contact.html" data-i18n="navContact">聯絡</a><a class="mobile-link" href="https://github.com/HarryWhite-TW" target="_blank" rel="noreferrer">GitHub</a><div class="mt-4 flex items-center gap-2"><a class="language-pill" href="../blog.html">EN</a><span class="text-white/30">/</span><a class="language-pill active" href="blog.html">中文</a></div></div>
+      </header>
+
+      <main class="editorial-main">
+        <section class="page-hero px-5 lg:px-8">
+          <div class="mx-auto max-w-7xl">
+            <p class="eyebrow" data-copy-en="Engineering Notes" data-copy-zh="工程筆記">工程筆記</p>
+            <h1 data-copy-en="How I turn unclear goals into bounded, testable work." data-copy-zh="我如何把模糊目標，轉成有邊界且可驗證的工作。">我如何把模糊目標，轉成有邊界且可驗證的工作。</h1>
+            <p data-copy-en="These notes focus on reusable working methods: requirement framing, validation discipline, frontend stability, and AI collaboration with explicit human review." data-copy-zh="這些筆記聚焦可複用的工作方法：需求界定、驗證紀律、前端穩定性，以及保留人工審查的 AI 協作流程。">這些筆記聚焦可複用的工作方法：需求界定、驗證紀律、前端穩定性，以及保留人工審查的 AI 協作流程。</p>
+            <p class="page-hero-note" data-copy-en="The goal is not to document every build step. The goal is to show how decisions are made and checked." data-copy-zh="重點不是記錄每個建置步驟，而是呈現決策如何產生，以及如何被檢查。">重點不是記錄每個建置步驟，而是呈現決策如何產生，以及如何被檢查。</p>
+          </div>
+        </section>
+
+        <section class="editorial-section" aria-labelledby="featured-note-title">
+          <div class="editorial-shell">
+            <div class="editorial-heading">
+              <p class="eyebrow" data-copy-en="Featured Note" data-copy-zh="精選筆記">精選筆記</p>
+              <h2 id="featured-note-title" data-copy-en="From vague requests to testable task packets." data-copy-zh="從模糊需求，整理成可驗證的任務包。">從模糊需求，整理成可驗證的任務包。</h2>
+              <p data-copy-en="A useful task is not only a description of what to build. It also defines scope, allowed changes, validation steps, and when to stop." data-copy-zh="有用的任務不只是描述要做什麼，也要定義範圍、允許修改的地方、驗證方式，以及何時停止。">有用的任務不只是描述要做什麼，也要定義範圍、允許修改的地方、驗證方式，以及何時停止。</p>
+            </div>
+            <article class="note-feature">
+              <div class="note-feature-copy">
+                <div class="note-meta"><span>Requirement Design</span><span>Validation</span><span>Workflow</span></div>
+                <h2 data-copy-en="Turning intent into a reviewable execution plan." data-copy-zh="把意圖轉成可審查的執行計畫。">把意圖轉成可審查的執行計畫。</h2>
+                <p data-copy-en="When a goal is still vague, jumping directly into implementation creates hidden assumptions. A bounded task packet makes the work smaller, easier to review, and safer to correct." data-copy-zh="當目標還很模糊時，直接進入實作會製造隱藏假設。有邊界的任務包能讓工作變小、比較容易審查，也比較安全地修正。">當目標還很模糊時，直接進入實作會製造隱藏假設。有邊界的任務包能讓工作變小、比較容易審查，也比較安全地修正。</p>
+                <a class="read-link" href="#bounded-task-packets" data-copy-en="Read the note" data-copy-zh="閱讀筆記">閱讀筆記</a>
+              </div>
+              <div class="note-feature-visual" aria-hidden="true"><div class="architecture-map"><strong>Bounded Task Packet</strong><div class="architecture-flow"><span>Goal<br />What changes</span><span>Scope<br />Allowed files</span><span>Limits<br />What not to touch</span><span>Checks<br />Build + review</span><span>Evidence<br />Screenshots + output</span><span>Approval<br />Next step</span></div></div></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="editorial-section" aria-labelledby="notes-index-title">
+          <div class="editorial-shell">
+            <div class="editorial-heading">
+              <p class="eyebrow" data-copy-en="Notes Index" data-copy-zh="筆記索引">筆記索引</p>
+              <h2 id="notes-index-title" data-copy-en="Three habits I use to keep project work inspectable." data-copy-zh="我用來保持專案可檢視的三個工作習慣。">我用來保持專案可檢視的三個工作習慣。</h2>
+            </div>
+            <div class="note-grid">
+              <article class="note-card"><div class="note-meta"><span>Requirements</span><span>Execution</span></div><h3 data-copy-en="Define the task before building." data-copy-zh="先定義任務，再開始建置。">先定義任務，再開始建置。</h3><p data-copy-en="Before implementation, I try to clarify what should change, what must stay untouched, how to validate the result, and what evidence should be reported back." data-copy-zh="在實作前，我會先釐清哪些地方要改、哪些地方不能碰、如何驗證結果，以及應回報哪些證據。">在實作前，我會先釐清哪些地方要改、哪些地方不能碰、如何驗證結果，以及應回報哪些證據。</p><ul class="note-takeaways"><li data-copy-en="Small scope makes review possible." data-copy-zh="範圍小，審查才可行。">範圍小，審查才可行。</li><li data-copy-en="Stop conditions prevent endless wandering." data-copy-zh="停止條件能避免無限發散。">停止條件能避免無限發散。</li></ul><a class="read-link" href="#bounded-task-packets" data-copy-en="Read the note" data-copy-zh="閱讀筆記">閱讀筆記</a></article>
+              <article class="note-card"><div class="note-meta"><span>Frontend</span><span>Quality</span></div><h3 data-copy-en="Protect stable interaction first." data-copy-zh="優先保護穩定互動。">優先保護穩定互動。</h3><p data-copy-en="A visual idea is only successful when it stays smooth in the real target environment. Effects that create flicker, waiting anxiety, or unstable frames should be simplified." data-copy-zh="視覺方案只有在真實目標環境中仍然順暢時才算成功。只要造成閃爍、等待焦慮或不穩定畫面，就應該被簡化。">視覺方案只有在真實目標環境中仍然順暢時才算成功。只要造成閃爍、等待焦慮或不穩定畫面，就應該被簡化。</p><ul class="note-takeaways"><li data-copy-en="Continuity is part of visual quality." data-copy-zh="連續性本身就是視覺品質。">連續性本身就是視覺品質。</li><li data-copy-en="Stable behavior earns more trust than spectacle." data-copy-zh="穩定行為比華麗效果更能建立信任。">穩定行為比華麗效果更能建立信任。</li></ul><a class="read-link" href="#frontend-stability" data-copy-en="Read the note" data-copy-zh="閱讀筆記">閱讀筆記</a></article>
+              <article class="note-card"><div class="note-meta"><span>AI Workflow</span><span>Governance</span></div><h3 data-copy-en="Keep AI collaboration reviewable." data-copy-zh="讓 AI 協作保持可審查。">讓 AI 協作保持可審查。</h3><p data-copy-en="AI is useful when its work is constrained, validated, and approved with evidence. It becomes risky when responsibility disappears behind the tool." data-copy-zh="AI 在工作受到限制、經過驗證、並依據證據批准時很有用；當責任被藏在工具後面時，就會變成風險。">AI 在工作受到限制、經過驗證、並依據證據批准時很有用；當責任被藏在工具後面時，就會變成風險。</p><ul class="note-takeaways"><li data-copy-en="Planning, execution, and approval should be separate." data-copy-zh="規劃、執行與批准應該分開。">規劃、執行與批准應該分開。</li><li data-copy-en="Evidence matters more than confident output." data-copy-zh="證據比看似自信的產出更重要。">證據比看似自信的產出更重要。</li></ul><a class="read-link" href="#bounded-ai-workflow" data-copy-en="Read the note" data-copy-zh="閱讀筆記">閱讀筆記</a></article>
+            </div>
+          </div>
+        </section>
+
+        <section class="editorial-section" aria-labelledby="full-notes-title">
+          <div class="editorial-shell">
+            <div class="editorial-heading"><p class="eyebrow" data-copy-en="Engineering Notes" data-copy-zh="工程筆記">工程筆記</p><h2 id="full-notes-title" data-copy-en="Reusable methods for safer project execution." data-copy-zh="讓專案執行更安全的可複用方法。">讓專案執行更安全的可複用方法。</h2></div>
+            <div class="article-stack">
+              <article class="story-panel" id="bounded-task-packets"><div class="article-meta"><span>01</span><span>Requirements</span><span>Execution Control</span></div><h2 data-copy-en="From unclear goal to bounded task packet." data-copy-zh="從不清楚的目標，到有邊界的任務包。">從不清楚的目標，到有邊界的任務包。</h2><div class="article-body"><div class="article-copy"><p data-copy-en="A vague request often hides several different tasks inside one sentence. If I move straight into implementation, the result can look busy but still miss the real intention. I therefore try to convert the request into a smaller execution unit before work begins." data-copy-zh="模糊需求常常把好幾個任務藏在一句話裡。如果直接進入實作，結果可能看起來做了很多，卻仍然偏離真正意圖。因此在開始前，我會先把需求轉成更小的執行單位。">模糊需求常常把好幾個任務藏在一句話裡。如果直接進入實作，結果可能看起來做了很多，卻仍然偏離真正意圖。因此在開始前，我會先把需求轉成更小的執行單位。</p><p data-copy-en="A good task packet states the goal, the allowed files or modules, the parts that must not be touched, the validation command, and the evidence that should be reported back. This makes the work easier to review and reduces the cost of correction." data-copy-zh="好的任務包會說明目標、允許修改的檔案或模組、不能碰的地方、驗證指令，以及需要回報的證據。這能讓工作更容易被審查，也降低修正成本。">好的任務包會說明目標、允許修改的檔案或模組、不能碰的地方、驗證指令，以及需要回報的證據。這能讓工作更容易被審查，也降低修正成本。</p></div><aside class="article-aside"><strong data-copy-en="Task packet checklist" data-copy-zh="任務包檢查表">任務包檢查表</strong><ul><li data-copy-en="Goal and non-goal." data-copy-zh="目標與非目標。">目標與非目標。</li><li data-copy-en="Allowed files and boundaries." data-copy-zh="允許檔案與邊界。">允許檔案與邊界。</li><li data-copy-en="Validation and evidence." data-copy-zh="驗證方式與證據。">驗證方式與證據。</li></ul></aside></div></article>
+              <article class="story-panel" id="frontend-stability"><div class="article-meta"><span>02</span><span>Frontend</span><span>Quality</span></div><h2 data-copy-en="Why stable interaction matters more than impressive effects." data-copy-zh="為什麼穩定互動比驚豔特效更重要。">為什麼穩定互動比驚豔特效更重要。</h2><div class="article-body"><div class="article-copy"><p data-copy-en="A frontend effect can be impressive during a single demo but still damage the experience if it creates flicker, layout jumps, or a pause that feels like loading. In a real review environment, trust comes from continuity and predictability." data-copy-zh="前端特效在單次展示中可能很驚豔，但如果它造成閃爍、版面跳動，或像載入中的停頓，就會傷害體驗。在真實審查環境中，信任感來自連續與可預測。">前端特效在單次展示中可能很驚豔，但如果它造成閃爍、版面跳動，或像載入中的停頓，就會傷害體驗。在真實審查環境中，信任感來自連續與可預測。</p><p data-copy-en="The practical rule is to keep the stable version first, then add decoration only after the baseline is reliable. If an effect makes the interface feel less trustworthy, the correct decision is to simplify it." data-copy-zh="實際原則是先保留穩定版本，再在基準可靠後加入裝飾。如果某個特效讓介面變得不值得信任，正確決策就是簡化它。">實際原則是先保留穩定版本，再在基準可靠後加入裝飾。如果某個特效讓介面變得不值得信任，正確決策就是簡化它。</p></div><aside class="article-aside"><strong data-copy-en="Quality protected" data-copy-zh="保護的品質">保護的品質</strong><ul><li data-copy-en="Short perceived wait time." data-copy-zh="較短的體感等待。">較短的體感等待。</li><li data-copy-en="No flicker or layout jump." data-copy-zh="避免閃爍與版面跳動。">避免閃爍與版面跳動。</li><li data-copy-en="Predictable interaction." data-copy-zh="可預測的互動。">可預測的互動。</li></ul></aside></div></article>
+              <article class="story-panel" id="bounded-ai-workflow"><div class="article-meta"><span>03</span><span>AI Workflow</span><span>Project Governance</span></div><h2 data-copy-en="A practical responsibility model for human, ChatGPT, and Codex." data-copy-zh="人、ChatGPT 與 Codex 的實際責任模型。">人、ChatGPT 與 Codex 的實際責任模型。</h2><div class="article-body"><div class="article-copy"><p data-copy-en="AI assistance becomes most useful when its role is explicit. ChatGPT helps translate intention into constraints, risks, and review criteria. Codex handles bounded repository execution. I validate the result locally and decide whether the next step is approved." data-copy-zh="AI 輔助在角色清楚時最有用。ChatGPT 協助把意圖轉成限制、風險與審查標準；Codex 處理有邊界的儲存庫執行；我在本機驗證結果，並決定是否批准下一步。">AI 輔助在角色清楚時最有用。ChatGPT 協助把意圖轉成限制、風險與審查標準；Codex 處理有邊界的儲存庫執行；我在本機驗證結果，並決定是否批准下一步。</p><p data-copy-en="This workflow does not remove learning responsibility. It exposes the missing knowledge more clearly because every task has scope, evidence, and review points. The goal is not to hide behind automation, but to make assisted work inspectable." data-copy-zh="這套流程沒有取消學習責任，反而讓缺少的知識更清楚地暴露出來，因為每個任務都有範圍、證據與審查點。目標不是躲在自動化後面，而是讓輔助完成的工作可以被檢視。">這套流程沒有取消學習責任，反而讓缺少的知識更清楚地暴露出來，因為每個任務都有範圍、證據與審查點。目標不是躲在自動化後面，而是讓輔助完成的工作可以被檢視。</p></div><aside class="article-aside"><strong data-copy-en="Responsibility split" data-copy-zh="責任分工">責任分工</strong><ul><li data-copy-en="ChatGPT: planning and review." data-copy-zh="ChatGPT：規劃與審查。">ChatGPT：規劃與審查。</li><li data-copy-en="Codex: bounded execution." data-copy-zh="Codex：有邊界執行。">Codex：有邊界執行。</li><li data-copy-en="Human: validation and approval." data-copy-zh="人：驗證與批准。">人：驗證與批准。</li></ul></aside></div></article>
+            </div>
+          </div>
+        </section>
+
+        <section class="editorial-section"><div class="editorial-shell"><div class="editorial-callout"><h2 data-copy-en="The notes should prove how work is controlled, not just what was built." data-copy-zh="筆記應證明工作如何被控制，而不只是記錄做了什麼。">筆記應證明工作如何被控制，而不只是記錄做了什麼。</h2><p data-copy-en="Future notes should be added only when they clarify a reusable method, a meaningful tradeoff, or an evidence-backed learning point." data-copy-zh="未來只有當文章能說明可複用方法、重要取捨，或有證據支持的學習點時，才應新增筆記。">未來只有當文章能說明可複用方法、重要取捨，或有證據支持的學習點時，才應新增筆記。</p><div class="editorial-actions"><a class="editorial-link primary" href="portfolio.html" data-copy-en="View the projects" data-copy-zh="查看作品">查看作品</a><a class="editorial-link" href="homework.html" data-copy-en="Open Practice Lab" data-copy-zh="開啟實作頁">開啟實作頁</a></div></div></div></section>
+      </main>
+
+      <footer class="border-t border-white/10 px-5 py-8 lg:px-8"><div class="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-slate-400 md:flex-row md:items-center md:justify-between"><p data-i18n="footerLeft">Harry Chan 作品集 / 個人品牌、AI 實作與工程筆記</p><p data-i18n="footerRight">© 2026 Harry Chan. 使用 Vite、Tailwind CSS 與 Vanilla JavaScript 建置。</p></div></footer>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
