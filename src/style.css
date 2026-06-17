@@ -50,10 +50,12 @@ html.intro-pending footer {
   min-height: 100svh;
   place-items: center;
   overflow: hidden;
-  padding: clamp(1.25rem, 4vw, 2.5rem);
+  padding: clamp(1.5rem, 4vw, 4.5rem);
   background:
-    radial-gradient(circle at 50% 42%, rgba(var(--cyan), 0.08), transparent 18rem),
-    linear-gradient(145deg, #030512 0%, #071226 44%, #050718 100%);
+    linear-gradient(110deg, rgba(2, 6, 23, 0.86) 0%, rgba(3, 7, 18, 0.74) 38%, rgba(3, 7, 18, 0.1) 66%),
+    linear-gradient(180deg, rgba(3, 7, 18, 0.12), rgba(3, 7, 18, 0.52)),
+    url('/intro/signal-core-desktop.webp') center / cover no-repeat,
+    #030512;
   color: white;
   isolation: isolate;
 }
@@ -68,131 +70,108 @@ body.intro-active .intro-gate,
 .intro-gate::after {
   position: absolute;
   inset: 0;
-  z-index: -2;
   content: '';
   pointer-events: none;
 }
 
 .intro-gate::before {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.038) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 58px 58px;
-  opacity: 0.22;
-  mask-image: radial-gradient(circle at 50% 46%, black, transparent 72%);
+  z-index: 0;
+  background:
+    radial-gradient(circle at 73% 45%, transparent 0 20rem, rgba(2, 6, 23, 0.1) 29rem, rgba(2, 6, 23, 0.4) 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.38), transparent 46%, rgba(0, 0, 0, 0.08));
 }
 
 .intro-gate::after {
+  z-index: 1;
   background:
-    linear-gradient(115deg, transparent 0 36%, rgba(var(--cyan), 0.08) 48%, transparent 64%),
-    radial-gradient(circle at 50% 100%, rgba(var(--violet), 0.13), transparent 24rem);
-  opacity: 0.72;
-  animation: introDepthDrift 14s ease-in-out infinite alternate;
-}
-
-.intro-atmosphere {
-  position: absolute;
-  inset: -12%;
-  z-index: -1;
-  pointer-events: none;
-}
-
-.intro-glow,
-.intro-ring {
-  position: absolute;
-  display: block;
-  pointer-events: none;
-}
-
-.intro-glow {
-  width: clamp(18rem, 46vw, 38rem);
-  aspect-ratio: 1;
-  border-radius: 9999px;
-  filter: blur(46px);
-  opacity: 0.38;
-  animation: introGlowBreath 9s ease-in-out infinite alternate;
-}
-
-.intro-glow-cyan {
-  left: 4%;
-  top: 16%;
-  background: rgba(var(--cyan), 0.42);
-}
-
-.intro-glow-violet {
-  right: 3%;
-  bottom: 8%;
-  background: rgba(var(--violet), 0.36);
-  animation-delay: -3s;
-}
-
-.intro-ring {
-  left: 50%;
-  top: 50%;
-  width: min(66rem, 118vw);
-  aspect-ratio: 1;
-  border: 1px solid rgba(255, 255, 255, 0.075);
-  border-radius: 9999px;
-  transform: translate(-50%, -50%);
-  box-shadow:
-    0 0 0 4rem rgba(var(--cyan), 0.018),
-    0 0 0 9rem rgba(var(--violet), 0.014);
-  animation: introRingBreath 10s ease-in-out infinite alternate;
-}
-
-.intro-ring-b {
-  width: min(46rem, 92vw);
-  border-style: dashed;
-  border-color: rgba(var(--cyan), 0.13);
-  animation-duration: 12s;
-  animation-delay: -2s;
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 100%),
+    linear-gradient(rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 100%);
+  background-size: 80px 80px;
+  opacity: 0.1;
+  mask-image: linear-gradient(90deg, black, transparent 62%);
 }
 
 .intro-content {
-  width: min(100%, 56rem);
-  text-align: center;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: min(100%, 86rem);
+  grid-template-columns: minmax(0, 0.44fr) minmax(0, 0.56fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 6rem);
+}
+
+.intro-copy {
+  max-width: 34rem;
+  padding-top: clamp(1rem, 5vh, 4rem);
+}
+
+.intro-brand {
+  margin: 0 0 2rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 .intro-eyebrow {
   color: rgb(103 232 249);
-  font-size: clamp(0.72rem, 2vw, 0.82rem);
+  font-size: 0.78rem;
   font-weight: 900;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 .intro-content h1 {
-  margin: 1rem auto 0;
-  max-width: 48rem;
+  margin: 0.95rem 0 0;
+  max-width: 33rem;
   color: white;
-  font-size: clamp(2.35rem, 8vw, 5.9rem);
+  font-size: clamp(4.1rem, 5.1vw, 6.1rem);
   font-weight: 900;
-  line-height: 0.98;
+  line-height: 0.9;
   text-wrap: balance;
+  text-shadow: 0 0 34px rgba(10, 20, 38, 0.9);
+}
+
+.intro-title-line {
+  display: block;
 }
 
 .intro-subtitle {
-  max-width: 39rem;
-  margin: 1.25rem auto 0;
-  color: rgb(203 213 225);
-  font-size: clamp(1rem, 2.3vw, 1.18rem);
-  line-height: 1.75;
+  max-width: 31rem;
+  margin: 1.1rem 0 0;
+  color: rgb(226 232 240);
+  font-size: 1.18rem;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.intro-description {
+  max-width: 31rem;
+  margin: 0.75rem 0 0;
+  color: rgb(174 188 208);
+  font-size: 1rem;
+  line-height: 1.72;
 }
 
 .intro-enter-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 3.1rem;
-  margin-top: 2rem;
-  border: 1px solid rgba(var(--cyan), 0.42);
+  min-height: 3.05rem;
+  margin-top: 1.7rem;
+  border: 1px solid rgba(var(--cyan), 0.5);
   border-radius: 9999px;
-  padding: 0.9rem 1.5rem;
-  color: #020617;
-  background: linear-gradient(135deg, rgb(var(--cyan)), rgb(var(--violet)));
+  padding: 0.82rem 1.45rem;
+  color: rgb(248 250 252);
+  background:
+    linear-gradient(rgba(5, 13, 26, 0.9), rgba(5, 13, 26, 0.9)) padding-box,
+    linear-gradient(135deg, rgba(var(--cyan), 0.86), rgba(var(--violet), 0.5), rgba(var(--pink), 0.48)) border-box;
   box-shadow:
-    0 0 34px rgba(var(--cyan), 0.28),
-    0 18px 44px rgba(0, 0, 0, 0.32);
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 0 24px rgba(var(--cyan), 0.16),
+    0 18px 44px rgba(0, 0, 0, 0.42);
   font-family: inherit;
   font-size: 0.95rem;
   font-weight: 900;
@@ -204,9 +183,10 @@ body.intro-active .intro-gate,
 .intro-enter-button:focus-visible {
   transform: translateY(-2px);
   box-shadow:
-    0 0 46px rgba(var(--cyan), 0.38),
-    0 20px 54px rgba(0, 0, 0, 0.36);
-  filter: saturate(1.08);
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 0 32px rgba(var(--cyan), 0.25),
+    0 20px 54px rgba(0, 0, 0, 0.42);
+  filter: saturate(1.04);
 }
 
 .intro-enter-button:focus-visible {
@@ -225,20 +205,45 @@ body.intro-active .intro-gate,
   filter: blur(10px);
 }
 
-.intro-ready .intro-eyebrow {
+.intro-ready .intro-copy {
   animation: introSurface 620ms ease forwards 120ms;
 }
 
-.intro-ready h1 {
-  animation: introSurface 760ms ease forwards 280ms;
+.intro-ready .intro-hud-panel {
+  animation: introSurface 620ms ease forwards 260ms;
 }
 
-.intro-ready .intro-subtitle {
-  animation: introSurface 680ms ease forwards 500ms;
+.intro-hud-panel {
+  justify-self: end;
+  align-self: start;
+  width: min(12rem, 100%);
+  margin-top: clamp(6rem, 18vh, 10rem);
+  border: 1px solid rgba(var(--cyan), 0.24);
+  padding: 0.78rem 0.95rem;
+  color: rgb(148 163 184);
+  background: linear-gradient(135deg, rgba(5, 12, 27, 0.76), rgba(6, 14, 30, 0.42));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 0 24px rgba(var(--cyan), 0.08);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  backdrop-filter: blur(16px);
 }
 
-.intro-ready .intro-enter-button {
-  animation: introSurface 620ms ease forwards 720ms;
+.intro-hud-panel span,
+.intro-hud-panel strong {
+  display: block;
+}
+
+.intro-hud-panel span {
+  color: rgb(103 232 249);
+}
+
+.intro-hud-panel strong {
+  margin-top: 0.25rem;
+  color: rgba(226, 232, 240, 0.78);
+  font-size: 0.85rem;
 }
 
 .intro-gate.intro-exiting {
@@ -254,10 +259,63 @@ body.intro-active .intro-gate,
   transition: opacity 520ms ease, transform 700ms ease;
 }
 
-.intro-gate.intro-exiting .intro-glow {
-  transform: scale(1.18);
-  opacity: 0.52;
-  transition: opacity 780ms ease, transform 780ms ease;
+@media (max-width: 767px) {
+  .intro-gate {
+    align-items: start;
+    padding: 4.75rem 1.25rem 2rem;
+    background:
+      linear-gradient(180deg, rgba(2, 6, 23, 0.78) 0%, rgba(3, 7, 18, 0.58) 42%, rgba(3, 7, 18, 0.16) 100%),
+      url('/intro/signal-core-mobile.webp') center / cover no-repeat,
+      #030512;
+  }
+
+  .intro-gate::before {
+    background: linear-gradient(180deg, rgba(3, 7, 18, 0.42), transparent 48%, rgba(3, 7, 18, 0.18));
+  }
+
+  .intro-gate::after {
+    opacity: 0.06;
+    mask-image: linear-gradient(to bottom, black, transparent 58%);
+  }
+
+  .intro-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .intro-copy {
+    max-width: 100%;
+    padding-top: 0;
+  }
+
+  .intro-brand {
+    margin-bottom: 1.4rem;
+    font-size: 0.78rem;
+  }
+
+  .intro-eyebrow {
+    font-size: 0.68rem;
+    line-height: 1.45;
+  }
+
+  .intro-content h1 {
+    max-width: 20rem;
+    font-size: clamp(3.1rem, 15vw, 4.2rem);
+  }
+
+  .intro-subtitle {
+    max-width: 21rem;
+    font-size: 1rem;
+  }
+
+  .intro-description {
+    max-width: 22rem;
+    font-size: 0.92rem;
+  }
+
+  .intro-hud-panel {
+    display: none;
+  }
 }
 
 .site-shell {
