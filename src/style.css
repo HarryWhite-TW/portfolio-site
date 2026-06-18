@@ -95,6 +95,62 @@ body.intro-active .intro-gate,
   mask-image: linear-gradient(90deg, black, transparent 62%);
 }
 
+.intro-ignition-beam,
+.intro-energy-accent {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.intro-ignition-beam {
+  top: -5%;
+  bottom: -5%;
+  left: 76.7%;
+  width: clamp(5rem, 7vw, 8.5rem);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(var(--cyan), 0.04) 32%,
+    rgba(150, 252, 255, 0.32) 48%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(102, 236, 255, 0.26) 53%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 9%, black 82%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 9%, black 82%, transparent 100%);
+  transform: translateX(-50%) scaleY(0.82);
+  transform-origin: 50% 8%;
+}
+
+.intro-energy-accent {
+  top: 45%;
+  left: 75%;
+  width: clamp(24rem, 32vw, 39rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 205deg,
+    transparent 0deg 198deg,
+    rgba(var(--cyan), 0.08) 218deg,
+    rgba(172, 252, 255, 0.76) 238deg,
+    rgba(var(--violet), 0.48) 254deg,
+    transparent 276deg 360deg
+  );
+  -webkit-mask-image: radial-gradient(circle, transparent 0 48%, black 51% 55%, transparent 58%);
+  mask-image: radial-gradient(circle, transparent 0 48%, black 51% 55%, transparent 58%);
+  transform: translate(-50%, -50%) scale(0.96);
+}
+
+.intro-ready .intro-ignition-beam {
+  animation: introBeamIgnition 900ms var(--ease-out) forwards;
+}
+
+.intro-ready .intro-energy-accent {
+  animation: introEnergyAccent 760ms var(--ease-out) 110ms forwards;
+}
+
 .intro-content {
   position: relative;
   z-index: 2;
@@ -301,6 +357,36 @@ body.intro-active .intro-gate,
   .intro-gate::after {
     opacity: 0.06;
     mask-image: linear-gradient(to bottom, black, transparent 58%);
+  }
+
+  .intro-ignition-beam {
+    left: calc(50% + 8.3svh);
+    width: 4.5rem;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(var(--cyan), 0.03) 32%,
+      rgba(145, 249, 255, 0.24) 49%,
+      rgba(255, 255, 255, 0.34) 50%,
+      rgba(88, 223, 255, 0.18) 53%,
+      transparent 100%
+    );
+  }
+
+  .intro-energy-accent {
+    top: 58.5%;
+    left: calc(50% + 7.7svh);
+    width: min(72vw, 19rem);
+    opacity: 0;
+  }
+
+  .intro-ready .intro-ignition-beam {
+    animation-duration: 780ms;
+  }
+
+  .intro-ready .intro-energy-accent {
+    animation-duration: 680ms;
+    animation-delay: 90ms;
   }
 
   .intro-content {
@@ -2245,6 +2331,38 @@ body.intro-active .intro-gate,
   }
 }
 
+@keyframes introBeamIgnition {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scaleY(0.82);
+  }
+
+  42% {
+    opacity: 0.62;
+  }
+
+  100% {
+    opacity: 0.16;
+    transform: translateX(-50%) scaleY(1);
+  }
+}
+
+@keyframes introEnergyAccent {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.96);
+  }
+
+  48% {
+    opacity: 0.72;
+  }
+
+  100% {
+    opacity: 0.08;
+    transform: translate(-50%, -50%) scale(1.015);
+  }
+}
+
 @keyframes introDepthDrift {
   from {
     transform: translate3d(-1rem, -0.7rem, 0) scale(1);
@@ -3017,9 +3135,17 @@ body.intro-active .intro-gate,
 
   .intro-gate::after,
   .intro-gate::before,
+  .intro-ignition-beam,
+  .intro-energy-accent,
   .intro-glow,
   .intro-ring {
     animation: none !important;
+  }
+
+  .intro-ignition-beam,
+  .intro-energy-accent {
+    opacity: 0;
+    transform: none;
   }
 
   .intro-gate::before,
