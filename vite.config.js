@@ -55,6 +55,7 @@ export default defineConfig({
         zhBlog: resolve(__dirname, 'zh/blog.html'),
         zhAbout: resolve(__dirname, 'zh/about.html'),
         zhContact: resolve(__dirname, 'zh/contact.html'),
+        prototype: resolve(__dirname, 'prototype/three-intro.html'),
       },
     },
   },

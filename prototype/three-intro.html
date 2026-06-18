@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signal Core Online - Prototype</title>
+    <!-- Note: Vite injects shared styles here automatically based on the plugin. -->
+    <link rel="stylesheet" href="./three-intro.css" />
+  </head>
+  <body class="bg-night text-white antialiased three-intro-prototype">
+    <!-- The canvas container -->
+    <div id="canvas-container"></div>
+    
+    <!-- DOM overlay, left-aligned -->
+    <section class="intro-overlay" role="dialog" aria-modal="true" aria-labelledby="intro-title">
+      <div class="intro-copy">
+        <p class="intro-brand">Harry Chan</p>
+        <p class="intro-eyebrow">AI ENGINEERING · DIGITAL PORTFOLIO</p>
+        <h1 id="intro-title">Signal Core Online</h1>
+        <h2 class="intro-title-zh">訊號核心已上線</h2>
+        <p class="intro-subtitle">Engineering ideas into visible, verifiable work.</p>
+        <p class="intro-description">
+          A portfolio of AI-assisted builds, engineering workflows, and proof-oriented implementation.
+        </p>
+        <button class="intro-enter-button" type="button">Enter Portfolio</button>
+      </div>
+    </section>
+
+    <script type="module" src="./three-intro.js"></script>
+  </body>
+</html>
