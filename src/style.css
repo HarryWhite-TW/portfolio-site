@@ -51,11 +51,7 @@ html.intro-pending footer {
   place-items: center;
   overflow: hidden;
   padding: clamp(1.5rem, 4vw, 4.5rem);
-  background:
-    linear-gradient(110deg, rgba(2, 6, 23, 0.86) 0%, rgba(3, 7, 18, 0.74) 38%, rgba(3, 7, 18, 0.1) 66%),
-    linear-gradient(180deg, rgba(3, 7, 18, 0.12), rgba(3, 7, 18, 0.52)),
-    url('/intro/signal-core-desktop.webp') center / cover no-repeat,
-    #030512;
+  background: #030512;
   color: white;
   isolation: isolate;
 }
@@ -78,7 +74,15 @@ body.intro-active .intro-gate,
   z-index: 0;
   background:
     radial-gradient(circle at 73% 45%, transparent 0 20rem, rgba(2, 6, 23, 0.1) 29rem, rgba(2, 6, 23, 0.4) 100%),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.38), transparent 46%, rgba(0, 0, 0, 0.08));
+    linear-gradient(90deg, rgba(0, 0, 0, 0.38), transparent 46%, rgba(0, 0, 0, 0.08)),
+    linear-gradient(110deg, rgba(2, 6, 23, 0.86) 0%, rgba(3, 7, 18, 0.74) 38%, rgba(3, 7, 18, 0.1) 66%),
+    linear-gradient(180deg, rgba(3, 7, 18, 0.12), rgba(3, 7, 18, 0.52)),
+    url('/intro/signal-core-desktop.webp') center / cover no-repeat;
+  transform: scale(1.02);
+}
+
+.intro-ready::before {
+  animation: introBackgroundSettle 1800ms var(--ease-soft) forwards;
 }
 
 .intro-gate::after {
@@ -199,18 +203,38 @@ body.intro-active .intro-gate,
   opacity: 0.82;
 }
 
-.intro-content > * {
+.intro-copy > *,
+.intro-hud-panel {
   opacity: 0;
-  transform: translateY(18px);
-  filter: blur(10px);
+  transform: translateY(14px);
 }
 
-.intro-ready .intro-copy {
-  animation: introSurface 620ms ease forwards 120ms;
+.intro-ready .intro-brand {
+  animation: introSurface 520ms var(--ease-out) forwards 40ms;
+}
+
+.intro-ready .intro-eyebrow {
+  animation: introSurface 520ms var(--ease-out) forwards 120ms;
+}
+
+.intro-ready .intro-content h1 {
+  animation: introSurface 540ms var(--ease-out) forwards 210ms;
+}
+
+.intro-ready .intro-subtitle {
+  animation: introSurface 520ms var(--ease-out) forwards 300ms;
+}
+
+.intro-ready .intro-description {
+  animation: introSurface 520ms var(--ease-out) forwards 380ms;
+}
+
+.intro-ready .intro-enter-button {
+  animation: introSurface 520ms var(--ease-out) forwards 470ms;
 }
 
 .intro-ready .intro-hud-panel {
-  animation: introSurface 620ms ease forwards 260ms;
+  animation: introHudReveal 520ms var(--ease-out) forwards 620ms;
 }
 
 .intro-hud-panel {
@@ -263,14 +287,15 @@ body.intro-active .intro-gate,
   .intro-gate {
     align-items: start;
     padding: 4.75rem 1.25rem 2rem;
-    background:
-      linear-gradient(180deg, rgba(2, 6, 23, 0.78) 0%, rgba(3, 7, 18, 0.58) 42%, rgba(3, 7, 18, 0.16) 100%),
-      url('/intro/signal-core-mobile.webp') center / cover no-repeat,
-      #030512;
   }
 
   .intro-gate::before {
-    background: linear-gradient(180deg, rgba(3, 7, 18, 0.42), transparent 48%, rgba(3, 7, 18, 0.18));
+    background:
+      linear-gradient(180deg, rgba(3, 7, 18, 0.42), transparent 48%, rgba(3, 7, 18, 0.18)),
+      linear-gradient(180deg, rgba(2, 6, 23, 0.78) 0%, rgba(3, 7, 18, 0.58) 42%, rgba(3, 7, 18, 0.16) 100%),
+      url('/intro/signal-core-mobile.webp') center / cover no-repeat;
+    animation: none;
+    transform: none;
   }
 
   .intro-gate::after {
@@ -315,6 +340,16 @@ body.intro-active .intro-gate,
 
   .intro-hud-panel {
     display: none;
+  }
+
+  .intro-ready .intro-brand,
+  .intro-ready .intro-eyebrow,
+  .intro-ready .intro-content h1,
+  .intro-ready .intro-subtitle,
+  .intro-ready .intro-description,
+  .intro-ready .intro-enter-button {
+    animation-name: introSurfaceMobile;
+    animation-duration: 400ms;
   }
 }
 
@@ -2133,14 +2168,46 @@ body.intro-active .intro-gate,
 @keyframes introSurface {
   from {
     opacity: 0;
-    transform: translateY(18px);
-    filter: blur(10px);
+    transform: translateY(14px);
   }
 
   to {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0);
+  }
+}
+
+@keyframes introSurfaceMobile {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes introHudReveal {
+  from {
+    opacity: 0;
+    transform: translate3d(12px, 8px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes introBackgroundSettle {
+  from {
+    transform: scale(1.02);
+  }
+
+  to {
+    transform: scale(1);
   }
 }
 
@@ -2915,15 +2982,17 @@ body.intro-active .intro-gate,
   }
 
   .intro-gate::after,
+  .intro-gate::before,
   .intro-glow,
   .intro-ring {
     animation: none !important;
   }
 
-  .intro-content > * {
+  .intro-gate::before,
+  .intro-copy > *,
+  .intro-hud-panel {
     opacity: 1;
     transform: none;
-    filter: none;
   }
 
   .intro-gate.intro-exiting {
