@@ -15,6 +15,9 @@ const navLinks = document.querySelectorAll('.nav-link, .mobile-link');
 const introGate = document.querySelector('#intro-gate');
 const introEnterButton = document.querySelector('#intro-enter');
 const introStorageKey = 'portfolioIntroSeen';
+const introExitFallbackBuffer = 150;
+const introReducedMotionExitDelay = 80;
+const introFocusHandoffDelay = 24;
 
 const getInitialLanguage = () => {
   const pageLanguage = document.documentElement.lang.toLowerCase();
@@ -257,8 +260,46 @@ const initIntroGate = () => {
       focusTarget.setAttribute('tabindex', '-1');
     }
 
+    getComputedStyle(focusTarget).visibility;
     focusTarget.focus({ preventScroll: true });
   };
+
+  let exitFallbackTimer;
+  let hasFinalizedExit = false;
+
+  const getIntroExitDuration = () => {
+    const rawDuration = getComputedStyle(document.documentElement).getPropertyValue('--intro-exit-duration').trim();
+    const duration = Number.parseFloat(rawDuration);
+
+    if (!Number.isFinite(duration)) {
+      return 900;
+    }
+
+    return rawDuration.endsWith('s') && !rawDuration.endsWith('ms') ? duration * 1000 : duration;
+  };
+
+  const finalizeIntroExit = () => {
+    if (hasFinalizedExit) {
+      return;
+    }
+
+    hasFinalizedExit = true;
+    window.clearTimeout(exitFallbackTimer);
+    introGate.removeEventListener('transitionend', handleIntroExitEnd);
+    introGate.setAttribute('hidden', '');
+    introGate.setAttribute('aria-hidden', 'true');
+    introGate.setAttribute('inert', '');
+    introGate.classList.remove('intro-ready', 'intro-exiting');
+    document.documentElement.classList.remove('intro-pending', 'intro-exiting');
+    document.body.classList.remove('intro-active');
+    window.setTimeout(focusHomepage, introFocusHandoffDelay);
+  };
+
+  function handleIntroExitEnd(event) {
+    if (event.target === introGate && event.propertyName === 'clip-path') {
+      finalizeIntroExit();
+    }
+  }
 
   const enterSite = () => {
     if (hasEntered) {
@@ -274,19 +315,23 @@ const initIntroGate = () => {
       // The intro still exits if sessionStorage is unavailable.
     }
 
-    introGate.classList.add('intro-exiting');
-    document.documentElement.classList.add('intro-exiting');
-    document.documentElement.classList.remove('intro-pending');
-    document.body.classList.remove('intro-active');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const startIntroExit = () => {
+      introGate.classList.add('intro-exiting');
+      document.documentElement.classList.add('intro-exiting');
+    };
 
-    window.setTimeout(() => {
-      introGate.setAttribute('hidden', '');
-      introGate.setAttribute('aria-hidden', 'true');
-      introGate.setAttribute('inert', '');
-      introGate.classList.remove('intro-ready', 'intro-exiting');
-      document.documentElement.classList.remove('intro-exiting');
-      focusHomepage();
-    }, 860);
+    introGate.addEventListener('transitionend', handleIntroExitEnd);
+
+    if (reducedMotion) {
+      exitFallbackTimer = window.setTimeout(finalizeIntroExit, introReducedMotionExitDelay);
+      startIntroExit();
+    } else {
+      window.requestAnimationFrame(() => {
+        startIntroExit();
+        exitFallbackTimer = window.setTimeout(finalizeIntroExit, getIntroExitDuration() + introExitFallbackBuffer);
+      });
+    }
   };
 
   introEnterButton.addEventListener('click', enterSite);

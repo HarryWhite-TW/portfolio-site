@@ -326,19 +326,6 @@ body.intro-active .intro-gate,
   font-size: 0.85rem;
 }
 
-.intro-gate.intro-exiting {
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(1.018);
-  transition: opacity 820ms ease, transform 820ms ease;
-}
-
-.intro-gate.intro-exiting .intro-content {
-  opacity: 0;
-  transform: translateY(-18px);
-  transition: opacity 520ms ease, transform 700ms ease;
-}
-
 @media (max-width: 767px) {
   .intro-gate {
     align-items: start;
@@ -3136,9 +3123,7 @@ body.intro-active .intro-gate,
   .intro-gate::after,
   .intro-gate::before,
   .intro-ignition-beam,
-  .intro-energy-accent,
-  .intro-glow,
-  .intro-ring {
+  .intro-energy-accent {
     animation: none !important;
   }
 
@@ -3155,8 +3140,4 @@ body.intro-active .intro-gate,
     transform: none;
   }
 
-  .intro-gate.intro-exiting {
-    transform: none;
-    transition: opacity 180ms ease !important;
-  }
 }
