@@ -364,9 +364,26 @@ body.intro-active .intro-gate,
   .intro-ready .intro-description,
   .intro-ready .intro-enter-button {
     animation-name: introSurfaceMobile;
-    animation-duration: 560ms;
+    animation-duration: 680ms;
     animation-timing-function: var(--ease-out);
-    animation-delay: 80ms;
+  }
+
+  .intro-ready .intro-brand,
+  .intro-ready .intro-eyebrow {
+    animation-delay: 70ms;
+  }
+
+  .intro-ready .intro-content h1 {
+    animation-delay: 140ms;
+  }
+
+  .intro-ready .intro-subtitle,
+  .intro-ready .intro-description {
+    animation-delay: 220ms;
+  }
+
+  .intro-ready .intro-enter-button {
+    animation-delay: 300ms;
   }
 }
 
