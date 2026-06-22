@@ -66,21 +66,19 @@ html.intro-exiting .home-gateway-shell {
 }
 
 html.intro-exiting .site-header {
-  animation: homeHeaderReveal 520ms var(--intro-exit-ease) 220ms both;
+  animation: homeHeaderReveal 520ms var(--intro-exit-ease) 240ms both;
 }
 
-html.intro-exiting .brand-hero-copy {
-  animation: homeHeroCopyReveal 620ms var(--intro-exit-ease) 180ms both;
+html.intro-exiting .home-preface-eyebrow {
+  animation: homePrefaceReveal 560ms var(--intro-exit-ease) 160ms both;
 }
 
-html.intro-exiting .brand-orbit-panel {
-  animation: homeOrbitReveal 600ms var(--intro-exit-ease) 230ms both;
+html.intro-exiting .home-preface-title {
+  animation: homePrefaceReveal 680ms var(--intro-exit-ease) 220ms both;
 }
 
-html.intro-exiting .brand-hero::before,
-html.intro-exiting .brand-hero::after,
-html.intro-exiting .hero-ambient {
-  animation: homeAtmosphereReveal 700ms var(--intro-exit-ease) 150ms both;
+html.intro-exiting .home-preface-copy {
+  animation: homePrefaceReveal 620ms var(--intro-exit-ease) 320ms both;
 }
 
 @keyframes introCtaActivate {
@@ -204,43 +202,17 @@ html.intro-exiting .hero-ambient {
   }
 }
 
-@keyframes homeHeroCopyReveal {
+@keyframes homePrefaceReveal {
   from {
     opacity: 0;
-    transform: translateY(2rem) scale(0.985);
-    filter: blur(12px);
+    transform: translateY(1.25rem) scale(0.99);
+    filter: blur(5px);
   }
 
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
     filter: blur(0);
-  }
-}
-
-@keyframes homeOrbitReveal {
-  from {
-    opacity: 0;
-    transform: translateX(1.25rem) scale(0.94);
-    filter: blur(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-    filter: blur(0);
-  }
-}
-
-@keyframes homeAtmosphereReveal {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
   }
 }
 
@@ -257,15 +229,6 @@ html.intro-exiting .hero-ambient {
   html.intro-exiting .intro-gate.intro-exiting .intro-ignition-beam,
   html.intro-exiting .intro-gate.intro-exiting .intro-energy-accent {
     animation-duration: 240ms;
-  }
-
-  html.intro-exiting .brand-hero-copy {
-    animation-duration: 560ms;
-  }
-
-  html.intro-exiting .brand-orbit-panel {
-    animation-delay: 130ms;
-    animation-duration: 540ms;
   }
 
   html.intro-exiting body::after {
@@ -296,11 +259,9 @@ html.intro-exiting .hero-ambient {
 
   html.intro-exiting .home-gateway-shell,
   html.intro-exiting .site-header,
-  html.intro-exiting .brand-hero-copy,
-  html.intro-exiting .brand-orbit-panel,
-  html.intro-exiting .brand-hero::before,
-  html.intro-exiting .brand-hero::after,
-  html.intro-exiting .hero-ambient {
+  html.intro-exiting .home-preface-eyebrow,
+  html.intro-exiting .home-preface-title,
+  html.intro-exiting .home-preface-copy {
     animation: none !important;
   }
 }

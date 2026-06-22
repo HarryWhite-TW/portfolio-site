@@ -250,7 +250,7 @@ const initIntroGate = () => {
   });
 
   const focusHomepage = () => {
-    const focusTarget = document.querySelector('.brand-hero-copy h1') || document.querySelector('#home');
+    const focusTarget = document.querySelector('#home-preface-title') || document.querySelector('#home');
 
     if (!focusTarget) {
       return;

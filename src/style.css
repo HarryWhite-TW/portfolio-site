@@ -2444,6 +2444,95 @@ body.intro-active .intro-gate,
     linear-gradient(135deg, #07091a 0%, #101426 44%, #07091a 100%);
 }
 
+.home-preface {
+  --home-preface-header-offset: 5rem;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  box-sizing: border-box;
+  min-height: 100svh;
+  place-items: center;
+  overflow: hidden;
+  padding: calc(var(--home-preface-header-offset) + 1.25rem) clamp(1.25rem, 4vw, 4rem) 2.5rem;
+  text-align: center;
+}
+
+.home-preface::before {
+  position: absolute;
+  inset: 4rem max(1rem, calc((100% - 76rem) / 2)) 2rem;
+  z-index: -1;
+  content: '';
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 2rem;
+  background:
+    radial-gradient(circle at 50% 24%, rgba(var(--cyan), 0.13), transparent 18rem),
+    radial-gradient(circle at 52% 76%, rgba(var(--violet), 0.1), transparent 20rem),
+    linear-gradient(rgba(255, 255, 255, 0.026) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px);
+  background-size: auto, auto, 64px 64px, 64px 64px;
+  mask-image: radial-gradient(circle at 50% 44%, black, transparent 72%);
+}
+
+.home-preface-inner {
+  width: min(100%, 76rem);
+  margin-inline: auto;
+  padding-inline: clamp(1.5rem, 5vw, 5rem);
+  text-align: center;
+}
+
+.home-preface-eyebrow {
+  margin: 0;
+  color: rgb(103 232 249);
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.home-preface-title {
+  max-width: min(100%, 26ch);
+  margin: 1.1rem auto 0;
+  color: white;
+  font-size: clamp(2.5rem, 3.2vw, 3.5rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.home-preface-title:focus-visible {
+  border-radius: 0.35rem;
+  outline: 2px solid rgba(255, 255, 255, 0.72);
+  outline-offset: 0.4rem;
+}
+
+html[lang='zh-Hant'] .home-preface-title {
+  max-width: min(100%, 16em);
+}
+
+.home-preface-copy {
+  max-width: 54rem;
+  margin: 1.75rem auto 0;
+  color: rgb(203 213 225);
+  font-size: clamp(1.05rem, 1.15vw, 1.18rem);
+  line-height: 1.8;
+  text-align: center;
+}
+
+.home-preface-copy p {
+  margin: 0;
+}
+
+.home-preface-copy p:first-child {
+  color: rgb(203 213 225);
+}
+
+.home-preface-copy p + p {
+  margin-top: 0.85rem;
+  color: rgb(174 188 208);
+}
+
 .brand-hero {
   position: relative;
   isolation: isolate;
@@ -2505,7 +2594,7 @@ body.intro-active .intro-gate,
   transform: rotate(9deg);
 }
 
-.brand-hero-copy h1 {
+.brand-hero-copy h2 {
   max-width: 61rem;
   margin-top: 1.1rem;
   color: white;
@@ -2886,12 +2975,40 @@ body.intro-active .intro-gate,
 }
 
 @media (max-width: 767px) {
+  .home-preface {
+    --home-preface-header-offset: 4.75rem;
+    min-height: 100svh;
+    padding: calc(var(--home-preface-header-offset) + 1rem) 1.25rem 2.5rem;
+  }
+
+  .home-preface::before {
+    inset: 4.5rem 0.75rem 1.5rem;
+    border-radius: 1.5rem;
+    background-size: auto, auto, 48px 48px, 48px 48px;
+  }
+
+  .home-preface-title,
+  html[lang='zh-Hant'] .home-preface-title {
+    max-width: 100%;
+    font-size: clamp(2rem, 8.5vw, 2.75rem);
+    letter-spacing: -0.018em;
+    line-height: 1.13;
+    text-wrap: balance;
+  }
+
+  .home-preface-copy {
+    max-width: 25rem;
+    margin-top: 1.25rem;
+    font-size: 0.98rem;
+    line-height: 1.72;
+  }
+
   .brand-hero {
     min-height: auto;
     padding-top: 8.25rem;
   }
 
-  .brand-hero-copy h1 {
+  .brand-hero-copy h2 {
     font-size: clamp(2.7rem, 15vw, 4.4rem);
   }
 
