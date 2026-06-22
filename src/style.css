@@ -42,6 +42,13 @@ html.intro-pending footer {
 }
 
 .intro-gate {
+  --intro-enter-scene-duration: 1550ms;
+  --intro-enter-beam-duration: 900ms;
+  --intro-enter-energy-duration: 740ms;
+  --intro-enter-copy-duration: 600ms;
+  --intro-enter-hud-duration: 540ms;
+  --intro-enter-ease: var(--ease-out);
+  --intro-enter-scene-ease: cubic-bezier(0.18, 0.84, 0.24, 1);
   position: fixed;
   inset: 0;
   z-index: 9999;
@@ -78,11 +85,12 @@ body.intro-active .intro-gate,
     linear-gradient(110deg, rgba(2, 6, 23, 0.86) 0%, rgba(3, 7, 18, 0.74) 38%, rgba(3, 7, 18, 0.1) 66%),
     linear-gradient(180deg, rgba(3, 7, 18, 0.12), rgba(3, 7, 18, 0.52)),
     url('/intro/signal-core-desktop.webp') center / cover no-repeat;
-  transform: scale(1.02);
+  opacity: 0.78;
+  transform: scale(1.022);
 }
 
 .intro-ready::before {
-  animation: introBackgroundSettle 1800ms var(--ease-soft) forwards;
+  animation: introBackgroundSettle var(--intro-enter-scene-duration) var(--intro-enter-scene-ease) forwards;
 }
 
 .intro-gate::after {
@@ -144,11 +152,11 @@ body.intro-active .intro-gate,
 }
 
 .intro-ready .intro-ignition-beam {
-  animation: introBeamIgnition 900ms var(--ease-out) forwards;
+  animation: introBeamIgnition var(--intro-enter-beam-duration) var(--intro-enter-ease) forwards;
 }
 
 .intro-ready .intro-energy-accent {
-  animation: introEnergyAccent 760ms var(--ease-out) 110ms forwards;
+  animation: introEnergyAccent var(--intro-enter-energy-duration) var(--intro-enter-ease) 110ms forwards;
 }
 
 .intro-content {
@@ -266,31 +274,31 @@ body.intro-active .intro-gate,
 }
 
 .intro-ready .intro-brand {
-  animation: introSurface 520ms var(--ease-out) forwards 40ms;
+  animation: introSurface var(--intro-enter-copy-duration) var(--intro-enter-ease) forwards 150ms;
 }
 
 .intro-ready .intro-eyebrow {
-  animation: introSurface 520ms var(--ease-out) forwards 120ms;
+  animation: introSurface var(--intro-enter-copy-duration) var(--intro-enter-ease) forwards 190ms;
 }
 
 .intro-ready .intro-content h1 {
-  animation: introSurface 540ms var(--ease-out) forwards 210ms;
+  animation: introSurface var(--intro-enter-copy-duration) var(--intro-enter-ease) forwards 270ms;
 }
 
 .intro-ready .intro-subtitle {
-  animation: introSurface 520ms var(--ease-out) forwards 300ms;
+  animation: introSurface var(--intro-enter-copy-duration) var(--intro-enter-ease) forwards 380ms;
 }
 
 .intro-ready .intro-description {
-  animation: introSurface 520ms var(--ease-out) forwards 380ms;
+  animation: introSurface var(--intro-enter-copy-duration) var(--intro-enter-ease) forwards 430ms;
 }
 
 .intro-ready .intro-enter-button {
-  animation: introSurface 520ms var(--ease-out) forwards 470ms;
+  animation: introSurface var(--intro-enter-copy-duration) var(--intro-enter-ease) forwards 520ms;
 }
 
 .intro-ready .intro-hud-panel {
-  animation: introHudReveal 520ms var(--ease-out) forwards 620ms;
+  animation: introHudReveal var(--intro-enter-hud-duration) var(--intro-enter-ease) forwards 650ms;
 }
 
 .intro-hud-panel {
@@ -2309,11 +2317,18 @@ body.intro-active .intro-gate,
 }
 
 @keyframes introBackgroundSettle {
-  from {
-    transform: scale(1.02);
+  0% {
+    opacity: 0.78;
+    transform: scale(1.022);
   }
 
-  to {
+  72% {
+    opacity: 1;
+    transform: scale(1.004);
+  }
+
+  100% {
+    opacity: 1;
     transform: scale(1);
   }
 }
@@ -2324,8 +2339,14 @@ body.intro-active .intro-gate,
     transform: translateX(-50%) scaleY(0.82);
   }
 
+  22% {
+    opacity: 0.34;
+    transform: translateX(-50%) scaleY(0.96);
+  }
+
   42% {
-    opacity: 0.62;
+    opacity: 0.56;
+    transform: translateX(-50%) scaleY(1.025);
   }
 
   100% {
@@ -2340,8 +2361,14 @@ body.intro-active .intro-gate,
     transform: translate(-50%, -50%) scale(0.96);
   }
 
+  34% {
+    opacity: 0.48;
+    transform: translate(-50%, -50%) scale(0.995);
+  }
+
   48% {
-    opacity: 0.72;
+    opacity: 0.62;
+    transform: translate(-50%, -50%) scale(1.025);
   }
 
   100% {
