@@ -46,7 +46,6 @@ html.intro-pending footer {
   --intro-enter-beam-duration: 900ms;
   --intro-enter-energy-duration: 740ms;
   --intro-enter-copy-duration: 600ms;
-  --intro-enter-hud-duration: 540ms;
   --intro-enter-ease: var(--ease-out);
   --intro-enter-scene-ease: cubic-bezier(0.18, 0.84, 0.24, 1);
   position: fixed;
@@ -204,6 +203,7 @@ body.intro-active .intro-gate,
 
 .intro-title-line {
   display: block;
+  white-space: nowrap;
 }
 
 .intro-subtitle {
@@ -267,8 +267,7 @@ body.intro-active .intro-gate,
   opacity: 0.82;
 }
 
-.intro-copy > *,
-.intro-hud-panel {
+.intro-copy > * {
   opacity: 0;
   transform: translateY(14px);
 }
@@ -295,43 +294,6 @@ body.intro-active .intro-gate,
 
 .intro-ready .intro-enter-button {
   animation: introSurface var(--intro-enter-copy-duration) var(--intro-enter-ease) forwards 520ms;
-}
-
-.intro-ready .intro-hud-panel {
-  animation: introHudReveal var(--intro-enter-hud-duration) var(--intro-enter-ease) forwards 650ms;
-}
-
-.intro-hud-panel {
-  justify-self: end;
-  align-self: start;
-  width: min(12rem, 100%);
-  margin-top: clamp(6rem, 18vh, 10rem);
-  border: 1px solid rgba(var(--cyan), 0.24);
-  padding: 0.78rem 0.95rem;
-  color: rgb(148 163 184);
-  background: linear-gradient(135deg, rgba(5, 12, 27, 0.76), rgba(6, 14, 30, 0.42));
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 0 24px rgba(var(--cyan), 0.08);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  backdrop-filter: blur(16px);
-}
-
-.intro-hud-panel span,
-.intro-hud-panel strong {
-  display: block;
-}
-
-.intro-hud-panel span {
-  color: rgb(103 232 249);
-}
-
-.intro-hud-panel strong {
-  margin-top: 0.25rem;
-  color: rgba(226, 232, 240, 0.78);
-  font-size: 0.85rem;
 }
 
 @media (max-width: 767px) {
@@ -428,10 +390,6 @@ body.intro-active .intro-gate,
     margin-top: 1.375rem;
     padding: 0.72rem 1.3rem;
     font-size: 0.9rem;
-  }
-
-  .intro-hud-panel {
-    display: none;
   }
 
   .intro-copy > * {
@@ -2304,18 +2262,6 @@ body.intro-active .intro-gate,
   }
 }
 
-@keyframes introHudReveal {
-  from {
-    opacity: 0;
-    transform: translate3d(12px, 8px, 0);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
 @keyframes introBackgroundSettle {
   0% {
     opacity: 0.78;
@@ -3161,8 +3107,7 @@ body.intro-active .intro-gate,
   }
 
   .intro-gate::before,
-  .intro-copy > *,
-  .intro-hud-panel {
+  .intro-copy > * {
     opacity: 1;
     transform: none;
   }
