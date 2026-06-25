@@ -2536,9 +2536,9 @@ html[lang='zh-Hant'] .home-preface-title {
 .brand-hero {
   position: relative;
   isolation: isolate;
-  min-height: min(92vh, 58rem);
-  padding-top: clamp(9rem, 12vw, 11rem);
-  padding-bottom: clamp(4rem, 7vw, 6rem);
+  min-height: clamp(36rem, 68vh, 46rem);
+  padding-top: clamp(5.5rem, 7vw, 7rem);
+  padding-bottom: clamp(5rem, 6vw, 6.5rem);
 }
 
 .brand-hero::before {
@@ -2595,19 +2595,21 @@ html[lang='zh-Hant'] .home-preface-title {
 }
 
 .brand-hero-copy h2 {
-  max-width: 61rem;
+  max-width: 44rem;
   margin-top: 1.1rem;
   color: white;
-  font-size: clamp(3.1rem, 8vw, 7rem);
+  font-size: clamp(2.65rem, 4.5vw, 4.5rem);
   font-weight: 900;
-  line-height: 0.94;
+  letter-spacing: -0.025em;
+  line-height: 1.06;
+  text-wrap: balance;
 }
 
 .brand-hero-copy > p:not(.eyebrow) {
-  max-width: 43rem;
+  max-width: 40rem;
   margin-top: 1.4rem;
   color: rgb(203 213 225);
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
   line-height: 1.75;
 }
 
@@ -2649,26 +2651,26 @@ html[lang='zh-Hant'] .home-preface-title {
 .brand-orbit-panel {
   position: relative;
   display: grid;
-  min-height: clamp(26rem, 44vw, 34rem);
+  min-height: clamp(22rem, 34vw, 28rem);
   place-items: center;
 }
 
 .brand-orbit-panel::before {
   position: absolute;
-  width: min(31rem, 78vw);
+  width: min(25rem, 64vw);
   aspect-ratio: 1;
   content: '';
   border: 1px solid rgba(var(--cyan), 0.2);
   border-radius: 9999px;
   box-shadow:
-    0 0 0 3.8rem rgba(var(--cyan), 0.025),
-    0 0 0 7rem rgba(var(--violet), 0.025),
-    0 0 80px rgba(var(--cyan), 0.12);
+    0 0 0 3rem rgba(var(--cyan), 0.025),
+    0 0 0 5.5rem rgba(var(--violet), 0.025),
+    0 0 64px rgba(var(--cyan), 0.12);
 }
 
 .orbit-ring {
   position: absolute;
-  width: min(24rem, 68vw);
+  width: min(19rem, 54vw);
   aspect-ratio: 1;
   border: 1px dashed rgba(255, 255, 255, 0.18);
   border-radius: 9999px;
@@ -2677,10 +2679,10 @@ html[lang='zh-Hant'] .home-preface-title {
 
 .brand-panel-card {
   position: relative;
-  width: min(100%, 27rem);
+  width: min(100%, 23.5rem);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 1.25rem;
-  padding: clamp(1.2rem, 4vw, 1.8rem);
+  padding: clamp(1.15rem, 3vw, 1.6rem);
   background:
     radial-gradient(circle at 10% 0%, rgba(var(--cyan), 0.18), transparent 12rem),
     linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.052)),
@@ -2692,9 +2694,9 @@ html[lang='zh-Hant'] .home-preface-title {
 .brand-panel-card h2 {
   margin-top: 0.8rem;
   color: white;
-  font-size: clamp(1.7rem, 4vw, 2.65rem);
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
   font-weight: 900;
-  line-height: 1.02;
+  line-height: 1.12;
 }
 
 .brand-panel-card p:not(.module-label) {
@@ -2724,6 +2726,10 @@ html[lang='zh-Hant'] .home-preface-title {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(125, 211, 252, 0.04)),
     radial-gradient(circle at 80% 20%, rgba(var(--cyan), 0.07), transparent 18rem);
+}
+
+.home-direction-section + .gateway-section {
+  padding-top: clamp(3.75rem, 5vw, 5rem);
 }
 
 .gateway-card-grid,
@@ -3005,15 +3011,20 @@ html[lang='zh-Hant'] .home-preface-title {
 
   .brand-hero {
     min-height: auto;
-    padding-top: 8.25rem;
+    padding-top: clamp(5rem, 15vw, 6rem);
+    padding-bottom: clamp(4rem, 12vw, 5rem);
   }
 
   .brand-hero-copy h2 {
-    font-size: clamp(2.7rem, 15vw, 4.4rem);
+    font-size: clamp(2.25rem, 10vw, 3.25rem);
   }
 
   .brand-orbit-panel {
-    min-height: 24rem;
+    min-height: clamp(19rem, 82vw, 22rem);
+  }
+
+  .home-direction-section + .gateway-section {
+    padding-top: clamp(3rem, 10vw, 3.75rem);
   }
 
   .hero-actions {

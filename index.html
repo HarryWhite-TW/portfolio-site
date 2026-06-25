@@ -174,22 +174,28 @@
           </div>
         </section>
 
-        <section class="brand-hero px-5 lg:px-8">
+        <section
+          class="brand-hero home-direction-section px-5 lg:px-8"
+          aria-labelledby="direction-title"
+        >
           <div class="hero-ambient" aria-hidden="true">
             <span class="ambient-line ambient-line-a"></span>
             <span class="ambient-line ambient-line-b"></span>
           </div>
           <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
             <div class="brand-hero-copy">
-              <p class="eyebrow" data-i18n="heroEyebrow">Harry Chan / HarryWhite-TW</p>
-              <h2 data-i18n="heroTitle">Building useful ideas through AI and engineering.</h2>
+              <p class="eyebrow" data-i18n="heroEyebrow">What I Build</p>
+              <h2 id="direction-title" data-i18n="heroTitle">
+                Building clear, reliable digital work through AI-assisted workflows and engineering practice.
+              </h2>
               <p data-i18n="heroSubtitle">
-                Harry Chan's portfolio of AI applications, web experiences, automation experiments, and engineering notes.
+                Focused on web experiences, AI applications, and a process that moves from problem definition through
+                implementation and validation.
               </p>
               <div class="hero-signal-strip" aria-label="Portfolio focus">
-                <span data-i18n="heroSignalA">AI Applications</span>
-                <span data-i18n="heroSignalB">Web Experiences</span>
-                <span data-i18n="heroSignalC">Build Notes</span>
+                <span data-i18n="heroSignalA">AI-Assisted Workflows</span>
+                <span data-i18n="heroSignalB">Web Development</span>
+                <span data-i18n="heroSignalC">Engineering Practice</span>
               </div>
               <div class="hero-actions">
                 <a class="glow-button" href="portfolio.html" data-i18n="ctaProjects">View Portfolio</a>
@@ -200,10 +206,10 @@
             <div class="brand-orbit-panel" aria-label="Portfolio summary">
               <div class="orbit-ring"></div>
               <div class="brand-panel-card">
-                <p class="module-label" data-i18n="heroPanelLabel">Current Direction</p>
-                <h2 data-i18n="heroPanelTitle">Ideas shaped through curiosity, iteration, and delivery.</h2>
+                <p class="module-label" data-i18n="heroPanelLabel">Working Approach</p>
+                <h2 data-i18n="heroPanelTitle">From problem definition to implementation and validation.</h2>
                 <p data-i18n="heroPanelText">
-                  Explore selected work, hands-on practice, and the thinking behind each build.
+                  Each project is shaped through clear scope, traceable decisions, and iterative validation.
                 </p>
               </div>
             </div>
@@ -214,29 +220,31 @@
           <div class="mx-auto max-w-7xl px-5 lg:px-8">
             <div class="section-heading compact-heading">
               <p class="eyebrow" data-i18n="gatewayEyebrow">Explore</p>
-              <h2 id="gateway-title" data-i18n="gatewayTitle">What this portfolio is organized around.</h2>
-              <p data-i18n="gatewayText">A quick map of the work, evidence, notes, and personal direction behind the site.</p>
+              <h2 id="gateway-title" data-i18n="gatewayTitle">Explore the work, process, and thinking behind the site.</h2>
+              <p data-i18n="gatewayText">
+                A concise path to selected projects, build records, engineering notes, and background.
+              </p>
             </div>
             <div class="gateway-card-grid mt-8" aria-label="Portfolio organization map">
               <article class="gateway-card reveal-surface" style="--reveal-delay: 0ms">
                 <span>Selected work</span>
                 <h3>Portfolio</h3>
-                <p>Representative projects and the technical direction behind them.</p>
+                <p>Representative projects and the decisions behind them.</p>
               </article>
               <article class="gateway-card reveal-surface" style="--reveal-delay: 60ms">
-                <span>Practice evidence</span>
+                <span>Build records</span>
                 <h3>Lab</h3>
-                <p>Coursework, demos, and local practice records that show the build process.</p>
+                <p>Experiments, demos, and implementation records from ongoing project work.</p>
               </article>
               <article class="gateway-card reveal-surface" style="--reveal-delay: 120ms">
                 <span>Engineering notes</span>
                 <h3>Blog / Notes</h3>
-                <p>Engineering judgment, requirement shaping, and AI collaboration notes.</p>
+                <p>Requirement shaping, technical decisions, and AI collaboration notes.</p>
               </article>
               <article class="gateway-card reveal-surface" style="--reveal-delay: 180ms">
-                <span>Personal direction</span>
+                <span>Background and direction</span>
                 <h3>About</h3>
-                <p>Background, learning direction, working principles, and next steps.</p>
+                <p>Experience, working principles, and the direction I am building toward.</p>
               </article>
             </div>
           </div>
@@ -244,22 +252,22 @@
 
         <section class="proof-section px-5 lg:px-8" aria-label="Portfolio focus areas">
           <div class="proof-row mx-auto max-w-7xl">
-            <p class="eyebrow" data-i18n="proofEyebrow">Focus Areas</p>
+            <p class="eyebrow" data-i18n="proofEyebrow">Project Snapshot</p>
             <div>
               <strong>03+</strong>
-              <span data-i18n="metricProjects">Project modules</span>
+              <span data-i18n="metricProjects">Selected builds</span>
             </div>
             <div>
               <strong>05</strong>
-              <span data-i18n="metricTracks">Skill tracks</span>
+              <span data-i18n="metricTracks">Focus areas</span>
             </div>
             <div>
               <strong>100%</strong>
-              <span data-i18n="metricStatic">Static + free</span>
+              <span data-i18n="metricStatic">Static deployment</span>
             </div>
             <div>
               <strong>GP</strong>
-              <span data-i18n="githubPagesReady">GitHub Pages ready</span>
+              <span data-i18n="githubPagesReady">GitHub Pages</span>
             </div>
           </div>
         </section>
@@ -286,7 +294,7 @@
               <p class="eyebrow" data-i18n="homeworkEyebrow">Practice Lab</p>
               <h2 id="homework-title" data-i18n="homeworkTitle">Hands-on work that shows how I learn and build.</h2>
               <p data-i18n="homeworkText">
-                Selected experiments and coursework are collected here, with the full index available in the Lab.
+                Selected experiments and implementation records are collected here, with the full index available in the Lab.
               </p>
               <a class="glass-button" href="homework.html" data-i18n="openHomeworkHub">Open Practice Lab</a>
             </div>
