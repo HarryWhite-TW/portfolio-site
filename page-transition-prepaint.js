@@ -1,9 +1,41 @@
-// Runtime prepaint hook for static multi-page navigation.
-// It prevents browser-level auto translation from racing the built-in language switch,
-// reads the saved site language before first paint, and delays the entrance cue
-// until DOMContentLoaded so localized copy is applied before animation.
+// Prepaint hook for language safety and the first frame of the DOM transition overlay.
 (() => {
   const root = document.documentElement;
+  const overlaySelector = '.page-transition-overlay';
+  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let entryFallbackTimer;
+
+  const ensureTransitionOverlay = () => {
+    const existingOverlay = root.querySelector(overlaySelector);
+
+    if (existingOverlay) {
+      return existingOverlay;
+    }
+
+    const overlay = document.createElement('div');
+    const leftCurtain = document.createElement('div');
+    const rightCurtain = document.createElement('div');
+    const seam = document.createElement('div');
+
+    overlay.className = 'page-transition-overlay';
+    overlay.setAttribute('aria-hidden', 'true');
+    overlay.dataset.transitionState = 'closed';
+
+    leftCurtain.className = 'page-transition-curtain page-transition-curtain-left';
+    rightCurtain.className = 'page-transition-curtain page-transition-curtain-right';
+    seam.className = 'page-transition-seam';
+
+    overlay.append(leftCurtain, rightCurtain, seam);
+    root.appendChild(overlay);
+
+    return overlay;
+  };
+
+  const overlay = ensureTransitionOverlay();
+
+  if (root.classList.contains('intro-pending') || reducedMotionQuery.matches) {
+    overlay.dataset.transitionState = 'idle';
+  }
 
   root.classList.add('notranslate');
   root.setAttribute('translate', 'no');
@@ -31,14 +63,50 @@
     // The page remains usable if localStorage is unavailable.
   }
 
-  root.classList.add('page-transition-preparing');
+  const finishEntry = () => {
+    window.clearTimeout(entryFallbackTimer);
+    overlay.dataset.transitionState = 'idle';
+    root.removeAttribute('aria-busy');
+  };
+
+  const openOverlay = () => {
+    if (
+      root.classList.contains('intro-pending')
+      || reducedMotionQuery.matches
+      || overlay.dataset.transitionState !== 'closed'
+    ) {
+      finishEntry();
+      return;
+    }
+
+    const leftCurtain = overlay.querySelector('.page-transition-curtain-left');
+
+    const handleEntryEnd = (event) => {
+      if (event.target === leftCurtain && event.propertyName === 'transform') {
+        leftCurtain.removeEventListener('transitionend', handleEntryEnd);
+        finishEntry();
+      }
+    };
+
+    leftCurtain.addEventListener('transitionend', handleEntryEnd);
+    overlay.dataset.transitionState = 'opening';
+    entryFallbackTimer = window.setTimeout(() => {
+      leftCurtain.removeEventListener('transitionend', handleEntryEnd);
+      finishEntry();
+    }, 600);
+  };
 
   const markPageReady = () => {
     addNoTranslateMeta();
-    root.classList.remove('copy-pending', 'page-transition-preparing');
+    root.classList.remove('copy-pending');
+
+    if (root.classList.contains('intro-pending') || reducedMotionQuery.matches) {
+      finishEntry();
+      return;
+    }
 
     window.requestAnimationFrame(() => {
-      root.classList.add('page-transition-ready');
+      window.requestAnimationFrame(openOverlay);
     });
   };
 

@@ -1,65 +1,148 @@
+/*
+ * Branded cross-page transition rendered by a real DOM overlay.
+ */
+
 :root {
-  --page-transition-bg: #07091a;
-  --page-exit-duration: 72ms;
-  --page-enter-duration: 120ms;
-  --page-transition-ease: cubic-bezier(0.22, 0.72, 0.2, 1);
+  --page-transition-exit-duration: 460ms;
+  --page-transition-entry-duration: 440ms;
+  --page-transition-reduced-exit-duration: 32ms;
+  --page-transition-curtain-ease: cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 html,
 body {
-  background-color: var(--page-transition-bg);
+  background: #07091a;
 }
 
-html.page-leaving,
-html.page-entering,
-html.page-leaving body,
-html.page-entering body {
+html.copy-pending body {
+  opacity: 0;
+}
+
+.page-transition-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
   overflow: hidden;
+  visibility: visible;
+  pointer-events: none;
+  contain: layout paint;
+  isolation: isolate;
 }
 
-html.page-leaving .site-shell {
-  opacity: 0.78;
-  transform: scale(0.9985);
-  transition:
-    opacity var(--page-exit-duration) ease,
-    transform var(--page-exit-duration) var(--page-transition-ease);
+.page-transition-curtain {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 58vw;
+  min-width: 18rem;
+  backface-visibility: hidden;
+  will-change: transform;
 }
 
-html.page-entering .site-shell {
-  opacity: 0.88;
-  transform: translateY(2px);
+.page-transition-curtain-left {
+  left: 0;
+  clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%);
+  background:
+    radial-gradient(circle at 82% 48%, rgba(56, 248, 255, 0.26), transparent 22rem),
+    linear-gradient(120deg, rgb(4 9 27), rgb(8 20 47));
+  box-shadow:
+    inset -2px 0 rgba(219, 254, 255, 0.76),
+    16px 0 34px rgba(56, 248, 255, 0.34);
+  transform: translate3d(-105%, 0, 0);
 }
 
-html.page-entering.page-ready .site-shell {
+.page-transition-curtain-right {
+  right: 0;
+  clip-path: polygon(6% 0, 100% 0, 100% 100%, 0 100%);
+  background:
+    radial-gradient(circle at 18% 52%, rgba(168, 85, 247, 0.28), transparent 23rem),
+    linear-gradient(240deg, rgb(3 7 23), rgb(13 16 45));
+  box-shadow:
+    inset 2px 0 rgba(232, 225, 255, 0.72),
+    -16px 0 36px rgba(168, 85, 247, 0.36);
+  transform: translate3d(105%, 0, 0);
+}
+
+.page-transition-seam {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  z-index: 2;
+  width: 3px;
+  background: linear-gradient(
+    180deg,
+    rgba(56, 248, 255, 0.3),
+    rgba(232, 254, 255, 0.98) 24% 76%,
+    rgba(168, 85, 247, 0.42)
+  );
+  box-shadow:
+    0 0 8px rgba(224, 254, 255, 0.95),
+    -7px 0 20px rgba(56, 248, 255, 0.5),
+    8px 0 24px rgba(168, 85, 247, 0.55);
+  opacity: 0;
+  transform: translateX(-50%);
+  will-change: opacity;
+}
+
+.page-transition-overlay[data-transition-state='idle'] .page-transition-curtain-left {
+  transform: translate3d(-105%, 0, 0);
+}
+
+.page-transition-overlay[data-transition-state='idle'] .page-transition-curtain-right {
+  transform: translate3d(105%, 0, 0);
+}
+
+.page-transition-overlay[data-transition-state='closing'] .page-transition-curtain {
+  transition: transform var(--page-transition-exit-duration) var(--page-transition-curtain-ease);
+}
+
+.page-transition-overlay[data-transition-state='closing'] .page-transition-curtain-left,
+.page-transition-overlay[data-transition-state='closing'] .page-transition-curtain-right,
+.page-transition-overlay[data-transition-state='closed'] .page-transition-curtain-left,
+.page-transition-overlay[data-transition-state='closed'] .page-transition-curtain-right {
+  transform: translate3d(0, 0, 0);
+}
+
+.page-transition-overlay[data-transition-state='closing'] .page-transition-seam {
   opacity: 1;
-  transform: translateY(0);
-  transition:
-    opacity var(--page-enter-duration) ease,
-    transform var(--page-enter-duration) var(--page-transition-ease);
+  transition: opacity 120ms ease-out 300ms;
 }
 
-html.intro-pending .site-shell,
-html.intro-exiting .site-shell {
+.page-transition-overlay[data-transition-state='closed'] .page-transition-seam {
   opacity: 1;
-  transform: none;
 }
 
-@media (max-width: 767px) {
-  :root {
-    --page-exit-duration: 58ms;
-    --page-enter-duration: 96ms;
-  }
+.page-transition-overlay[data-transition-state='opening'] .page-transition-curtain {
+  transition: transform var(--page-transition-entry-duration) var(--page-transition-curtain-ease);
+}
+
+.page-transition-overlay[data-transition-state='opening'] .page-transition-curtain-left {
+  transform: translate3d(-105%, 0, 0);
+}
+
+.page-transition-overlay[data-transition-state='opening'] .page-transition-curtain-right {
+  transform: translate3d(105%, 0, 0);
+}
+
+.page-transition-overlay[data-transition-state='opening'] .page-transition-seam {
+  opacity: 0;
+  transition: opacity 100ms ease-out;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :root {
-    --page-exit-duration: 1ms;
-    --page-enter-duration: 1ms;
+  .page-transition-curtain,
+  .page-transition-seam {
+    transition: none !important;
   }
 
-  html.page-leaving .site-shell,
-  html.page-entering .site-shell,
-  html.page-entering.page-ready .site-shell {
-    transform: none;
+  .page-transition-overlay[data-transition-state='idle'] .page-transition-curtain-left,
+  .page-transition-overlay[data-transition-state='opening'] .page-transition-curtain-left {
+    transform: translate3d(-105%, 0, 0);
+  }
+
+  .page-transition-overlay[data-transition-state='idle'] .page-transition-curtain-right,
+  .page-transition-overlay[data-transition-state='opening'] .page-transition-curtain-right {
+    transform: translate3d(105%, 0, 0);
   }
 }
