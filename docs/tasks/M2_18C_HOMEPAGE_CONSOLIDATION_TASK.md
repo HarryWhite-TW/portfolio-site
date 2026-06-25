@@ -4,7 +4,7 @@ Status: ready for execution
 Recommended model: GPT-5.5  
 Recommended intelligence: High  
 Working branch: `feature/intro-cinematic-polish`  
-Required starting commit: `f19c2738905c1816f19f90094b4bf948d1c4efbd`
+Required starting commit: `ce064286848c4c62793f425d8da73cd649b9180a`
 
 ## 1. Governing plan
 
@@ -30,7 +30,7 @@ Required state:
 
 - branch: `feature/intro-cinematic-polish`
 - worktree: clean
-- latest commit: `f19c273 docs: add homepage and page transition execution plan`
+- latest commit: `ce064286 docs: add M2.18C homepage consolidation task`
 
 If the state differs, stop and report it. Do not restore or overwrite user work.
 
